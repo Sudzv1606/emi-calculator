@@ -6,6 +6,7 @@
     <title>Loan EMI Calculator for US & Canada | Free Tool</title>
     <meta name="description" content="Calculate your loan EMI for US & Canada with our free tool. Get instant results & amortization schedules.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCZN9RQ3Y3"></script>
@@ -19,6 +20,7 @@
 </head>
 <body>
     <div class="container mt-5">
+                <p>Welcome to our Loan EMI Calculator for the US and Canada. This free tool helps you calculate your Equated Monthly Installment (EMI) and provides a detailed amortization schedule. Simply enter your loan details to get started!</p>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>Loan EMI Calculator</h1>
@@ -38,9 +40,23 @@
                     <label for="tenure">Loan Tenure (Years):</label>
                     <input type="number" id="tenure" name="tenure" required><br><br>
                     
+                    <label for="extra-payment">Extra Payment Amount ($):</label>
+                    <input type="number" id="extra-payment" name="extra-payment" value="0"><br><br>
+
+                    <label for="extra-frequency">Extra Payment Every (Months):</label>
+                    <input type="number" id="extra-frequency" name="extra-frequency" value="0"><br><br>
                     <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+                    <button type="reset" onclick="resetForm()">Reset</button>
                 </form>
-                
+                <h3>Understanding Your Loan</h3>
+                <ul>
+                    <li><strong>EMI (Equated Monthly Installment)</strong>: The fixed amount you pay each month to repay your loan.</li>
+                    <li><strong>Annual Interest Rate</strong>: The yearly rate charged on your loan, expressed as a percentage.</li>
+                    <li><strong>Loan Tenure</strong>: The duration over which you will repay the loan, in years.</li>
+                    <li><strong>Extra Payments</strong>: Additional amounts you can pay to reduce your loan balance faster.</li>
+                </ul>
+                <h3>How to Use the Calculator</h3>
+                    <p>For example, if you have a loan of $10,000 at an annual interest rate of 5% for 2 years, with an extra payment of $100 every 6 months, the calculator will show your EMI, a detailed amortization schedule, and a chart of your remaining balance over time.</p>
                 <h2>Results</h2>
                 <p id="emi-result"></p>
                 
@@ -57,7 +73,21 @@
                     </thead>
                     <tbody></tbody>
                 </table>
-            </div>
+                <canvas id="balance-chart" width="400" height="200"></canvas>
+                <h3>Frequently Asked Questions</h3>
+                <details>
+                    <summary>What is an amortization schedule?</summary>
+                    <p>An amortization schedule shows how each payment is split between principal and interest, and how the loan balance decreases over time.</p>
+                </details>
+                <details>
+                    <summary>Can I use this calculator for different loan types?</summary>
+                    <p>Yes, this calculator can be used for various loan types, including personal loans, car loans, and mortgages in the US and Canada.</p>
+                </details>
+                <details>
+                    <summary>How do extra payments affect my loan?</summary>
+                    <p>Extra payments reduce your loan balance faster, potentially shortening your loan term and saving you interest.</p>
+                </details>
+                            </div>
         </div>
     </div>
     <script src="script.js"></script>

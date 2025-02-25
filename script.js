@@ -12,7 +12,8 @@ function calculateEMI() {
     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
     const annualRate = parseFloat(document.getElementById('interest-rate').value);
     const tenureYears = parseInt(document.getElementById('tenure').value);
-
+    const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
+    const extraFrequency = parseInt(document.getElementById('extra-frequency').value, 10) || 0;
     // Check for invalid inputs
     if (isNaN(loanAmount) || isNaN(annualRate) || isNaN(tenureYears) || loanAmount <= 0 || annualRate <= 0 || tenureYears <= 0) {
         emiResult.innerText = "Please enter valid positive numbers.";
@@ -37,31 +38,60 @@ function calculateEMI() {
     // Display the result
     emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
     emiResult.classList.add('show');
-    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi);
+    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency);
 }
 
-function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi) {
+function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment = 0, extraFrequency = 0) {
     let balance = loanAmount;
     const tableBody = document.querySelector('#amortization-table tbody');
-    tableBody.innerHTML = ''; // Clear previous data
-    
+    tableBody.innerHTML = '';
+    const balances = [];
+
     for (let i = 0; i < tenureMonths; i++) {
         const interest = balance * monthlyRate;
-        const principal = emi - interest;
+        let principal = emi - interest;
         balance -= principal;
-        if (balance < 0) balance = 0; // Prevent negative balance
-        
+
+        if (extraFrequency > 0 && (i + 1) % extraFrequency === 0) {
+            balance -= extraPayment;
+        }
+        if (balance < 0) balance = 0;
+        balances.push(balance.toFixed(2));
+
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${i + 1}</td>
-            <td>$${emi.toFixed(2)}</td>
-            <td>$${principal.toFixed(2)}</td>
-            <td>$${interest.toFixed(2)}</td>
-            <td>$${balance.toFixed(2)}</td>
+            <td data-label="Month">${i + 1}</td>
+            <td data-label="Payment">$${emi.toFixed(2)}</td>
+            <td data-label="Principal">$${principal.toFixed(2)}</td>
+            <td data-label="Interest">$${interest.toFixed(2)}</td>
+            <td data-label="Balance">$${balance.toFixed(2)}</td>
         `;
         tableBody.appendChild(row);
+
+        if (balance <= 0) break; // Stop if paid off early
     }
     const table = document.getElementById('amortization-table');
     table.style.display = 'table';
-    setTimeout(() => table.classList.add('show'), 10); // Smooth fade-in
+    setTimeout(() => table.classList.add('show'), 10);
+
+    const ctx = document.getElementById('balance-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Array.from({ length: balances.length }, (_, i) => i + 1),
+            datasets: [{
+                label: 'Remaining Balance',
+                data: balances,
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { title: { display: true, text: 'Month' } },
+                y: { title: { display: true, text: 'Balance ($)' } }
+            }
+        }
+    });
 }
