@@ -1,99 +1,80 @@
-/* Stylish Color Scheme */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light blue background for a financial trust vibe */
-    margin: 0; /* Remove default margin for full-page control */
+    background-color: #f0f8ff;
+    margin: 0;
 }
-
 .container {
-    background-color: white; /* White content area */
+    background-color: white;
     padding: 20px;
-    border-radius: 5px; /* Slightly rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 h1, h2 {
-    color: #2c3e50; /* Dark blue-gray for headings, professional yet modern */
+    color: #2c3e50;
 }
-
-/* Form Styling (Enhanced with Bootstrap) */
 form {
-    max-width: 400px; /* Keeps form compact */
+    max-width: 400px;
 }
-
 label {
     display: block;
     margin-bottom: 5px;
-    color: #34495e; /* Slightly lighter blue-gray for labels */
+    color: #34495e;
 }
-
 input, select {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #dcdcdc; /* Light gray border */
-    border-radius: 4px; /* Rounded edges */
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
 }
-
 button {
     padding: 10px 15px;
-    background-color: #3498db; /* Bright blue button for a modern financial feel */
+    background-color: #3498db;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+    transition: background-color 0.3s ease;
 }
-
 button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #2980b9;
 }
-
-/* Amortization Table Styling */
 #amortization-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
-
 #amortization-table th, #amortization-table td {
     padding: 10px;
     text-align: right;
-    border-bottom: 1px solid #dcdcdc; /* Light gray borders */
+    border-bottom: 1px solid #dcdcdc;
 }
-
 #amortization-table th {
-    background-color: #3498db; /* Match button color for header */
+    background-color: #3498db;
     color: white;
 }
-
 #amortization-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Light gray for alternating rows */
+    background-color: #f9f9f9;
 }
-
-/* Animation for Results */
 #emi-result, #amortization-table {
     opacity: 0;
-    transition: opacity 0.5s ease-in; /* Fade-in effect */
+    transition: opacity 0.5s ease-in;
 }
-
 #emi-result.show, #amortization-table.show {
-    opacity: 1; /* Visible once calculated */
+    opacity: 1;
 }
-
-/* Mobile Responsiveness */
 @media (max-width: 576px) {
     .container {
-        padding: 10px; /* Less padding on small screens */
+        padding: 10px;
     }
     h1 {
-        font-size: 1.5rem; /* Smaller heading on mobile */
+        font-size: 1.5rem;
     }
     form {
-        max-width: 100%; /* Full width on small screens */
+        max-width: 100%;
     }
     #amortization-table th, #amortization-table td {
-        padding: 5px; /* Reduced padding for table on mobile */
-        font-size: 0.9rem; /* Slightly smaller text */
+        padding: 5px;
+        font-size: 0.9rem;
     }
 }
