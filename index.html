@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan EMI Calculator for US and Canada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Loan EMI Calculator</h1>
+    <form id="emi-form">
+        <label for="market">Select Market:</label>
+        <select id="market" name="market">
+            <option value="US">US</option>
+            <option value="Canada">Canada</option>
+        </select><br><br>
+        
+        <label for="loan-amount">Loan Amount ($):</label>
+        <input type="number" id="loan-amount" name="loan-amount" required><br><br>
+        
+        <label for="interest-rate">Annual Interest Rate (%):</label>
+        <input type="number" id="interest-rate" name="interest-rate" step="0.01" required><br><br>
+        
+        <label for="tenure">Loan Tenure (Years):</label>
+        <input type="number" id="tenure" name="tenure" required><br><br>
+        
+        <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+    </form>
+    
+    <h2>Results</h2>
+    <p id="emi-result"></p>
+    <h2>Amortization Schedule</h2>
+<table id="amortization-table" style="display:none;">
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Payment</th>
+            <th>Principal</th>
+            <th>Interest</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+    <script src="script.js"></script>
+</body>
+</html>
