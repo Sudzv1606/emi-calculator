@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="Calculate your loan EMI for US and Canada with our free online calculator. Includes amortization schedule.">
-    <meta name="keywords" content="loan EMI calculator, mortgage calculator, US loan calculator, Canada mortgage calculator">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan EMI Calculator for US and Canada</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Loan EMI Calculator for US & Canada | Free Tool</title>
+    <meta name="description" content="Calculate your loan EMI for US & Canada with our free tool. Get instant results & amortization schedules.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Loan EMI Calculator</h1>
-    <form id="emi-form">
-        <label for="market">Select Market:</label>
-        <select id="market" name="market">
-            <option value="US">US</option>
-            <option value="Canada">Canada</option>
-        </select><br><br>
-        
-        <label for="loan-amount">Loan Amount ($):</label>
-        <input type="number" id="loan-amount" name="loan-amount" required><br><br>
-        
-        <label for="interest-rate">Annual Interest Rate (%):</label>
-        <input type="number" id="interest-rate" name="interest-rate" step="0.01" required><br><br>
-        
-        <label for="tenure">Loan Tenure (Years):</label>
-        <input type="number" id="tenure" name="tenure" required><br><br>
-        
-        <button type="button" onclick="calculateEMI()">Calculate EMI</button>
-    </form>
-    
-    <h2>Results</h2>
-    <p id="emi-result"></p>
-    <h2>Amortization Schedule</h2>
-<table id="amortization-table" style="display:none;">
-    <h2>How to Use the Loan EMI Calculator</h2>
-    <p>Our Loan EMI Calculator helps you estimate your monthly payments for loans in the US and Canada. Simply select your market, enter the loan amount, annual interest rate, and tenure in years. Click "Calculate EMI" to see your estimated monthly payment and an amortization schedule.</p>
-    <p><strong>US vs. Canada:</strong> In the US, interest is typically compounded monthly, while in Canada, mortgage interest is compounded semi-annually. Our calculator adjusts the interest rate accordingly to provide accurate estimates.</p>
-    <thead>
-        <tr>
-            <th>Month</th>
-            <th>Payment</th>
-            <th>Principal</th>
-            <th>Interest</th>
-            <th>Balance</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1>Loan EMI Calculator</h1>
+                <form id="emi-form">
+                    <label for="market">Select Market:</label>
+                    <select id="market" name="market">
+                        <option value="US">US</option>
+                        <option value="Canada">Canada</option>
+                    </select><br><br>
+                    
+                    <label for="loan-amount">Loan Amount ($):</label>
+                    <input type="number" id="loan-amount" name="loan-amount" required><br><br>
+                    
+                    <label for="interest-rate">Annual Interest Rate (%):</label>
+                    <input type="number" id="interest-rate" name="interest-rate" step="0.01" required><br><br>
+                    
+                    <label for="tenure">Loan Tenure (Years):</label>
+                    <input type="number" id="tenure" name="tenure" required><br><br>
+                    
+                    <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+                </form>
+                
+                <h2>Results</h2>
+                <p id="emi-result"></p>
+                
+                <h2>Amortization Schedule</h2>
+                <table id="amortization-table" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Payment</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
