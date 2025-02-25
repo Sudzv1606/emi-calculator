@@ -12,8 +12,7 @@ function calculateEMI() {
     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
     const annualRate = parseFloat(document.getElementById('interest-rate').value);
     const tenureYears = parseInt(document.getElementById('tenure').value);
-    const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
-    const extraFrequency = parseInt(document.getElementById('extra-frequency').value, 10) || 0;
+
     // Check for invalid inputs
     if (isNaN(loanAmount) || isNaN(annualRate) || isNaN(tenureYears) || loanAmount <= 0 || annualRate <= 0 || tenureYears <= 0) {
         emiResult.innerText = "Please enter valid positive numbers.";
@@ -38,7 +37,15 @@ function calculateEMI() {
     // Display the result
     emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
     emiResult.classList.add('show');
-    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency);
+    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi);
+}
+
+function calculateAndScroll() {
+    calculateEMI(); // Run the calculation
+    const resultsSection = document.getElementById('results-section');
+    if (resultsSection) {
+        resultsSection.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to Results
+    }
 }
 
 function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment = 0, extraFrequency = 0) {

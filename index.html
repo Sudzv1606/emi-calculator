@@ -45,7 +45,7 @@
 
                     <label for="extra-frequency">Extra Payment Every (Months):</label>
                     <input type="number" id="extra-frequency" name="extra-frequency" value="0"><br><br>
-                    <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+                    <button type="button" onclick="calculateAndScroll()">Calculate EMI</button>
                     <button type="reset" onclick="resetForm()">Reset</button>
                 </form>
                 <h3>Understanding Your Loan</h3>
@@ -57,7 +57,7 @@
                 </ul>
                 <h3>How to Use the Calculator</h3>
                     <p>For example, if you have a loan of $10,000 at an annual interest rate of 5% for 2 years, with an extra payment of $100 every 6 months, the calculator will show your EMI, a detailed amortization schedule, and a chart of your remaining balance over time.</p>
-                <h2>Results</h2>
+                <h2 id="results-section">Results</h2>
                 <p id="emi-result"></p>
                 
                 <h2>Amortization Schedule</h2>
