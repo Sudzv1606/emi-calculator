@@ -11,38 +11,55 @@ function calculateEMI() {
 
     // Get input values
     const market = document.getElementById('market').value;
+    const loanType = document.getElementById('loan-type').value;
     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-    const annualRate = parseFloat(document.getElementById('interest-rate').value);
     const tenureYears = parseInt(document.getElementById('tenure').value);
     const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
     const extraFrequency = parseInt(document.getElementById('extra-frequency').value) || 0;
 
     // Check for invalid inputs
-    if (isNaN(loanAmount) || isNaN(annualRate) || isNaN(tenureYears) || loanAmount <= 0 || annualRate <= 0 || tenureYears <= 0) {
-        emiResult.innerText = "Please enter valid positive numbers.";
+    if (isNaN(loanAmount) || isNaN(tenureYears) || loanAmount <= 0 || tenureYears <= 0) {
+        emiResult.innerText = "Please enter valid positive numbers for loan amount and tenure.";
+        emiResult.classList.add('show');
+        return;
+    }
+    if (extraPayment < 0 || extraFrequency < 0) {
+        emiResult.innerText = "Extra payment amount and frequency must be non-negative.";
         emiResult.classList.add('show');
         return;
     }
 
+    // Define interest rates based on market and loan type
+    const rates = {
+        US: {
+            home: 3.5,    // 3.5% for Home Loan
+            car: 5.0,     // 5.0% for Car Loan
+            personal: 7.0 // 7.0% for Personal Loan
+        },
+        Canada: {
+            home: 3.0,    // 3.0% for Home Loan
+            car: 4.5,     // 4.5% for Car Loan
+            personal: 6.5 // 6.5% for Personal Loan
+        }
+    };
+
+    const annualRate = rates[market][loanType];
+    const monthlyRate = annualRate / 100 / 12; // Convert annual rate to monthly rate
     const tenureMonths = tenureYears * 12;
-    let monthlyRate;
-    if (market === "US") {
-        monthlyRate = annualRate / 12 / 100; // Convert percentage to decimal
-    } else { // Canada
-        const semiAnnualRate = annualRate / 2 / 100;
-        monthlyRate = Math.pow(1 + semiAnnualRate, 2 / 12) - 1;
-    }
-    
+
     // EMI Formula
     const numerator = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths);
     const denominator = Math.pow(1 + monthlyRate, tenureMonths) - 1;
-    const emi = numerator / denominator;
+    const emi = numerator / denominator || 0; // Default to 0 if calculation fails
     
     // Display the result
     emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
     emiResult.classList.add('show');
     generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency);
 }
+
+// Add event listener to recalculate when selections or inputs change
+document.getElementById('emi-form').addEventListener('change', calculateEMI);
 
 function calculateAndScroll() {
     calculateEMI(); // Run the calculation
