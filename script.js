@@ -2,10 +2,12 @@ function calculateEMI() {
     // Reset previous results
     const emiResult = document.getElementById('emi-result');
     const table = document.getElementById('amortization-table');
+    const chartCanvas = document.getElementById('balance-chart');
     emiResult.innerText = '';
     emiResult.classList.remove('show');
     table.style.display = 'none';
     table.classList.remove('show');
+    chartCanvas.classList.remove('show');
 
     // Get input values
     const market = document.getElementById('market').value;
@@ -57,9 +59,11 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
     const tableBody = document.querySelector('#amortization-table tbody');
     tableBody.innerHTML = '';
     const balances = [];
+    let totalInterest = 0; // Track total interest paid
 
     for (let i = 0; i < tenureMonths; i++) {
         const interest = balance * monthlyRate;
+        totalInterest += interest; // Accumulate monthly interest
         let principal = emi - interest;
         balance -= principal;
 
@@ -81,9 +85,18 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
 
         if (balance <= 0) break;
     }
+
     const table = document.getElementById('amortization-table');
     table.style.display = 'table';
     setTimeout(() => table.classList.add('show'), 10);
+
+    // Calculate total amount paid (EMI * number of payments, adjusted for early payoff)
+    const actualMonths = balances.length; // Number of payments, considering early payoff
+    const totalPayments = emi * actualMonths;
+
+    // Display totals
+    document.getElementById('total-payment').innerText = `$${totalPayments.toFixed(2)}`;
+    document.getElementById('total-interest').innerText = `$${totalInterest.toFixed(2)}`;
 
     // Generate chart with high resolution
     const chartCanvas = document.getElementById('balance-chart');

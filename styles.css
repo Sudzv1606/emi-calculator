@@ -86,7 +86,16 @@ body {
     color: #2c3e50;
     margin-top: 20px;
   }
-  
+
+  #payment-summary {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  #payment-summary p {
+    margin: 5px 0;
+  }
+
   #amortization-table {
     width: 100%;
     border-collapse: collapse;
@@ -129,6 +138,7 @@ body {
     width: 100% !important;
     height: 400px !important;
     max-width: 800px;
+    display: block !important;
 }
 
   
