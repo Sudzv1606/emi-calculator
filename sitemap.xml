@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://https://sudzv1606.github.io/emi-calculator/</loc>
-        <lastmod>2025-02-25</lastmod>
+        <loc>https://sudzv1606.github.io/emi-calculator/</loc>
+        <lastmod>2025-02-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
+    <url>
+        <loc>https://sudzv1606.github.io/emi-calculator/resources.html</loc>
+        <lastmod>2025-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sudzv1606.github.io/emi-calculator/what-is-emi.html</loc>
+        <lastmod>2025-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sudzv1606.github.io/emi-calculator/home-loan-emi.html</loc>
+        <lastmod>2025-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sudzv1606.github.io/emi-calculator/reduce-emi-tips.html</loc>
+        <lastmod>2025-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <!-- Add more URLs as you create new active pages, e.g., -->
+    <!-- <url>
+        <loc>https://sudzv1606.github.io/emi-calculator/how-emi-works.html</loc>
+        <lastmod>2025-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url> -->
 </urlset>
