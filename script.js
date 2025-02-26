@@ -3,11 +3,13 @@ function calculateEMI() {
     const emiResult = document.getElementById('emi-result');
     const table = document.getElementById('amortization-table');
     const chartCanvas = document.getElementById('balance-chart');
+    const downloadBtn = document.getElementById('download-pdf'); // Reference to the download button
     emiResult.innerText = '';
     emiResult.classList.remove('show');
     table.style.display = 'none';
     table.classList.remove('show');
     chartCanvas.classList.remove('show');
+    if (downloadBtn) downloadBtn.style.display = 'none'; // Hide download button initially
 
     // Get input values
     const market = document.getElementById('market').value;
@@ -55,7 +57,7 @@ function calculateEMI() {
     // Display the result
     emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
     emiResult.classList.add('show');
-    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency);
+    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency, market, loanType, annualRate);
 }
 
 // Add event listener to recalculate when selections or inputs change
@@ -71,7 +73,7 @@ function calculateAndScroll() {
 
 let chartInstance = null; // Store the chart instance globally
 
-function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency) {
+function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency, market, loanType, annualRate) {
     let balance = loanAmount;
     const tableBody = document.querySelector('#amortization-table tbody');
     tableBody.innerHTML = '';
@@ -176,14 +178,37 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
         chartCanvas.classList.add('show');
         console.log('Chart Visibility - Display:', chartCanvas.style.display, 'Opacity:', chartCanvas.style.opacity, 'Class:', chartCanvas.className);
     }, 10); // Fade in chart and log visibility
+
+    // Show the download button after the table is generated
+    const downloadBtn = document.getElementById('download-pdf');
+    if (downloadBtn) {
+        downloadBtn.style.display = 'block'; // Show the button
+    }
 }
 
-// Function to download the amortization schedule as a PDF
+// Function to download the amortization schedule as a PDF with additional details
 function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+    
+    // Add loan details at the top
     doc.text("Amortization Schedule", 10, 10);
+    const loanDetails = [
+        `Country: ${document.getElementById('market').value === 'US' ? 'United States' : 'Canada'}`,
+        `Loan Type: ${document.getElementById('loan-type').value === 'home' ? 'Home Loan' : document.getElementById('loan-type').value === 'car' ? 'Car Loan' : 'Personal Loan'}`,
+        `Loan Amount: $${parseFloat(document.getElementById('loan-amount').value).toFixed(2)}`,
+        `Interest Rate: ${document.getElementById('interest-rate').value}%`,
+        `EMI: $${parseFloat(document.getElementById('emi-result').textContent.replace('Your EMI is: $', '')).toFixed(2)}`,
+        `Total Amount Paid: $${document.getElementById('total-payment').textContent.replace('$', '')}`,
+        `Total Interest Paid: $${document.getElementById('total-interest').textContent.replace('$', '')}`
+    ];
+    let startY = 20;
+    loanDetails.forEach((detail, index) => {
+        doc.text(detail, 10, startY + (index * 10));
+    });
+    startY += (loanDetails.length * 10) + 10; // Adjust starting Y for the table
 
+    // Extract amortization table data
     const table = document.getElementById('amortization-table');
     const rows = table.querySelectorAll('tr');
     const tableData = [];
@@ -202,8 +227,9 @@ function downloadPDF() {
         }
     });
 
+    // Generate table in PDF
     doc.autoTable({
-        startY: 20,
+        startY: startY,
         head: [tableData[0]], // Headers
         body: tableData.slice(1), // Data rows
         styles: { fontSize: 10 },
@@ -221,3 +247,11 @@ function downloadPDF() {
 
 // Add event listener for the download button
 document.getElementById('download-pdf').addEventListener('click', downloadPDF);
+
+// Initialize to hide the download button on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById('download-pdf');
+    if (downloadBtn) {
+        downloadBtn.style.display = 'none'; // Hide initially
+    }
+});
