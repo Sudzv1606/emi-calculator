@@ -20,10 +20,10 @@
         <p>Several elements influence your home loan EMI, including loan amount, interest rate, and tenure. For instance, a higher loan amount or interest rate increases your EMI, while a longer tenure reduces it. In Canada, stress tests require borrowers to qualify at a higher rate, affecting affordability. In the US, credit scores and down payments play a larger role in determining rates and EMIs.</p>
         <p>Additional factors include property taxes, insurance (e.g., mortgage insurance in Canada, PMI in the US), and prepayment penalties, which vary by province or state, adding complexity to your repayment plan.</p>
 
-        <!-- Graph: Home Loan EMI Trends Over Tenure and Interest Rates -->
+        <!-- Chart: Home Loan EMI Trends Over Tenure and Interest Rates -->
         <h2 class="mt-4 text-primary">How Loan Tenure and Interest Rates Affect Home Loan EMI</h2>
-        <p>This graph compares how a $300,000 home loan’s EMI changes with different tenures (15, 20, 30 years) and interest rates (3.0%–5.0%) in Canada and the US.</p>
-        <img src="https://via.placeholder.com/800x400/3498db/ffffff?text=Home+Loan+EMI+Trends" alt="Graph showing home loan EMI trends over various tenures and interest rates for a $300,000 loan" class="img-fluid rounded mb-4">
+        <p>This chart compares how a $300,000 home loan’s EMI changes with different tenures (15, 20, 30 years) and interest rates (3.0%–5.0%) in Canada and the US.</p>
+        <canvas id="homeLoanEmiChart" class="img-fluid rounded mb-4" style="max-width: 100%; height: auto;"></canvas>
 
         <!-- Table: Home Loan EMI Comparison in Canada and US -->
         <h2 class="mt-4 text-primary">Detailed Home Loan EMI Comparison</h2>
@@ -98,5 +98,66 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('homeLoanEmiChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            canvas.width = 800 * dpr; // High-resolution width
+            canvas.height = 400 * dpr; // High-resolution height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = '400px'; // CSS height for consistency
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['15 Years', '20 Years', '30 Years'],
+                    datasets: [{
+                        label: '3.0% Interest Rate',
+                        data: [2023.45, 1650.78, 1262.00], // Sample EMIs for $300,000
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 2 // Thicker line for clarity
+                    }, {
+                        label: '4.0% Interest Rate',
+                        data: [2213.90, 1813.45, 1432.25], // Sample EMIs for $300,000
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 2
+                    }, {
+                        label: '5.0% Interest Rate',
+                        data: [2410.20, 1985.67, 1601.34], // Sample EMIs for $300,000
+                        borderColor: '#2ecc71',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Monthly EMI ($)' },
+                            suggestedMax: 2500
+                        },
+                        x: {
+                            title: { display: true, text: 'Loan Tenure' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top' },
+                        tooltip: { enabled: true }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
 </body>
 </html>

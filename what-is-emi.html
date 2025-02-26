@@ -25,14 +25,14 @@
         </ul>
         <p>For example, a $100,000 loan at 5% annual interest over 10 years results in an EMI of approximately $1,060.66. This formula ensures consistent payments, but early payments cover more interest, while later payments reduce the principal faster, as shown in the amortization schedule.</p>
 
-        <!-- Graph: EMI Breakdown Over Time -->
+        <!-- Chart: EMI Breakdown Over Time -->
         <h2 class="mt-4 text-primary">How EMI Breaks Down Over Time</h2>
-        <p>This graph illustrates the shifting composition of a $100,000 loan at 5% interest over 10 years, showing how the EMI gradually allocates more to principal and less to interest as the loan progresses.</p>
-        <img src="https://via.placeholder.com/800x400/3498db/ffffff?text=EMI+Breakdown+Over+10+Years" alt="Graph showing EMI breakdown (principal vs. interest) over 10 years for a $100,000 loan at 5% interest" class="img-fluid rounded mb-4" style="max-width: 100%; height: auto;">
+        <p>This chart illustrates the shifting composition of a $100,000 loan at 5% interest over 10 years, showing how the EMI gradually allocates more to principal and less to interest as the loan progresses.</p>
+        <canvas id="emiBreakdownChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
 
         <!-- Table: EMI Examples for Different Loan Scenarios -->
         <h2 class="mt-4 text-primary">EMI Examples for Canada and US Loans</h2>
-        <p>Here’s a detailed comparison of EMIs for various loan scenarios in Canada and the US, based on typical rates and terms drawn from financial reports and bank data (e.g., Bank of Canada, Federal Reserve):</p>
+        <p>Here’s a detailed comparison of EMIs for various loan scenarios in Canada and the US, based on typical rates and terms drawn from financial reports (e.g., Bank of Canada, Federal Reserve):</p>
         <table class="table table-striped mt-3">
             <thead>
                 <tr>
@@ -98,5 +98,77 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('emiBreakdownChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 120 }, (_, i) => `Month ${i + 1}`), // 10 years (120 months)
+                    datasets: [{
+                        label: 'Principal',
+                        data: Array.from({ length: 120 }, (_, i) => {
+                            const principal = 100000 * (1 - Math.pow(1 - 0.004167, i + 1)) / (1 - Math.pow(1 - 0.004167, 120)); // Simplified calculation
+                            return principal.toFixed(2);
+                        }),
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }, {
+                        label: 'Interest',
+                        data: Array.from({ length: 120 }, (_, i) => {
+                            const interest = 100000 * 0.004167 * Math.pow(1 - 0.004167, i) / (1 - Math.pow(1 - 0.004167, 120)); // Simplified calculation
+                            return interest.toFixed(2);
+                        }),
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 1100,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Month', font: { size: 16 } },
+                            ticks: { stepSize: 12, font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
 </body>
 </html>
