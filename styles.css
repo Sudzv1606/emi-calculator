@@ -42,7 +42,7 @@ body {
   }
   
   button {
-    width: 540px;
+    width: 100%;
     padding: 10px;
     background-color: #3498db;
     color: white;
