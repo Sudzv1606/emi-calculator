@@ -177,3 +177,47 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
         console.log('Chart Visibility - Display:', chartCanvas.style.display, 'Opacity:', chartCanvas.style.opacity, 'Class:', chartCanvas.className);
     }, 10); // Fade in chart and log visibility
 }
+
+// Function to download the amortization schedule as a PDF
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.text("Amortization Schedule", 10, 10);
+
+    const table = document.getElementById('amortization-table');
+    const rows = table.querySelectorAll('tr');
+    const tableData = [];
+
+    // Add headers
+    const headers = ['Month', 'Payment', 'Principal', 'Interest', 'Balance'];
+    tableData.push(headers);
+
+    // Add data rows
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length) {
+            const rowData = [];
+            cells.forEach(cell => rowData.push(cell.textContent));
+            tableData.push(rowData);
+        }
+    });
+
+    doc.autoTable({
+        startY: 20,
+        head: [tableData[0]], // Headers
+        body: tableData.slice(1), // Data rows
+        styles: { fontSize: 10 },
+        columnStyles: {
+            0: { cellWidth: 20 }, // Month
+            1: { cellWidth: 40 }, // Payment
+            2: { cellWidth: 40 }, // Principal
+            3: { cellWidth: 40 }, // Interest
+            4: { cellWidth: 40 }  // Balance
+        }
+    });
+
+    doc.save("amortization_schedule.pdf");
+}
+
+// Add event listener for the download button
+document.getElementById('download-pdf').addEventListener('click', downloadPDF);
