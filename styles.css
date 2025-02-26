@@ -14,6 +14,19 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* New Intro Container for Logo and Text */
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo and text */
+  margin-bottom: 20px; /* Space below the intro section */
+}
+
+.logo {
+  height: 100%; /* Adjust this based on your logo size */
+  width: auto; /* Maintain aspect ratio */
+}
+
 /* Headings */
 h1, h2, h3 {
   font-family: 'Inter', sans-serif; /* Sans-serif for headings */
@@ -216,6 +229,17 @@ summary:hover {
 
   .container {
       padding: 10px;
+  }
+
+  /* Adjust intro container for mobile */
+  .intro-container {
+    flex-direction: column; /* Stack logo and text on small screens */
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .logo {
+    height: 40px; /* Slightly smaller logo on mobile */
   }
 
   h1 {
