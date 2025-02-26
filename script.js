@@ -12,6 +12,8 @@ function calculateEMI() {
     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
     const annualRate = parseFloat(document.getElementById('interest-rate').value);
     const tenureYears = parseInt(document.getElementById('tenure').value);
+    const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
+    const extraFrequency = parseInt(document.getElementById('extra-frequency').value) || 0;
 
     // Check for invalid inputs
     if (isNaN(loanAmount) || isNaN(annualRate) || isNaN(tenureYears) || loanAmount <= 0 || annualRate <= 0 || tenureYears <= 0) {
@@ -37,7 +39,7 @@ function calculateEMI() {
     // Display the result
     emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
     emiResult.classList.add('show');
-    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi);
+    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency);
 }
 
 function calculateAndScroll() {
@@ -48,7 +50,9 @@ function calculateAndScroll() {
     }
 }
 
-function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment = 0, extraFrequency = 0) {
+let chartInstance = null; // Store the chart instance globally
+
+function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency) {
     let balance = loanAmount;
     const tableBody = document.querySelector('#amortization-table tbody');
     tableBody.innerHTML = '';
@@ -75,14 +79,25 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
         `;
         tableBody.appendChild(row);
 
-        if (balance <= 0) break; // Stop if paid off early
+        if (balance <= 0) break;
     }
     const table = document.getElementById('amortization-table');
     table.style.display = 'table';
     setTimeout(() => table.classList.add('show'), 10);
 
-    const ctx = document.getElementById('balance-chart').getContext('2d');
-    new Chart(ctx, {
+    // Generate chart with high resolution
+    const chartCanvas = document.getElementById('balance-chart');
+    const dpr = window.devicePixelRatio || 1; // Get device pixel ratio for high DPI screens
+    chartCanvas.width = 800 * dpr; // Increase pixel width for sharpness
+    chartCanvas.height = 400 * dpr; // Increase pixel height for sharpness
+    chartCanvas.style.width = '100%'; // CSS width
+    chartCanvas.style.height = '400px'; // CSS height
+    const ctx = chartCanvas.getContext('2d');
+    ctx.scale(dpr, dpr); // Scale context for high DPI
+    if (window.myChart) window.myChart.destroy(); // Clear previous chart instance
+    console.log('Canvas Size - Width:', chartCanvas.width, 'Height:', chartCanvas.height, 'Style Width:', chartCanvas.style.width, 'Style Height:', chartCanvas.style.height, 'Display:', chartCanvas.style.display, 'Opacity:', chartCanvas.style.opacity);
+    console.log('Chart Data - Balances:', balances, 'Tenure Months:', tenureMonths);
+    window.myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: Array.from({ length: balances.length }, (_, i) => i + 1),
@@ -90,15 +105,45 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
                 label: 'Remaining Balance',
                 data: balances,
                 borderColor: 'blue',
-                fill: false
+                fill: false,
+                tension: 0.1,
+                pointRadius: 4,
+                borderWidth: 2
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
+            aspectRatio: 2,
+            animation: {
+                duration: 1000,
+                loop: false
+            },
             scales: {
-                x: { title: { display: true, text: 'Month' } },
-                y: { title: { display: true, text: 'Balance ($)' } }
+                x: {
+                    title: { display: true, text: 'Month' },
+                    type: 'linear',
+                    position: 'bottom',
+                    max: tenureMonths,
+                    ticks: { stepSize: 1 }
+                },
+                y: {
+                    title: { display: true, text: 'Balance ($)' },
+                    beginAtZero: true,
+                    suggestedMax: loanAmount * 1.1
+                }
+            },
+            plugins: {
+                legend: { display: true, position: 'top' },
+                tooltip: { enabled: true }
+            },
+            layout: {
+                padding: 20
             }
         }
     });
+    setTimeout(() => {
+        chartCanvas.classList.add('show');
+        console.log('Chart Visibility - Display:', chartCanvas.style.display, 'Opacity:', chartCanvas.style.opacity, 'Class:', chartCanvas.className);
+    }, 10); // Fade in chart and log visibility
 }
