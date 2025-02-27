@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score and EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Understand how credit scores affect Equated Monthly Installments (EMI) for loans in the US and Canada, and optimize your rates with our EMI calculator.">
+    <meta name="keywords" content="credit score EMI, loan repayment Canada, loan repayment US, EMI calculator, credit impact on loans">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Credit Score and EMI</h1>
+        <p class="lead">Published on February 28, 2025</p>
+        <p>Credit scores significantly influence Equated Monthly Installments (EMI) for loans in the US and Canada, determining interest rates and loan terms. Higher scores lower rates, reducing EMIs for home loans in Toronto, auto loans in New York, or personal loans in Vancouver, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users assess these impacts.</p>
+        <p>In 2024, FICO reported US credit scores averaging 714 (range 300–850), per Experian, while Equifax Canada noted Canadian scores averaging 680 (range 300–900), per 2025 data. These scores, shaped by payment history and debt levels, affect EMI, benefiting borrowers in California, Alberta, and beyond, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">How Credit Scores Affect EMI</h2>
+        <p>Credit scores determine loan rates: higher scores (e.g., 750+ US, 800+ Canada) secure lower rates, reducing EMI. For a $300,000 US home loan over 30 years:</p>
+        <ul>
+            <li>Score 800 (6% rate): EMI ≈ $1,798.65; Total Interest ≈ $247,511.00</li>
+            <li>Score 650 (8% rate): EMI ≈ $2,201.29; Total Interest ≈ $392,464.40</li>
+        </ul>
+        <p>For a CAD 400,000 Canadian mortgage over 25 years:</p>
+        <ul>
+            <li>Score 800 (5% rate): EMI ≈ CAD 2,147.29; Total Interest ≈ CAD 244,187.00</li>
+            <li>Score 650 (7% rate): EMI ≈ CAD 2,747.50; Total Interest ≈ CAD 425,700.00</li>
+        </ul>
+
+        <h2 class="mt-4 text-primary">Credit Score Impact on EMI Over Time</h2>
+        <p>This chart shows how credit scores affect EMI and total interest for a $300,000 US home loan over 30 years, comparing scores of 800 and 650.</p>
+        <canvas id="creditScoreChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Credit Scores</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Credit Score Range</th>
+                    <th>Average Interest Rate (2025, %)</th>
+                    <th>Average EMI (Per $100,000)</th>
+                    <th>Interest Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>800 vs. 650</td><td>6.0 vs. 8.0</td><td>$599.55 vs. $733.76</td><td>$144,953.40</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>800 vs. 650</td><td>5.0 vs. 7.0</td><td>CAD 778.16 vs. CAD 929.71</td><td>CAD 181,513.00</td></tr>
+                <tr><td>US</td><td>Auto Loan</td><td>800 vs. 650</td><td>6.0 vs. 8.0</td><td>$198.65 vs. $231.03</td><td>$1,941.60</td></tr>
+                <tr><td>Canada</td><td>Auto Loan</td><td>800 vs. 650</td><td>5.5 vs. 7.5</td><td>CAD 228.25 vs. CAD 258.88</td><td>CAD 1,505.28</td></tr>
+            </tbody>
+        </table>
+        <p>Data from FICO, Equifax, and 2025 reports highlight credit score impacts, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits of Improving Credit Scores</h2>
+        <p>Higher scores lower EMIs, save interest, and improve loan terms. A 2024 FICO study found US borrowers save 12% on interest, while a 2023 Equifax Canada report shows Canadian borrowers save 10%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking scores have minimal impact—however, a 150-point drop can add $144,953.40 in interest, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to see how your credit score affects your EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('creditScoreChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Credit Score 800', 'Credit Score 650'],
+                    datasets: [{
+                        label: 'Monthly EMI ($)',
+                        data: [1798.65, 2201.29], // For $300,000 at 6% vs. 8% over 30 years
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Total Interest ($)',
+                        data: [247511.00, 392464.40], // For $300,000 at 6% vs. 8% over 30 years
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 450000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Credit Score', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>

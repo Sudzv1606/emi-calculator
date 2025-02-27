@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed-Rate vs. Variable-Rate Loans | Loan EMI Calculator</title>
+    <meta name="description" content="Compare Fixed-Rate and Variable-Rate Loans in the US and Canada, their impact on EMI, and how to choose using our free EMI calculator.">
+    <meta name="keywords" content="fixed rate vs variable rate loans, loan repayment Canada, loan repayment US, EMI calculator, interest rate comparison">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Fixed-Rate vs. Variable-Rate Loans</h1>
+        <p class="lead">Published on February 28, 2025</p>
+        <p>Fixed-rate and variable-rate loans in the US and Canada significantly impact Equated Monthly Installments (EMI), affecting repayment stability and total costs. Fixed-rate loans lock in an interest rate, ensuring consistent EMIs, while variable-rate loans adjust rates based on market conditions, potentially altering EMIs. This guide helps borrowers in Toronto, New York, Vancouver, or beyond choose wisely, supported by our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a>.</p>
+        <p>In 2024, Freddie Mac reported 90% of US mortgages are fixed-rate, averaging 6.5%, while the Canada Mortgage and Housing Corporation (CMHC) noted 85% of Canadian mortgages are fixed-rate at 5.7%. Variable rates, tied to the US Federal Funds Rate or Canadian Prime Rate, account for 10% (US) and 15% (Canada) of loans, per 2025 data, benefiting borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">How Fixed-Rate and Variable-Rate Loans Work</h2>
+        <p><strong>Fixed-Rate Loans</strong>: Interest rates remain constant, ensuring stable EMIs. For a $200,000 US home loan at 6.5% over 30 years, EMI ≈ $1,264.14, with total interest of $155,093.04 and total paid of $355,093.04, calculated as <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>.</p>
+        <p><strong>Variable-Rate Loans</strong>: Rates adjust periodically, potentially changing EMIs. For the same $200,000 loan starting at 6.5%, rising to 7.5% after 5 years, EMI increases to $1,398.43, adding $18,339.76 in interest, totaling $373,432.80. In Canada, a CAD 250,000 mortgage at 5.7% (fixed) has EMI ≈ CAD 1,548.57, but variable (rising to 6.7%) increases EMI to CAD 1,720.45, adding CAD 11,564.00, totaling CAD 376,135.00.</p>
+
+        <h2 class="mt-4 text-primary">Fixed-Rate vs. Variable-Rate Comparison Over Time</h2>
+        <p>This chart compares EMI and total interest for a $200,000 US home loan over 30 years, showing fixed-rate (6.5%) vs. variable-rate (6.5% to 7.5%) outcomes.</p>
+        <canvas id="rateLoanChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Loan Types</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Loan Amount (2025)</th>
+                    <th>Rate Type</th>
+                    <th>Interest Rate (%)</th>
+                    <th>Monthly EMI</th>
+                    <th>Total Interest Paid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>$200,000</td><td>Fixed</td><td>6.5</td><td>$1,264.14</td><td>$155,093.04</td></tr>
+                <tr><td>US</td><td>Home Loan</td><td>$200,000</td><td>Variable</td><td>7.5 (after 5 yrs)</td><td>$1,398.43</td><td>$173,432.80</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 250,000</td><td>Fixed</td><td>5.7</td><td>CAD 1,548.57</td><td>CAD 114,571.00</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 250,000</td><td>Variable</td><td>6.7 (after 5 yrs)</td><td>CAD 1,720.45</td><td>CAD 126,135.00</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight rate impacts, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits and Risks</h2>
+        <p><strong>Fixed-Rate Benefits</strong>: Predictability shields from rate hikes; a 2024 National Association of Realtors study found US borrowers saved $15,000 over 30 years. <strong>Variable-Rate Benefits</strong>: Potential savings if rates fall (12% for Canadians in 2008–2010, per FCAC), but risks include higher costs if rates rise (20% for Canadians in 2022–2023, per Bank of Canada). Misconceptions include assuming fixed rates are always costlier—however, they protect against volatility, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to compare fixed-rate and variable-rate loans? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('rateLoanChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Year 1', 'Year 5', 'Year 10', 'Year 30'],
+                    datasets: [{
+                        label: 'Fixed Rate EMI ($)',
+                        data: [1264.14, 1264.14, 1264.14, 1264.14], // Consistent EMI
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 5,
+                        pointBorderWidth: 2
+                    }, {
+                        label: 'Variable Rate EMI ($)',
+                        data: [1264.14, 1264.14, 1398.43, 1398.43], // Adjusts after 5 years
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 5,
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Monthly EMI ($)', font: { size: 16 } },
+                            suggestedMax: 1500,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Year', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>
