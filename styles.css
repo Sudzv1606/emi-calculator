@@ -231,15 +231,16 @@ summary:hover {
       padding: 10px;
   }
 
-  /* Adjust intro container for mobile */
+  /* Adjusted intro container for mobile */
   .intro-container {
-    flex-direction: column; /* Stack logo and text on small screens */
-    align-items: flex-start;
-    gap: 10px;
+    display: flex; /* Keep flex direction as row */
+    align-items: center;
+    gap: 10px; /* Reduced gap for mobile */
   }
 
   .logo {
-    height: 40px; /* Slightly smaller logo on mobile */
+    height: 100%; /* Smaller logo on mobile */
+    width: auto;
   }
 
   h1 {
