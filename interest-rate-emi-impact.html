@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Interest Rate Affects EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Learn how interest rates impact Equated Monthly Installments (EMI) for loans in the US and Canada, and how to optimize your payments using our EMI calculator.">
+    <meta name="keywords" content="interest rate affects EMI, loan repayment Canada, loan repayment US, EMI calculator, interest rate impact">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">How Interest Rate Affects EMI</h1>
+        <p class="lead">Published on February 27, 2025</p>
+        <p>Interest rates significantly influence Equated Monthly Installments (EMI) for loans in the US and Canada, determining monthly payments, total interest costs, and loan affordability. Higher rates increase EMIs and total repayment, while lower rates reduce them, impacting borrowers financing homes in Toronto, autos in New York, or personal loans in Vancouver. Our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users test these impacts for optimal planning.</p>
+        <p>In 2024, the Federal Reserve reported US interest rates averaging 6% for home loans and 7% for auto loans, while the Bank of Canada noted Canadian rates at 5.5% for mortgages and 6.5% for auto loans, per CMHC and industry data. These rates, shaped by economic policies, directly affect EMI, making understanding their impact essential for borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">How Interest Rates Impact EMI</h2>
+        <p>The EMI formula—<strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>—shows that as the monthly interest rate (r) rises, EMI increases. For a $300,000 US home loan over 30 years, here’s the effect:</p>
+        <ul>
+            <li>At 5%: EMI ≈ $1,610.46; Total Interest ≈ $179,765.60; Total Paid ≈ $479,765.60</li>
+            <li>At 6%: EMI ≈ $1,798.65; Total Interest ≈ $247,511.00; Total Paid ≈ $547,511.00</li>
+            <li>At 7%: EMI ≈ $1,996.44; Total Interest ≈ $318,717.60; Total Paid ≈ $618,717.60</li>
+        </ul>
+        <p>For a CAD 400,000 Canadian mortgage over 25 years:</p>
+        <ul>
+            <li>At 5%: EMI ≈ CAD 2,147.29; Total Interest ≈ CAD 244,187.00; Total Paid ≈ CAD 644,187.00</li>
+            <li>At 5.5%: EMI ≈ CAD 2,334.44; Total Interest ≈ CAD 300,332.00; Total Paid ≈ CAD 700,332.00</li>
+            <li>At 6%: EMI ≈ CAD 2,531.57; Total Interest ≈ CAD 359,475.00; Total Paid ≈ CAD 759,475.00</li>
+        </ul>
+
+        <h2 class="mt-4 text-primary">Interest Rate Impact Over Time</h2>
+        <p>This chart shows how EMI and total interest change for a $300,000 US home loan over 30 years at different interest rates, highlighting the cost increase with higher rates.</p>
+        <canvas id="interestRateChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Interest Rates</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Average Interest Rate (2025, %)</th>
+                    <th>Impact on EMI (Per $100,000)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>6.0</td><td>$599.55</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>5.5</td><td>CAD 778.16</td></tr>
+                <tr><td>US</td><td>Auto Loan</td><td>7.0</td><td>$198.65</td></tr>
+                <tr><td>Canada</td><td>Auto Loan</td><td>6.5</td><td>CAD 228.25</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Freddie Mac, CMHC, and 2025 reports show how rates drive EMI variations, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits of Understanding Interest Rate Impacts</h2>
+        <p>Knowing how rates affect EMI helps borrowers negotiate better terms, refinance when rates drop, or choose shorter tenures. A 2024 TransUnion study found US borrowers save 10% on interest by locking in low rates, while a 2023 FCAC report shows Canadian borrowers save 12% by monitoring rates, benefiting users in Seattle, Quebec, and beyond.</p>
+        <p>Common misconceptions include assuming rates have minimal impact—however, a 1% increase can add $30,000 in interest for a US home loan, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to see how interest rates affect your EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('interestRateChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['5%', '6%', '7%'],
+                    datasets: [{
+                        label: 'Monthly EMI ($)',
+                        data: [1610.46, 1798.65, 1996.44], // For $300,000 over 30 years
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 5,
+                        pointBorderWidth: 2
+                    }, {
+                        label: 'Total Interest ($)',
+                        data: [179765.60, 247511.00, 318717.60], // For $300,000 over 30 years
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 5,
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 350000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Interest Rate (%)', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>

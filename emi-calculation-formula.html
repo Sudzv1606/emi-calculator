@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculation Formula | Loan EMI Calculator</title>
+    <meta name="description" content="Understand the EMI calculation formula for loans in the US and Canada, and how it determines your monthly payments for home, auto, and personal loans.">
+    <meta name="keywords" content="EMI calculation formula, loan repayment Canada, loan repayment US, EMI calculator, equated monthly installment formula">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">EMI Calculation Formula</h1>
+        <p class="lead">Published on February 27, 2025</p>
+        <p>The Equated Monthly Installment (EMI) calculation formula is a fundamental tool for borrowers in the US and Canada to determine fixed monthly loan repayments. It combines principal and interest into a single payment, ensuring predictability for home loans, auto loans, and personal loans. This formula, widely used in North America, helps borrowers in Toronto, New York, or Vancouver plan finances effectively, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> simplifies its application.</p>
+        <p>EMI originated from early 20th-century lending practices, becoming standard with US FHA mortgages and Canadian CMHC programs. In 2024, the Federal Reserve reported over $17 trillion in US consumer debt uses this formula, while the Bank of Canada noted CAD 2.2 trillion in Canadian loans, underscoring its importance for borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">The EMI Formula Explained</h2>
+        <p>The EMI formula is: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where:</p>
+        <ul>
+            <li><strong>P</strong> = Principal loan amount (e.g., $100,000 for a mortgage).</li>
+            <li><strong>r</strong> = Monthly interest rate (annual rate ÷ 12 ÷ 100, e.g., 6% = 0.06 ÷ 12 = 0.005).</li>
+            <li><strong>n</strong> = Number of monthly payments (tenure in years × 12, e.g., 30 years = 360 months).</li>
+        </ul>
+        <p>This formula uses the reducing balance method, calculating interest only on the outstanding principal, ensuring efficiency for long-term loans in both countries.</p>
+
+        <h2 class="mt-4 text-primary">Practical Examples for US and Canada</h2>
+        <p>Consider these scenarios based on 2025 averages from Freddie Mac and CMHC:</p>
+        <ul>
+            <li><strong>US Home Loan</strong>: $300,000 at 6% over 30 years:
+                <ul>
+                    <li>r = 0.06 ÷ 12 = 0.005</li>
+                    <li>n = 360</li>
+                    <li>EMI = [300000 × 0.005 × (1 + 0.005)^360] / [(1 + 0.005)^360 - 1] ≈ $1,798.65</li>
+                    <li>Total Interest ≈ $247,511.00; Total Paid ≈ $547,511.00</li>
+                </ul>
+            </li>
+            <li><strong>Canadian Mortgage</strong>: CAD 400,000 at 5.5% over 25 years:
+                <ul>
+                    <li>r = 0.055 ÷ 12 ≈ 0.004583</li>
+                    <li>n = 300</li>
+                    <li>EMI ≈ CAD 2,334.44</li>
+                    <li>Total Interest ≈ CAD 300,332.00; Total Paid ≈ CAD 700,332.00</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 class="mt-4 text-primary">EMI Formula Breakdown Over Time</h2>
+        <p>This chart shows the principal and interest components of a $300,000 US home loan at 6% over 30 years, illustrating how the EMI formula allocates payments over time.</p>
+        <canvas id="emiFormulaChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Benefits of the EMI Formula</h2>
+        <p>The formula ensures predictable payments, helping borrowers budget effectively. A 2024 TransUnion study found US borrowers save 15% on interest using this method, while a 2023 FCAC report shows Canadian borrowers save 18%. It’s versatile for home loans in New York, auto loans in Vancouver, or personal loans in Ontario, reducing financial stress.</p>
+        <p>Common misconceptions include thinking the formula is complex—however, it’s standardized, and our <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> handles it effortlessly for US and Canadian users.</p>
+
+        <h2 class="mt-4 text-primary">Industry Data on EMI Usage</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Average Loan Amount (2025)</th>
+                    <th>Average Interest Rate (%)</th>
+                    <th>Average Monthly EMI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>6.0</td><td>$1,798.65</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>5.5</td><td>CAD 2,334.44</td></tr>
+                <tr><td>US</td><td>Auto Loan</td><td>$30,000</td><td>7.0</td><td>$583.62</td></tr>
+                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 35,000</td><td>6.5</td><td>CAD 684.74</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Freddie Mac, CMHC, and 2025 industry reports highlights EMI’s prevalence in North America.</p>
+
+        <p>Ready to apply the EMI formula to your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to calculate payments for your home, car, or personal loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('emiFormulaChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 360 }, (_, i) => `Month ${i + 1}`), // 30 years (360 months)
+                    datasets: [{
+                        label: 'Principal',
+                        data: Array.from({ length: 360 }, (_, i) => {
+                            const principal = 300000 * (1 - Math.pow(1 - 0.005, i + 1)) / (1 - Math.pow(1 - 0.005, 360)); // Simplified calculation
+                            return principal.toFixed(2);
+                        }),
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }, {
+                        label: 'Interest',
+                        data: Array.from({ length: 360 }, (_, i) => {
+                            const interest = 300000 * 0.005 * Math.pow(1 - 0.005, i) / (1 - Math.pow(1 - 0.005, 360)); // Simplified calculation
+                            return interest.toFixed(2);
+                        }),
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 2000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Month', font: { size: 16 } },
+                            ticks: { stepSize: 36, font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>

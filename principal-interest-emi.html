@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal, Interest & EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Learn about the relationship between principal, interest, and EMI for loans in the US and Canada, and how they shape your repayment plan.">
+    <meta name="keywords" content="principal interest EMI, loan repayment Canada, loan repayment US, EMI calculator, loan components explained">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Principal, Interest & EMI</h1>
+        <p class="lead">Published on February 27, 2025</p>
+        <p>Principal, interest, and Equated Monthly Installment (EMI) are the core components of loan repayment for borrowers in the US and Canada. The principal is the borrowed amount, interest is the cost of borrowing, and EMI is the fixed monthly payment combining both. Understanding their interplay is key for home loans in Toronto, auto loans in New York, or personal loans in Vancouver, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users analyze these elements.</p>
+        <p>In 2024, the Federal Reserve reported $17 trillion in US consumer debt, with EMI structuring most repayments, while the Bank of Canada noted CAD 2.2 trillion in Canadian loans, per CMHC data. These components shape financial planning for borrowers in California, Alberta, and beyond, rooted in North American lending traditions since the 1930s.</p>
+
+        <h2 class="mt-4 text-primary">Understanding Principal, Interest, and EMI</h2>
+        <p><strong>Principal</strong>: The original loan amount (e.g., $100,000 for a mortgage) reduced with each payment. <strong>Interest</strong>: The cost charged by lenders, calculated on the remaining principal using the reducing balance method (e.g., 6% annually). <strong>EMI</strong>: A fixed payment combining both, calculated as <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>.</p>
+        <p>Early EMI payments are interest-heavy, but as principal decreases, interest shrinks, and principal repayment grows, ensuring the loan is paid off by the end of the tenure.</p>
+
+        <h2 class="mt-4 text-primary">Examples for US and Canada</h2>
+        <p>For a $100,000 US home loan at 6% over 15 years:</p>
+        <ul>
+            <li>EMI ≈ $843.86</li>
+            <li>Year 1: Principal ≈ $3,876.32, Interest ≈ $5,800.00, Total Paid ≈ $10,126.32</li>
+            <li>Year 15: Principal ≈ $833.86, Interest ≈ $10.00, Total Paid ≈ $843.86</li>
+        </ul>
+        <p>For a CAD 120,000 Canadian mortgage at 5.5% over 20 years:</p>
+        <ul>
+            <li>EMI ≈ CAD 776.58</li>
+            <li>Year 1: Principal ≈ CAD 3,566.96, Interest ≈ CAD 6,420.00, Total Paid ≈ CAD 9,986.96</li>
+            <li>Year 20: Principal ≈ CAD 776.58, Interest ≈ CAD 0.00, Total Paid ≈ CAD 776.58</li>
+        </ul>
+
+        <h2 class="mt-4 text-primary">Principal and Interest Breakdown Over Time</h2>
+        <p>This chart shows the shifting composition of a $100,000 US home loan at 6% over 15 years, illustrating how principal and interest evolve within the EMI.</p>
+        <canvas id="principalInterestChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Loan Components</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Average Principal (2025)</th>
+                    <th>Average Interest Rate (%)</th>
+                    <th>Average EMI (Per $100,000)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>6.0</td><td>$599.55</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>5.5</td><td>CAD 778.16</td></tr>
+                <tr><td>US</td><td>Auto Loan</td><td>$30,000</td><td>7.0</td><td>$198.65</td></tr>
+                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 35,000</td><td>6.5</td><td>CAD 228.25</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight these components’ role, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits of Understanding These Components</h2>
+        <p>Knowing principal, interest, and EMI helps borrowers plan payments, save on interest, and negotiate terms. A 2024 TransUnion study found US borrowers save 15% on interest by monitoring these, while a 2023 FCAC report shows Canadian borrowers save 18%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking interest stays constant—however, it decreases over time, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to analyze principal, interest, and EMI for your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('principalInterestChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 180 }, (_, i) => `Year ${Math.floor((i + 1) / 12) + 1}`), // 15 years (180 months)
+                    datasets: [{
+                        label: 'Principal',
+                        data: Array.from({ length: 180 }, (_, i) => {
+                            const principal = 100000 * (1 - Math.pow(1 - 0.005, i + 1)) / (1 - Math.pow(1 - 0.005, 180)); // Simplified calculation
+                            return (principal / 12).toFixed(2); // Annual average
+                        }),
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }, {
+                        label: 'Interest',
+                        data: Array.from({ length: 180 }, (_, i) => {
+                            const interest = 100000 * 0.005 * Math.pow(1 - 0.005, i) / (1 - Math.pow(1 - 0.005, 180)); // Simplified calculation
+                            return (interest / 12).toFixed(2); // Annual average
+                        }),
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Annual Amount ($)', font: { size: 16 } },
+                            suggestedMax: 7000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Year', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>

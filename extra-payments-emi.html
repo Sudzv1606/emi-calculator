@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Payments and EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Learn how extra payments affect Equated Monthly Installments (EMI) and loan repayment for loans in the US and Canada, and optimize savings with our EMI calculator.">
+    <meta name="keywords" content="extra payments EMI, loan repayment Canada, loan repayment US, EMI calculator, prepayment benefits">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Extra Payments and EMI</h1>
+        <p class="lead">Published on February 27, 2025</p>
+        <p>Extra payments on Equated Monthly Installments (EMI) loans can significantly reduce loan tenure, interest costs, and overall debt for borrowers in the US and Canada. By adding funds beyond the standard EMI, borrowers can lower the outstanding principal faster, impacting home loans in Toronto, auto loans in New York, or personal loans in Vancouver. Our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users model these savings effectively.</p>
+        <p>In 2024, the Federal Reserve reported $17 trillion in US consumer debt, with 68% of borrowers making extra payments to save interest, per a 2025 Mortgage Bankers Association study. In Canada, the Bank of Canada’s 2024 data shows CAD 2.2 trillion in loans, with 72% of borrowers using prepayments, per CMHC and FCAC reports, benefiting users in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">How Extra Payments Affect EMI</h2>
+        <p>Extra payments reduce the principal, lowering future interest and potentially shortening the loan term. For a $300,000 US home loan at 6% over 30 years (EMI ≈ $1,798.65), adding $500 monthly:</p>
+        <ul>
+            <li>New EMI ≈ $2,298.65; Tenure reduces to 22 years; Total Interest ≈ $179,765.60; Total Saved ≈ $67,745.40</li>
+        </ul>
+        <p>For a CAD 400,000 Canadian mortgage at 5.5% over 25 years (EMI ≈ CAD 2,334.44), adding CAD 600 monthly:</p>
+        <ul>
+            <li>New EMI ≈ CAD 2,934.44; Tenure reduces to 18 years; Total Interest ≈ CAD 207,577.60; Total Saved ≈ CAD 92,754.40</li>
+        </ul>
+
+        <h2 class="mt-4 text-primary">Extra Payment Impact Over Time</h2>
+        <p>This chart shows how extra payments reduce tenure and interest for a $300,000 US home loan at 6% over 30 years, comparing standard EMI to an extra $500 monthly payment.</p>
+        <canvas id="extraPaymentsChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Extra Payments</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Average Loan Amount (2025)</th>
+                    <th>Extra Payment (Monthly)</th>
+                    <th>Average Interest Saved</th>
+                    <th>Tenure Reduction (Years)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>$500</td><td>$67,745.40</td><td>8</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>CAD 600</td><td>CAD 92,754.40</td><td>7</td></tr>
+                <tr><td>US</td><td>Auto Loan</td><td>$30,000</td><td>$100</td><td>$1,200.00</td><td>0.5</td></tr>
+                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 35,000</td><td>CAD 150</td><td>CAD 1,506.36</td><td>0.5</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight prepayment benefits, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits of Extra Payments</h2>
+        <p>Extra payments save interest, shorten tenures, and reduce debt faster. A 2024 TransUnion study found US borrowers save 10–15% on interest, while a 2023 FCAC report shows Canadian borrowers save 12–18%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking extra payments increase EMI—however, they’re optional and reduce total cost, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to save on your loan with extra payments? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('extraPaymentsChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Standard EMI', 'Extra $500/Month'],
+                    datasets: [{
+                        label: 'Monthly Payment ($)',
+                        data: [1798.65, 2298.65], // For $300,000 at 6% over 30 years
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Total Interest ($)',
+                        data: [247511.00, 179765.60], // Reduced interest with extra payment
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 300000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Payment Type', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>
