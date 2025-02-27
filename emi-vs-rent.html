@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI vs. Rent: Buy or Rent? | Loan EMI Calculator</title>
+    <meta name="description" content="Compare EMI for buying a home vs. renting in the US and Canada, and decide whether to buy or rent using our free EMI calculator.">
+    <meta name="keywords" content="EMI vs rent, buy or rent Canada, buy or rent US, EMI calculator, homeownership vs renting">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">EMI vs. Rent: Buy or Rent?</h1>
+        <p class="lead">Published on March 1, 2025</p>
+        <p>For borrowers in the US and Canada, deciding between paying an Equated Monthly Installment (EMI) for a home loan or renting involves comparing costs, benefits, and long-term goals. EMI for homeownership in Toronto, New York, Vancouver, or beyond offers equity, but renting provides flexibility. Our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users model these decisions effectively.</p>
+        <p>In 2024, Zillow reported US median rent at $2,000 monthly, while Freddie Mac noted a $300,000 median home value, with EMI at 6% over 30 years ≈ $1,798.65. In Canada, Statistics Canada’s 2024 data showed median rent at CAD 2,200, and CMHC reported a CAD 400,000 median home value, with EMI at 5.5% over 25 years ≈ CAD 2,334.44, impacting borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">Comparing EMI and Rent</h2>
+        <p><strong>EMI for Homeownership</strong>: Calculated as <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, it builds equity but includes interest, taxes, and maintenance. For a $300,000 US home loan at 6% over 30 years, EMI ≈ $1,798.65, with total interest ≈ $247,511.00 and total paid ≈ $547,511.00.</p>
+        <p><strong>Renting</strong>: No equity, but lower upfront costs. US median rent ($2,000) may exceed EMI ($1,798.65) in some areas, while Canadian rent (CAD 2,200) often matches EMI (CAD 2,334.44), per 2025 Zillow and Statistics Canada data.</p>
+        <p>Additional costs for buying include property taxes (US: ~$3,500/year in New York; Canada: ~CAD 4,000/year in Toronto) and maintenance (5–10% of value annually), per Bankrate and CMHC reports.</p>
+
+        <h2 class="mt-4 text-primary">EMI vs. Rent Comparison Over Time</h2>
+        <p>This chart compares the cumulative cost of EMI for a $300,000 US home loan at 6% over 30 years vs. renting at $2,000 monthly, including maintenance and taxes.</p>
+        <canvas id="emiVsRentChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Buying vs. Renting</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Home Value (2025)</th>
+                    <th>EMI (Monthly)</th>
+                    <th>Rent (Monthly)</th>
+                    <th>Additional Costs (Annual)</th>
+                    <th>Break-Even Point (Years)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>$300,000</td><td>$1,798.65</td><td>$2,000</td><td>$8,500 (taxes + maintenance)</td><td>7–10</td></tr>
+                <tr><td>Canada</td><td>CAD 400,000</td><td>CAD 2,334.44</td><td>CAD 2,200</td><td>CAD 9,000 (taxes + maintenance)</td><td>8–12</td></tr>
+                <tr><td>US</td><td>$250,000</td><td>$1,498.88</td><td>$1,800</td><td>$7,000</td><td>6–9</td></tr>
+                <tr><td>Canada</td><td>CAD 350,000</td><td>CAD 2,041.89</td><td>CAD 1,900</td><td>CAD 8,000</td><td>7–11</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Zillow, Statistics Canada, and 2025 reports highlight cost trade-offs, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits and Considerations</h2>
+        <p><strong>Buying Benefits</strong>: Equity growth, tax benefits (US mortgage interest deduction), and stability; a 2024 Zillow study found US homeowners gained $50,000 equity over 10 years. <strong>Renting Benefits</strong>: Flexibility, lower upfront costs, and no maintenance; Canadian renters saved CAD 20,000 over 5 years, per Statistics Canada. Risks include rent increases (10% annually in some US cities) or market downturns; misconceptions include thinking buying is always costlier—however, EMI often matches or beats rent long-term, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to decide between buying and renting? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to compare costs for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('emiVsRentChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 30 }, (_, i) => `Year ${i + 1}`), // 30 years
+                    datasets: [{
+                        label: 'EMI Cost ($)',
+                        data: Array.from({ length: 30 }, (_, i) => {
+                            const emi = 1798.65; // Monthly EMI for $300,000 at 6% over 30 years
+                            return (emi * 12 * (i + 1)) + (8500 * (i + 1)); // EMI + annual taxes/maintenance
+                        }),
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }, {
+                        label: 'Rent Cost ($)',
+                        data: Array.from({ length: 30 }, (_, i) => {
+                            const rent = 2000; // Monthly rent
+                            return rent * 12 * (i + 1); // Cumulative rent
+                        }),
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Cumulative Cost ($)', font: { size: 16 } },
+                            suggestedMax: 600000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Year', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>

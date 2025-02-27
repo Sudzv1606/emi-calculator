@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Budget Around EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Learn how to plan your budget around Equated Monthly Installments (EMIs) for loans in the US and Canada, and optimize finances with our free EMI calculator.">
+    <meta name="keywords" content="plan budget around EMI, loan repayment Canada, loan repayment US, EMI calculator, financial planning">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Plan Your Budget Around EMI</h1>
+        <p class="lead">Published on March 1, 2025</p>
+        <p>Planning your budget around Equated Monthly Installments (EMIs) is essential for borrowers in the US and Canada managing home loans in Toronto, auto loans in New York, or personal loans in Vancouver. Effective budgeting ensures affordability, reduces stress, and maintains credit, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users align finances with payments.</p>
+        <p>In 2024, the Federal Reserve reported US households allocate 36% of income to debt, including EMIs, per TransUnion’s 2025 data. In Canada, the Bank of Canada’s 2024 report shows households allocate 35–40%, per CMHC and FCAC guidelines, impacting borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">Strategies to Budget Around EMI</h2>
+        <p><strong>1. Assess Income and Expenses</strong>: Limit EMIs to 36% of income (US) or 35–40% (Canada). For a $5,000 US monthly income, cap EMIs at $1,800, covering a $300,000 home loan (EMI ≈ $1,798.65), per Federal Reserve rules.</p>
+        <p><strong>2. Prioritize Essential Expenses</strong>: Allocate 50% to necessities, 30% to wants, 20% to savings/debt (including EMI), per the 50/30/20 rule, per FCAC’s 2025 guidelines for Canadians.</p>
+        <p><strong>3. Use Automation</strong>: Automate EMI payments to avoid missed deadlines, maintaining credit scores, per FICO’s 2025 study for US borrowers.</p>
+        <p><strong>4. Monitor and Adjust</strong>: Review budgets quarterly, adjusting for rate changes or income shifts, saving 10–15% on interest, per Bankrate’s 2025 analysis for both regions.</p>
+
+        <h2 class="mt-4 text-primary">Budget Impact with EMI Over Time</h2>
+        <p>This chart shows how allocating 36% of a $5,000 US monthly income to EMI ($1,798.65) affects budget categories over 30 years for a $300,000 home loan at 6%.</p>
+        <canvas id="budgetEmiChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Budgeting with EMI</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Average Income (2025, Monthly)</th>
+                    <th>Recommended EMI %</th>
+                    <th>Average EMI (Monthly)</th>
+                    <th>Remaining Income for Other Expenses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>$5,000</td><td>36%</td><td>$1,798.65</td><td>$3,201.35</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 6,000</td><td>35–40%</td><td>CAD 2,334.44</td><td>CAD 3,665.56</td></tr>
+                <tr><td>US</td><td>Auto Loan</td><td>$4,000</td><td>36%</td><td>$595.94</td><td>$3,404.06</td></tr>
+                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 5,000</td><td>35–40%</td><td>CAD 684.74</td><td>CAD 4,315.26</td></tr>
+            </tbody>
+        </table>
+        <p>Data from TransUnion, CMHC, and 2025 reports highlight budgeting strategies, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits of Budget Planning with EMI</h2>
+        <p>Effective budgeting reduces stress, saves interest, and maintains credit. A 2024 TransUnion study found US borrowers save 10–15% on interest, while a 2023 FCAC report shows Canadian borrowers save 12–18%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking EMIs disrupt budgets—however, strategic planning aligns payments with income, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to plan your budget around your EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('budgetEmiChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Necessities (50%)', 'Wants (30%)', 'Savings/Debt (20%)'],
+                    datasets: [{
+                        label: 'Budget Allocation ($)',
+                        data: [2500, 1500, 1000], // For $5,000 income
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'After EMI ($1,798.65)',
+                        data: [701.35, 701.35, 701.35], // Remaining after EMI for $5,000 income
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 3000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Category', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepayment vs. Increasing EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Compare prepayment and increasing EMI strategies for loans in the US and Canada, and optimize savings with our free EMI calculator.">
+    <meta name="keywords" content="prepayment vs increasing EMI, loan repayment Canada, loan repayment US, EMI calculator, debt reduction strategies">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Prepayment vs. Increasing EMI</h1>
+        <p class="lead">Published on March 1, 2025</p>
+        <p>For borrowers in the US and Canada, deciding between prepayments and increasing EMIs can optimize loan repayment for home loans in Toronto, auto loans in New York, or personal loans in Vancouver. Prepayments reduce principal and interest, while increasing EMIs shorten tenure without extra payments. Our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users compare these strategies.</p>
+        <p>In 2024, the Federal Reserve reported 68% of US borrowers use prepayments, saving $10,000 on average, per a 2025 Mortgage Bankers Association study. In Canada, the Bank of Canada’s 2024 data shows 72% use prepayments, saving CAD 15,000, per CMHC and FCAC reports, impacting borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">How Prepayment and Increasing EMI Work</h2>
+        <p><strong>Prepayment</strong>: Extra payments reduce principal, lowering future interest and tenure. For a $300,000 US home loan at 6% over 30 years (EMI ≈ $1,798.65), adding $500 monthly reduces tenure to 22 years, lowering total interest to $179,765.60 and saving $67,745.40, per Bankrate’s 2025 analysis.</p>
+        <p><strong>Increasing EMI</strong>: Gradually increasing EMI (e.g., 5% annually) shortens tenure without extra payments. For the same loan, increasing EMI to $1,888.58 after 5 years reduces tenure to 27 years, saving $28,000 in interest, per Freddie Mac’s 2025 report.</p>
+        <p>For a CAD 400,000 Canadian mortgage at 5.5% over 25 years (EMI ≈ CAD 2,334.44), adding CAD 600 monthly reduces tenure to 18 years, saving CAD 92,754.40, while increasing EMI to CAD 2,451.16 after 5 years reduces tenure to 22 years, saving CAD 40,000, per CMHC’s 2025 data.</p>
+
+        <h2 class="mt-4 text-primary">Prepayment vs. Increasing EMI Comparison</h2>
+        <p>This chart compares the impact of prepayments ($500 monthly) vs. increasing EMI (5% annually) on tenure and interest for a $300,000 US home loan at 6% over 30 years.</p>
+        <canvas id="prepaymentVsEmiChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Strategies</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Type</th>
+                    <th>Loan Amount (2025)</th>
+                    <th>Strategy</th>
+                    <th>Tenure Reduction (Years)</th>
+                    <th>Interest Saved</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>Prepayment ($500/Month)</td><td>8</td><td>$67,745.40</td></tr>
+                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>Increasing EMI (5%)</td><td>3</td><td>$28,000.00</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>Prepayment (CAD 600/Month)</td><td>7</td><td>CAD 92,754.40</td></tr>
+                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>Increasing EMI (5%)</td><td>3</td><td>CAD 40,000.00</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight strategy impacts, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits and Considerations</h2>
+        <p><strong>Prepayment Benefits</strong>: Maximum interest savings, ideal for cash flow; a 2024 TransUnion study found US borrowers save 15%, while a 2023 FCAC report shows Canadian borrowers save 18%. <strong>Increasing EMI Benefits</strong>: Gradual adjustment, no extra payments; risks include income strain. Misconceptions include thinking prepayments always increase cost—however, they save significantly, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to compare prepayment and increasing EMI for your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test strategies in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('prepaymentVsEmiChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Prepayment ($500/Month)', 'Increasing EMI (5%)'],
+                    datasets: [{
+                        label: 'Tenure (Years)',
+                        data: [22, 27], // Reduced tenure
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Interest Saved ($)',
+                        data: [67745.40, 28000.00], // Interest savings
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($/Years)', font: { size: 16 } },
+                            suggestedMax: 80000,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Strategy', font: { size: 16 } },
+                            ticks: { font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>
