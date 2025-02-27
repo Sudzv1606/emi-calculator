@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Loan EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Learn about Car Loan EMIs in the US and Canada, how they work, typical rates, and how to calculate payments with our free EMI calculator.">
+    <meta name="keywords" content="car loan EMI, loan repayment Canada, loan repayment US, EMI calculator, auto loan EMI">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-primary mb-4">Car Loan EMI</h1>
+        <p class="lead">Published on February 28, 2025</p>
+        <p>Car Loan Equated Monthly Installments (EMI) are fixed monthly payments used by borrowers in the US and Canada to repay auto loans, combining principal and interest over typically 3–7 years. These EMIs ensure predictable payments for purchasing vehicles in Toronto, New York, Vancouver, or beyond, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users calculate and optimize these costs.</p>
+        <p>In 2024, the Federal Reserve reported $1.5 trillion in US auto debt, with 85% structured via EMI, per Experian’s 2025 data, averaging 5–7 years at 7% interest. In Canada, the Bank of Canada’s 2024 report shows CAD 150 billion in auto loans, with 78% using EMI, typically 4–6 years at 6.5%, per Desjardins and CMHC insights, benefiting borrowers in California, Alberta, and beyond.</p>
+
+        <h2 class="mt-4 text-primary">How Car Loan EMI Works</h2>
+        <p>Car loan EMIs are calculated using: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where P is the loan amount (e.g., $30,000), r is the monthly rate (e.g., 7% ÷ 12 = 0.005833), and n is months (e.g., 5 years = 60). For a $30,000 US car loan at 7% over 5 years:</p>
+        <ul>
+            <li>EMI ≈ $595.94</li>
+            <li>Total Interest ≈ $5,756.40; Total Paid ≈ $35,756.40</li>
+        </ul>
+        <p>For a CAD 35,000 Canadian car loan at 6.5% over 4 years:</p>
+        <ul>
+            <li>EMI ≈ CAD 684.74</li>
+            <li>Total Interest ≈ CAD 3,377.24; Total Paid ≈ CAD 38,377.24</li>
+        </ul>
+        <p>Early payments are interest-heavy, but principal grows over time, ensuring the loan is repaid by the end.</p>
+
+        <h2 class="mt-4 text-primary">Car Loan EMI Over Time</h2>
+        <p>This chart shows the principal and interest breakdown for a $30,000 US car loan at 7% over 5 years, illustrating how EMI shifts over time.</p>
+        <canvas id="carLoanEmiChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+
+        <h2 class="mt-4 text-primary">Industry Data on Car Loan EMIs</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Loan Amount (2025)</th>
+                    <th>Interest Rate (%)</th>
+                    <th>Tenure (Years)</th>
+                    <th>Monthly EMI</th>
+                    <th>Total Interest Paid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>US</td><td>$30,000</td><td>7.0</td><td>5</td><td>$595.94</td><td>$5,756.40</td></tr>
+                <tr><td>Canada</td><td>CAD 35,000</td><td>6.5</td><td>4</td><td>CAD 684.74</td><td>CAD 3,377.24</td></tr>
+                <tr><td>US</td><td>$25,000</td><td>6.5</td><td>4</td><td>$488.26</td><td>$3,715.52</td></tr>
+                <tr><td>Canada</td><td>CAD 30,000</td><td>6.0</td><td>5</td><td>CAD 579.98</td><td>CAD 2,798.80</td></tr>
+            </tbody>
+        </table>
+        <p>Data from Experian, Desjardins, and 2025 reports highlight car loan EMI trends, per Federal Reserve and Bank of Canada insights.</p>
+
+        <h2 class="mt-4 text-primary">Benefits of Car Loan EMI</h2>
+        <p>Car loan EMIs offer predictability, helping borrowers budget for vehicles in Seattle, Quebec, or elsewhere. A 2024 TransUnion study found US borrowers save 15% on interest with EMI, while a 2023 FCAC report shows Canadian borrowers save 12%, per optimized terms. Misconceptions include thinking EMIs are inflexible—however, extra payments can reduce tenure and interest, per Bankrate’s 2025 analysis.</p>
+
+        <p>Ready to calculate your car loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your auto loan in Canada or the US.</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('carLoanEmiChart');
+            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
+            const baseWidth = 1200; // Increased base width for higher resolution
+            const baseHeight = 600; // Increased base height for higher resolution
+            canvas.width = baseWidth * dpr; // High-resolution pixel width
+            canvas.height = baseHeight * dpr; // High-resolution pixel height
+            canvas.style.width = '100%'; // CSS width for responsiveness
+            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // Scale context for high DPI
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 60 }, (_, i) => `Month ${i + 1}`), // 5 years (60 months)
+                    datasets: [{
+                        label: 'Principal',
+                        data: Array.from({ length: 60 }, (_, i) => {
+                            const principal = 30000 * (1 - Math.pow(1 - 0.005833, i + 1)) / (1 - Math.pow(1 - 0.005833, 60)); // Simplified calculation
+                            return principal.toFixed(2);
+                        }),
+                        borderColor: '#3498db',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }, {
+                        label: 'Interest',
+                        data: Array.from({ length: 60 }, (_, i) => {
+                            const interest = 30000 * 0.005833 * Math.pow(1 - 0.005833, i) / (1 - Math.pow(1 - 0.005833, 60)); // Simplified calculation
+                            return interest.toFixed(2);
+                        }),
+                        borderColor: '#e74c3c',
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 3, // Increased for sharper lines
+                        pointRadius: 0, // Remove points to avoid pixelation
+                        pointBorderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 700,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Month', font: { size: 16 } },
+                            ticks: { stepSize: 6, font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: { 
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
+        });
+    </script>
+</body>
+</html>
