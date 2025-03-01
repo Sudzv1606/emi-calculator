@@ -40,29 +40,46 @@
                 <section class="card calculator-form">
                     <h1 class="text-primary">Loan EMI Calculator</h1>
                     <form id="emi-form">
-                        <label for="market">Select Market:</label>
+                        <!-- Select Market with 🌎 Emoji -->
+                        <label for="market"><span class="icon">🌎</span> Select Market:</label>
                         <select id="market" name="market" title="Select the market for interest calculation.">
                             <option value="US">United States</option>
                             <option value="Canada">Canada</option>
                         </select>
-                        <label for="loan-type">Loan Type:</label>
+ 
+                        <!-- Loan Type with 🏠 Emoji -->
+                        <label for="loan-type"><span class="icon">🏠</span> Loan Type:</label>
                         <select id="loan-type" name="loan-type" title="Select the type of loan you want to calculate EMI for.">
                             <option value="home">Home Loan</option>
                             <option value="car">Car Loan</option>
                             <option value="personal">Personal Loan</option>
                         </select>
-                        <label for="loan-amount">Loan Amount ($):</label>
+
+                        <!-- Loan Amount -->
+                        <label for="loan-amount"><span class="icon">💵</span> Loan Amount ($):</label>
                         <input type="number" id="loan-amount" name="loan-amount" required title="Enter the total loan amount.">
-                        <label for="interest-rate">Annual Interest Rate (%):</label>
-                        <input type="number" id="interest-rate" name="interest-rate" step="0.01" required title="Enter the annual interest rate in percentage.">
-                        <label for="tenure">Loan Tenure (Years):</label>
+                        <input type="range" id="loan-amount-slider" min="1000" max="1000000" step="1000" value="10000" data-input="loan-amount" class="slider">
+
+                        <!-- Interest Rate -->
+                        <label for="interest-rate"><span class="icon">📈</span> Annual Interest Rate (%):</label>
+                        <input type="number" id="interest-rate" name="interest-rate" step="0.01" value="5" title="Enter the annual interest rate in percentage.">
+                        <input type="range" id="interest-rate-slider" min="0.1" max="20" step="0.1" value="5" data-input="interest-rate" class="slider">
+
+                        <!-- Tenure -->
+                        <label for="tenure"><span class="icon">📅</span> Loan Tenure (Years):</label>
                         <input type="number" id="tenure" name="tenure" required title="Enter the loan tenure in years.">
-                        <label for="extra-payment">Extra Payment Amount ($):</label>
+                        <input type="range" id="tenure-slider" min="1" max="30" step="1" value="5" data-input="tenure" class="slider">
+
+                        <!-- Extra Payment -->
+                        <label for="extra-payment"><span class="icon">➕</span> Extra Payment Amount ($):</label>
                         <input type="number" id="extra-payment" name="extra-payment" value="0" title="Enter the extra payment amount.">
-                        <label for="extra-frequency">Extra Payment Every (Months):</label>
+
+                        <!-- Extra Frequency -->
+                        <label for="extra-frequency"><span class="icon">➕</span> Extra Payment Every (Months):</label>
                         <input type="number" id="extra-frequency" name="extra-frequency" value="0" title="Enter how often extra payments are made (in months).">
-                        <button type="button" onclick="calculateAndScroll()" class="btn-primary">Calculate EMI</button>
-                        <button type="reset" onclick="resetForm()" class="btn-secondary">Reset</button>
+
+                        <button type="button" onclick="calculateAndScroll()" class="btn-primary"><span class="icon">📊</span> Calculate EMI</button>
+                        <button type="reset" onclick="resetForm()" class="btn-secondary"><span class="icon">🔄</span> Reset</button>
                     </form>
                 </section>
             </div>
@@ -87,16 +104,17 @@
         <section class="card results">
             <h2 id="results-section" class="text-primary">Results</h2>
             <p id="emi-result">
+                <span class="icon">💳</span> Your EMI is: <span id="emi-value"></span>
                 <div id="payment-summary">
+                    <p><span class="icon">🎯</span> Total Interest Paid: <span id="total-interest"></span></p>
                     <p>Total Amount Paid: <span id="total-payment"></span></p>
-                    <p>Total Interest Paid: <span id="total-interest"></span></p>
                 </div>
             </p>
         </section>
 
         <!-- Card: Amortization Schedule -->
         <section class="card amortization-schedule">
-            <h2 class="text-primary">Amortization Schedule</h2>
+            <h2 class="text-primary"><span class="icon">📊</span> Amortization Schedule</h2>
             <table id="amortization-table" style="display:none;">
                 <thead>
                     <tr>
@@ -109,7 +127,7 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <button id="download-pdf" class="btn-primary">Download Amortization Schedule (PDF)</button>
+            <button id="download-pdf" class="btn-primary"><span class="icon">📥</span> Download Amortization Schedule (PDF)</button>
         </section>
 
         <!-- Card: Balance Chart -->
@@ -122,6 +140,34 @@
         <section class="card faqs">
             <h3 class="text-primary">Frequently Asked Questions</h3>
             <details>
+                <summary>What is an EMI calculator, and how does it work?</summary>
+                <p>An EMI (Equated Monthly Installment) calculator is a financial tool that helps you calculate your monthly loan repayment amount based on the loan amount, interest rate, and tenure. It uses a standard formula to break down your payments into principal and interest, making it easy to plan your finances for home loans, car loans, or personal loans. Our free online EMI calculator instantly provides accurate results, including an amortization schedule.</p>
+            </details>
+            <details>
+                <summary>How do I calculate my loan EMI for a home loan?</summary>
+                <p>To calculate your home loan EMI, enter the loan amount (e.g., $100,000), the annual interest rate (e.g., 3.5%), and the loan tenure (e.g., 15 years) into our EMI calculator. The tool will compute your monthly installment, total interest, and repayment schedule, helping you plan your home loan repayment effectively.</p>
+            </details>
+            <details>
+                <summary>Can I use this EMI calculator for a car loan?</summary>
+                <p>Yes, our EMI calculator supports car loans in both the US and Canada. Input your car loan amount, interest rate, and repayment tenure to get your monthly car loan EMI, along with a detailed amortization schedule. It’s a quick and accurate way to plan your vehicle financing.</p>
+            </details>
+            <details>
+                <summary>What factors affect my loan EMI amount?</summary>
+                <p>Several factors influence your loan EMI, including the loan amount, annual interest rate, and loan tenure. Higher loan amounts or interest rates increase your EMI, while a longer tenure reduces it. Using our online EMI calculator, you can adjust these variables to find an affordable repayment plan for personal loans, home loans, or car loans.</p>
+            </details>
+            <details>
+                <summary>How accurate is an online EMI calculator for personal loans?</summary>
+                <p>Our online EMI calculator provides highly accurate estimates for personal loans, home loans, and car loans, based on the principal amount, interest rate, and tenure you input. It uses the standard EMI formula, ensuring precision, but actual payments may vary slightly due to processing fees or prepayments—check with your lender for exact figures.</p>
+            </details>
+            <details>
+                <summary>What is the difference between fixed and floating interest rates in EMI calculations?</summary>
+                <p>A fixed interest rate keeps your EMI constant throughout the loan tenure, offering predictable payments for home loans or personal loans. A floating interest rate varies with market conditions, potentially changing your EMI for car loans or other loans. Our EMI calculator helps you compare both scenarios to plan your repayments effectively.</p>
+            </details>
+            <details>
+                <summary>How can I reduce my EMI using this loan calculator?</summary>
+                <p>You can reduce your EMI by lowering the loan amount, negotiating a lower interest rate, or extending the loan tenure. Use our free EMI calculator to experiment with these variables for personal loans, home loans, or car loans, and see how adjustments affect your monthly payments and total interest.</p>
+            </details>
+            <details>
                 <summary>What is an amortization schedule?</summary>
                 <p>An amortization schedule shows how each payment is split between principal and interest, and how the loan balance decreases over time.</p>
             </details>
@@ -133,16 +179,10 @@
                 <summary>How do extra payments affect my loan?</summary>
                 <p>Extra payments reduce your loan balance faster, potentially shortening your loan term and saving you interest.</p>
             </details>
-            <!-- Add remaining FAQs here for brevity -->
-            <details>
-                <summary>What is an EMI calculator, and how does it work?</summary>
-                <p>An EMI calculator is a financial tool that helps you calculate your monthly loan repayment amount based on the loan amount, interest rate, and tenure...</p>
-            </details>
-            <!-- Include other FAQs similarly -->
         </section>
     </div>
 
-      <!-- Updated Footer with Disclaimer -->
+    <!-- Updated Footer with Disclaimer -->
     <footer class="mt-5 text-center">
         <p>Explore more financial tips at our <a href="resource.html">Canada and US Loan Resource Page</a> | © 2025 EMI Calculator</p>
         <p class="disclaimer">Disclaimer: This calculator is for general informational purposes only and does not constitute financial advice. Results may vary based on individual circumstances, and we recommend consulting a financial advisor for personalized guidance.</p>

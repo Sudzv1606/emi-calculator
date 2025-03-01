@@ -32,13 +32,13 @@ body {
 .intro-content {
   display: flex;
   align-items: center; /* Vertically center the logo and text */
-  gap: 20px; /* Space between logo and text, increased for better separation */
+  gap: 20px; /* Space between logo and text */
 }
 
 .logo {
   width: 60px; /* Fixed width to match screenshot */
   height: 60px; /* Fixed height to match screenshot */
-  object-fit: contain; /* Ensure logo fits within dimensions without stretching */
+  object-fit: contain; /* Ensure logo fits within dimensions */
 }
 
 /* Style for the welcome text */
@@ -46,8 +46,15 @@ body {
   font-family: 'Merriweather', serif;
   font-size: 0.95rem;
   color: #2c3e50;
-  margin: 0; /* Remove default margin for better alignment */
+  margin: 0; /* Remove default margin */
   flex: 1; /* Allow text to take remaining space */
+}
+
+/* Icons */
+.icon {
+  margin-right: 8px; /* Space between icon and text */
+  font-size: 1.2rem; /* Slightly larger for visibility */
+  vertical-align: middle; /* Align with text */
 }
 
 /* Headings */
@@ -76,9 +83,11 @@ label {
   font-weight: 500; /* Medium for clarity */
   color: #2c3e50; /* Dark gray for labels */
   margin-bottom: 5px; /* Adjusted for consistency */
+  display: flex;
+  align-items: center; /* Center icon and text vertically */
 }
 
-input, select {
+input[type="number"], select {
   font-family: 'Inter', sans-serif; /* Sans-serif for inputs */
   width: 100%;
   padding: 10px; /* Slightly larger padding for modern look */
@@ -89,10 +98,52 @@ input, select {
   margin-bottom: 5px; /* Adjusted for consistency */
 }
 
-input:focus, select:focus {
+input[type="number"]:focus, select:focus {
   border-color: #00bfa5; /* Mint green on focus */
   box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25); /* Mint green shadow */
   outline: none; /* Remove default outline */
+}
+
+/* Sliders */
+.slider {
+  width: 100%;
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none;
+  height: 8px; /* Track height */
+  background: #f5f5f5; /* Light gray track */
+  border-radius: 4px; /* Rounded track */
+  outline: none;
+  margin-bottom: 15px; /* Space below slider */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; /* Thumb size */
+  height: 20px;
+  background: #004d40; /* Navy blue thumb */
+  border-radius: 50%; /* Circular thumb */
+  cursor: pointer;
+  border: 2px solid #ffffff; /* White border for contrast */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #004d40;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb:hover, .slider::-moz-range-thumb:hover {
+  background: #003d30; /* Darker navy on hover */
 }
 
 /* Buttons */
@@ -110,7 +161,13 @@ button {
   margin-right: 15px;
   margin-top: 10px; /* Adjusted for consistency */
   text-align: center;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center icon and text */
+}
+
+button .icon {
+  margin-right: 8px; /* Space between icon and text in buttons */
 }
 
 button:last-child {
@@ -150,6 +207,12 @@ button:last-child:hover {
   font-size: 1.2rem;
   color: #004d40; /* Navy blue for emphasis */
   margin-top: 20px;
+  display: flex;
+  align-items: center; /* Center icon with text */
+}
+
+#emi-result .icon {
+  margin-right: 8px; /* Space between icon and text */
 }
 
 #payment-summary {
@@ -162,6 +225,12 @@ button:last-child:hover {
 #payment-summary p {
   margin: 5px 0;
   color: #2c3e50; /* Dark gray for consistency */
+  display: flex;
+  align-items: center; /* Center icon with text */
+}
+
+#payment-summary p .icon {
+  margin-right: 8px; /* Space between icon and text */
 }
 
 /* Tables */
@@ -267,6 +336,11 @@ summary:hover {
       font-size: 0.9rem; /* Slightly smaller text on mobile */
   }
 
+  .icon {
+      font-size: 1rem; /* Slightly smaller icons on mobile */
+      margin-right: 6px; /* Reduced spacing */
+  }
+
   h1 {
       font-size: 1.5rem;
   }
@@ -275,8 +349,17 @@ summary:hover {
       max-width: 100%;
   }
 
-  input, select, button {
+  input[type="number"], select, .slider {
       padding: 8px; /* Reduced padding for mobile */
+  }
+
+  .slider {
+      height: 6px; /* Slightly thinner track on mobile */
+  }
+
+  .slider::-webkit-slider-thumb, .slider::-moz-range-thumb {
+      width: 16px; /* Smaller thumb on mobile */
+      height: 16px;
   }
 
   #amortization-table th, #amortization-table td {
@@ -340,4 +423,13 @@ footer a {
 footer a:hover {
   text-decoration: underline;
   color: #ffffff; /* White on hover for emphasis */
+}
+
+/* Disclaimer Styling */
+footer .disclaimer {
+  font-family: 'Merriweather', serif;
+  font-size: 0.85rem; /* Slightly smaller for distinction */
+  color: #e0e0e0; /* Lighter gray for contrast on navy background */
+  margin: 5px 20px 0; /* Small top margin, padding on sides for mobile */
+  line-height: 1.4; /* Better readability */
 }

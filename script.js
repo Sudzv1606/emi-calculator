@@ -1,9 +1,10 @@
+// Function to calculate EMI and update the results
 function calculateEMI() {
     // Reset previous results
     const emiResult = document.getElementById('emi-result');
     const table = document.getElementById('amortization-table');
     const chartCanvas = document.getElementById('balance-chart');
-    const downloadBtn = document.getElementById('download-pdf'); // Reference to the download button
+    const downloadBtn = document.getElementById('download-pdf');
     emiResult.innerText = '';
     emiResult.classList.remove('show');
     table.style.display = 'none';
@@ -15,6 +16,7 @@ function calculateEMI() {
     const market = document.getElementById('market').value;
     const loanType = document.getElementById('loan-type').value;
     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+    const annualRate = parseFloat(document.getElementById('interest-rate').value); // Use the input value
     const tenureYears = parseInt(document.getElementById('tenure').value);
     const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
     const extraFrequency = parseInt(document.getElementById('extra-frequency').value) || 0;
@@ -25,27 +27,17 @@ function calculateEMI() {
         emiResult.classList.add('show');
         return;
     }
+    if (isNaN(annualRate) || annualRate <= 0) {
+        emiResult.innerText = "Please enter a valid positive interest rate.";
+        emiResult.classList.add('show');
+        return;
+    }
     if (extraPayment < 0 || extraFrequency < 0) {
         emiResult.innerText = "Extra payment amount and frequency must be non-negative.";
         emiResult.classList.add('show');
         return;
     }
 
-    // Define interest rates based on market and loan type
-    const rates = {
-        US: {
-            home: 3.5,    // 3.5% for Home Loan
-            car: 5.0,     // 5.0% for Car Loan
-            personal: 7.0 // 7.0% for Personal Loan
-        },
-        Canada: {
-            home: 3.0,    // 3.0% for Home Loan
-            car: 4.5,     // 4.5% for Car Loan
-            personal: 6.5 // 6.5% for Personal Loan
-        }
-    };
-
-    const annualRate = rates[market][loanType];
     const monthlyRate = annualRate / 100 / 12; // Convert annual rate to monthly rate
     const tenureMonths = tenureYears * 12;
 
@@ -57,12 +49,13 @@ function calculateEMI() {
     // Display the result
     emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
     emiResult.classList.add('show');
+    // Update the emi-value span for consistency (optional, since we're setting the whole text)
+    const emiValueSpan = document.getElementById('emi-value');
+    if (emiValueSpan) emiValueSpan.innerText = emi.toFixed(2);
     generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency, market, loanType, annualRate);
 }
 
-// Add event listener to recalculate when selections or inputs change
-document.getElementById('emi-form').addEventListener('change', calculateEMI);
-
+// Function to calculate EMI and scroll to results
 function calculateAndScroll() {
     calculateEMI(); // Run the calculation
     const resultsSection = document.getElementById('results-section');
@@ -70,6 +63,101 @@ function calculateAndScroll() {
         resultsSection.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to Results
     }
 }
+
+// Function to reset the form, sliders, and results
+function resetForm() {
+    // Reset the form inputs to their initial values
+    const form = document.getElementById('emi-form');
+    form.reset();
+
+    // Reset sliders to their initial values
+    const sliders = [
+        { id: 'loan-amount-slider', inputId: 'loan-amount', defaultValue: 10000 },
+        { id: 'interest-rate-slider', inputId: 'interest-rate', defaultValue: 5 },
+        { id: 'tenure-slider', inputId: 'tenure', defaultValue: 5 }
+    ];
+
+    sliders.forEach(slider => {
+        const sliderElement = document.getElementById(slider.id);
+        const numberInput = document.getElementById(slider.inputId);
+        sliderElement.value = slider.defaultValue;
+        numberInput.value = slider.defaultValue;
+    });
+
+    // Reset results, table, and chart
+    const emiResult = document.getElementById('emi-result');
+    const table = document.getElementById('amortization-table');
+    const chartCanvas = document.getElementById('balance-chart');
+    const downloadBtn = document.getElementById('download-pdf');
+
+    emiResult.innerText = '';
+    emiResult.classList.remove('show');
+    table.style.display = 'none';
+    table.classList.remove('show');
+    chartCanvas.classList.remove('show');
+    if (downloadBtn) downloadBtn.style.display = 'none';
+
+    // Clear totals
+    document.getElementById('total-payment').innerText = '';
+    document.getElementById('total-interest').innerText = '';
+
+    // Clear the chart
+    if (window.myChart) {
+        window.myChart.destroy();
+        window.myChart = null;
+    }
+
+    // Clear the amortization table
+    const tableBody = document.querySelector('#amortization-table tbody');
+    tableBody.innerHTML = '';
+
+    // Optionally, trigger calculateEMI() to show default results
+    // calculateEMI();
+}
+
+// Function to initialize sliders and sync with number inputs
+function initializeSliders() {
+    // Get all sliders
+    const sliders = document.querySelectorAll('.slider');
+    
+    sliders.forEach(slider => {
+        // Get the corresponding number input using the data-input attribute
+        const inputId = slider.getAttribute('data-input');
+        const numberInput = document.getElementById(inputId);
+
+        // Set initial value of number input to match slider
+        numberInput.value = slider.value;
+
+        // Sync slider to number input
+        slider.addEventListener('input', () => {
+            numberInput.value = slider.value;
+            calculateEMI(); // Trigger EMI calculation
+        });
+
+        // Sync number input to slider
+        numberInput.addEventListener('input', () => {
+            let value = parseFloat(numberInput.value);
+            // Ensure the value stays within slider bounds
+            if (value < slider.min) value = slider.min;
+            if (value > slider.max) value = slider.max;
+            if (isNaN(value)) value = slider.min; // Fallback if input is invalid
+            slider.value = value;
+            calculateEMI(); // Trigger EMI calculation
+        });
+    });
+}
+
+// Add event listener to recalculate when selections change
+document.getElementById('emi-form').addEventListener('change', calculateEMI);
+
+// Initialize sliders on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeSliders();
+    const downloadBtn = document.getElementById('download-pdf');
+    if (downloadBtn) {
+        downloadBtn.style.display = 'none'; // Hide download button initially
+    }
+});
 
 let chartInstance = null; // Store the chart instance globally
 
@@ -247,11 +335,3 @@ function downloadPDF() {
 
 // Add event listener for the download button
 document.getElementById('download-pdf').addEventListener('click', downloadPDF);
-
-// Initialize to hide the download button on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const downloadBtn = document.getElementById('download-pdf');
-    if (downloadBtn) {
-        downloadBtn.style.display = 'none'; // Hide initially
-    }
-});
