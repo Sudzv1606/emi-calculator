@@ -8,23 +8,46 @@ body {
 
 /* Container */
 .container {
-  background-color: #ffffff; /* White for content areas */
-  padding: 20px;
-  border-radius: 8px; /* Slightly larger radius for a modern look */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Limits width on large screens */
+  margin: 0 auto; /* Centers the container */
+  padding: 20px; /* Outer spacing */
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 30px; /* Space between cards */
 }
 
-/* New Intro Container for Logo and Text */
+/* Card Styles */
+.card {
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+}
+
+/* Intro Container for Logo and Text */
 .intro-container {
+  padding: 20px; /* Already set by .card, reinforcing here */
+}
+
+.intro-content {
   display: flex;
-  align-items: center;
-  gap: 15px; /* Space between logo and text */
-  margin-bottom: 20px; /* Space below the intro section */
+  align-items: center; /* Vertically center the logo and text */
+  gap: 20px; /* Space between logo and text, increased for better separation */
 }
 
 .logo {
-  height: 100%; /* Adjust this based on your logo size */
-  width: auto; /* Maintain aspect ratio */
+  width: 60px; /* Fixed width to match screenshot */
+  height: 60px; /* Fixed height to match screenshot */
+  object-fit: contain; /* Ensure logo fits within dimensions without stretching */
+}
+
+/* Style for the welcome text */
+.intro-text {
+  font-family: 'Merriweather', serif;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  margin: 0; /* Remove default margin for better alignment */
+  flex: 1; /* Allow text to take remaining space */
 }
 
 /* Headings */
@@ -35,7 +58,7 @@ h1, h2, h3 {
 }
 
 /* Paragraphs and General Text */
-.container > p, .col-md-6 p, .col-md-6 ul, label {
+.card > p, .card ul, label {
   font-family: 'Merriweather', serif; /* Serif for body text */
   color: #2c3e50; /* Dark gray for text */
   font-size: 0.95rem; /* Maintain readability */
@@ -105,25 +128,19 @@ button:last-child:hover {
 }
 
 /* Informative Content */
-.col-md-6 ul {
+.card ul {
   font-family: 'Merriweather', serif; /* Serif for lists */
   padding-left: 20px;
   color: #2c3e50; /* Dark gray for list items */
   font-size: 0.95rem;
 }
 
-.col-md-6 h3 {
+.card h3 {
   font-family: 'Inter', sans-serif; /* Sans-serif for subheadings */
   font-weight: 700; /* Bold for emphasis */
   margin-top: 0;
   font-size: 1.25rem;
   color: #004d40; /* Navy blue for subheadings */
-}
-
-.col-md-6 p {
-  font-family: 'Merriweather', serif; /* Serif for paragraphs */
-  font-size: 0.95rem;
-  color: #2c3e50; /* Dark gray for paragraphs */
 }
 
 /* Results and Summary */
@@ -231,25 +248,27 @@ summary:hover {
       padding: 10px;
   }
 
-  /* Adjusted intro container for mobile */
-  .intro-container {
-    display: flex; /* Keep flex direction as row */
-    align-items: center;
-    gap: 10px; /* Reduced gap for mobile */
+  .card {
+      padding: 15px; /* Slightly reduced padding on mobile */
+  }
+
+  .intro-content {
+      flex-direction: column; /* Stack logo and text on mobile */
+      align-items: flex-start;
+      gap: 10px; /* Reduced gap for mobile */
   }
 
   .logo {
-    height: 100%; /* Smaller logo on mobile */
-    width: auto;
+      width: 50px; /* Smaller logo on mobile */
+      height: 50px;
+  }
+
+  .intro-text {
+      font-size: 0.9rem; /* Slightly smaller text on mobile */
   }
 
   h1 {
-      font-family: 'Inter', sans-serif; /* Sans-serif for mobile headings */
       font-size: 1.5rem;
-  }
-
-  .col-md-6 {
-      margin-bottom: 15px;
   }
 
   form {
@@ -257,12 +276,10 @@ summary:hover {
   }
 
   input, select, button {
-      font-family: 'Inter', sans-serif; /* Sans-serif for mobile inputs/buttons */
       padding: 8px; /* Reduced padding for mobile */
   }
 
   #amortization-table th, #amortization-table td {
-      font-family: 'Inter', sans-serif; /* Sans-serif for mobile tables */
       padding: 8px; /* Reduced padding for mobile */
       font-size: 0.9rem;
   }
@@ -286,7 +303,6 @@ summary:hover {
   }
 
   #amortization-table td::before {
-      font-family: 'Inter', sans-serif; /* Sans-serif for mobile labels */
       content: attr(data-label);
       position: absolute;
       left: 0;
@@ -303,7 +319,6 @@ summary:hover {
   }
 
   summary {
-      font-family: 'Inter', sans-serif; /* Sans-serif for mobile summaries */
       padding: 8px; /* Reduced padding for mobile */
   }
 }
