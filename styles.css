@@ -433,3 +433,154 @@ footer .disclaimer {
   margin: 5px 20px 0; /* Small top margin, padding on sides for mobile */
   line-height: 1.4; /* Better readability */
 }
+/* Social Share Section in Footer */
+.social-share {
+  margin-top: 15px;
+}
+
+.social-share p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #ffffff; /* White text on navy background */
+  margin-bottom: 8px;
+}
+
+.social-share a {
+  margin: 0 10px; /* Space between icons */
+  text-decoration: none;
+}
+
+.social-icon {
+  font-size: 1.5rem; /* Larger icons for visibility */
+  color: #00bfa5; /* Mint green to match footer links */
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ffffff; /* White on hover, matching footer link hover */
+}
+
+/* Responsive Design for Social Share */
+@media (max-width: 576px) {
+  .social-share a {
+      margin: 0 8px; /* Reduced spacing on mobile */
+  }
+
+  .social-icon {
+      font-size: 1.3rem; /* Slightly smaller on mobile */
+  }
+}
+/* Mini Quiz Card */
+.mini-quiz {
+  padding: 20px;
+}
+
+.quiz-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-question {
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.quiz-question.active {
+  display: block; /* Show the active question */
+  opacity: 1;
+}
+
+.quiz-question p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.quiz-question label {
+  font-family: 'Merriweather', serif;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  margin-right: 10px;
+}
+
+.quiz-question input[type="radio"] {
+  margin-right: 5px;
+}
+
+.quiz-question button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: #004d40; /* Navy blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+.quiz-question button:hover {
+  background-color: #003d30; /* Darker navy blue */
+}
+
+.quiz-feedback {
+  font-family: 'Merriweather', serif;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.quiz-feedback.correct {
+  color: #00bfa5; /* Mint green for correct answers */
+}
+
+.quiz-feedback.incorrect {
+  color: #d32f2f; /* Red for incorrect answers */
+}
+
+.quiz-completion {
+  display: none;
+  text-align: center;
+}
+
+.quiz-completion p {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.quiz-completion button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design for Mini Quiz */
+@media (max-width: 576px) {
+  .mini-quiz {
+      padding: 15px;
+  }
+
+  .quiz-question p {
+      font-size: 0.9rem;
+  }
+
+  .quiz-question label {
+      font-size: 0.85rem;
+  }
+
+  .quiz-question button {
+      padding: 6px 12px;
+      font-size: 0.9rem;
+  }
+
+  .quiz-feedback {
+      font-size: 0.8rem;
+  }
+
+  .quiz-completion p {
+      font-size: 0.9rem;
+  }
+}
