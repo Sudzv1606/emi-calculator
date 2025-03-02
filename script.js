@@ -1,7 +1,16 @@
-// Function to calculate EMI and update the results
+const loanTypeInterestRates = {
+    general: 10,  // Personal loans typically have higher rates
+    home: 5,      // Home loans (mortgages) typically have lower rates
+    car: 7        // Car loans are often in between
+};
+
+const exchangeRate = {
+    CADtoUSD: 0.74, // 1 CAD = 0.74 USD
+    USDtoCAD: 1 / 0.74 // 1 USD = 1.35 CAD
+};
+
 function calculateEMI() {
-    console.log("calculateEMI triggered"); // Debugging log to confirm function is called
-    // Reset previous results
+    console.log("calculateEMI triggered");
     const emiResult = document.getElementById('emi-result');
     const table = document.getElementById('amortization-table');
     const chartCanvas = document.getElementById('balance-chart');
@@ -10,22 +19,32 @@ function calculateEMI() {
     table.style.display = 'none';
     table.classList.remove('show');
     chartCanvas.classList.remove('show');
-    if (downloadBtn) downloadBtn.style.display = 'none'; // Hide download button initially
+    if (downloadBtn) downloadBtn.style.display = 'none';
 
-    // Get input values
     const currency = document.getElementById('currency').value;
     const loanType = document.getElementById('loan-type').value;
     let loanAmount = parseFloat(document.getElementById('loan-amount').value);
-    const annualRate = parseFloat(document.getElementById('interest-rate').value);
+    let annualRate = parseFloat(document.getElementById('interest-rate').value);
     const tenureYears = parseInt(document.getElementById('tenure').value);
-    const prepayment = parseFloat(document.getElementById('prepayment').value) || 0;
-    const fees = parseFloat(document.getElementById('fees').value) || 0;
-    const taxes = parseFloat(document.getElementById('taxes').value) || 0;
+    let prepayment = parseFloat(document.getElementById('prepayment').value) || 0;
+    let fees = parseFloat(document.getElementById('fees').value) || 0;
+    let taxes = parseFloat(document.getElementById('taxes').value) || 0;
 
-    // Adjust loan amount with fees and taxes
+    // Adjust interest rate based on loan type if the user hasn't provided a custom rate
+    if (isNaN(annualRate) || annualRate <= 0) {
+        annualRate = loanTypeInterestRates[loanType] || 5;
+    }
+
+    // Convert all monetary values to the selected currency (base currency is CAD)
+    if (currency === 'USD') {
+        loanAmount *= exchangeRate.CADtoUSD;
+        prepayment *= exchangeRate.CADtoUSD;
+        fees *= exchangeRate.CADtoUSD;
+        taxes *= exchangeRate.CADtoUSD;
+    }
+
     loanAmount += fees + taxes;
 
-    // Check for invalid inputs
     if (isNaN(loanAmount) || isNaN(tenureYears) || loanAmount <= 0 || tenureYears <= 0) {
         emiResult.innerHTML = "<p>Please enter valid positive numbers for loan amount and tenure.</p>";
         emiResult.classList.add('show');
@@ -42,21 +61,17 @@ function calculateEMI() {
         return;
     }
 
-    const monthlyRate = annualRate / 100 / 12; // Convert annual rate to monthly
+    const monthlyRate = annualRate / 100 / 12;
     const tenureMonths = tenureYears * 12;
 
-    // EMI Formula (without prepayment)
     const numerator = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths);
     const denominator = Math.pow(1 + monthlyRate, tenureMonths) - 1;
     const baseEmi = numerator / denominator || 0;
 
-    // Calculate EMI with prepayment effect
     const { emi, actualMonths, totalInterest, totalPayments } = calculateWithPrepayment(loanAmount, monthlyRate, tenureMonths, baseEmi, prepayment);
 
-    // Display the result with currency symbol
     const currencySymbol = currency === 'CAD' ? 'C$' : '$';
 
-    // Ensure the DOM structure exists before updating
     if (!document.getElementById('emi-value') || !document.getElementById('total-interest') || !document.getElementById('total-payment')) {
         emiResult.innerHTML = `
             <p><span class="icon">💳</span> Your EMI is: <span id="emi-value"></span></p>
@@ -68,12 +83,10 @@ function calculateEMI() {
             </div>`;
     }
 
-    // Update the individual span elements
     document.getElementById('emi-value').textContent = `${currencySymbol}${emi.toFixed(2)}`;
     document.getElementById('total-interest').textContent = `${currencySymbol}${totalInterest.toFixed(2)}`;
     document.getElementById('total-payment').textContent = `${currencySymbol}${totalPayments.toFixed(2)}`;
 
-    // Update prepayment-related fields
     const monthsSavedElement = document.getElementById('months-saved');
     const interestSavedElement = document.getElementById('interest-saved');
     const monthsSavedValue = document.getElementById('months-saved-value');
@@ -94,7 +107,6 @@ function calculateEMI() {
     generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, prepayment, currency, loanType, annualRate);
 }
 
-// Helper function to calculate EMI with prepayment
 function calculateWithPrepayment(loanAmount, monthlyRate, tenureMonths, baseEmi, prepayment) {
     let remainingBalance = loanAmount;
     let totalInterest = 0;
@@ -120,7 +132,6 @@ function calculateWithPrepayment(loanAmount, monthlyRate, tenureMonths, baseEmi,
     };
 }
 
-// Function to calculate EMI and scroll to results
 function calculateAndScroll() {
     calculateEMI();
     const resultsSection = document.getElementById('results-section');
@@ -129,9 +140,8 @@ function calculateAndScroll() {
     }
 }
 
-// Function to reset the form, sliders, and results
 function resetForm() {
-    console.log("resetForm triggered"); // Debugging log
+    console.log("resetForm triggered");
     const form = document.getElementById('emi-form');
     form.reset();
 
@@ -153,7 +163,6 @@ function resetForm() {
     const chartCanvas = document.getElementById('balance-chart');
     const downloadBtn = document.getElementById('download-pdf');
 
-    // Rebuild the #emi-result structure to ensure all elements are present
     emiResult.innerHTML = `
         <p><span class="icon">💳</span> Your EMI is: <span id="emi-value"></span></p>
         <div id="payment-summary">
@@ -177,38 +186,32 @@ function resetForm() {
     const tableBody = document.querySelector('#amortization-table tbody');
     tableBody.innerHTML = '';
 
-    // Reinitialize sliders and ensure event listeners are reattached
     initializeSliders();
 
-    // Manually trigger calculateEMI to handle default values after reset
     setTimeout(() => {
         calculateEMI();
-    }, 0); // Use setTimeout to ensure DOM updates are complete
+    }, 0);
 }
 
-// Function to initialize sliders and sync with number inputs, including currency toggle
 function initializeSliders() {
     const sliders = document.querySelectorAll('.slider');
     const inputs = document.querySelectorAll('#emi-form input[type="number"], #emi-form select');
 
-    // Handle sliders
     sliders.forEach(slider => {
         const inputId = slider.getAttribute('data-input');
         const numberInput = document.getElementById(inputId);
         numberInput.value = slider.value;
 
-        // Remove existing event listeners to prevent duplicates
         slider.removeEventListener('input', slider.inputHandler);
         numberInput.removeEventListener('input', numberInput.inputHandler);
 
-        // Add new event listeners with debugging logs
         slider.inputHandler = () => {
-            console.log(`Slider ${inputId} changed to ${slider.value}`); // Debugging log
+            console.log(`Slider ${inputId} changed to ${slider.value}`);
             numberInput.value = slider.value;
             calculateEMI();
         };
         numberInput.inputHandler = () => {
-            console.log(`Number input ${inputId} changed to ${numberInput.value}`); // Debugging log
+            console.log(`Number input ${inputId} changed to ${numberInput.value}`);
             let value = parseFloat(numberInput.value);
             if (value < slider.min) value = slider.min;
             if (value > slider.max) value = slider.max;
@@ -221,19 +224,16 @@ function initializeSliders() {
         numberInput.addEventListener('input', numberInput.inputHandler);
     });
 
-    // Handle currency toggle and other inputs
     inputs.forEach(input => {
-        // Remove existing event listeners to prevent duplicates
         input.removeEventListener('change', input.changeHandler);
         input.removeEventListener('input', input.inputHandler);
 
-        // Add event listeners for change and input events
         input.changeHandler = () => {
-            console.log(`Input ${input.id} changed to ${input.value}`); // Debugging log
+            console.log(`Input ${input.id} changed to ${input.value}`);
             calculateEMI();
         };
         input.inputHandler = () => {
-            console.log(`Input ${input.id} input to ${input.value}`); // Debugging log
+            console.log(`Input ${input.id} input to ${input.value}`);
             calculateEMI();
         };
 
@@ -241,28 +241,23 @@ function initializeSliders() {
         input.addEventListener('input', input.inputHandler);
     });
 
-    // Handle currency toggle specifically
     const currencySelect = document.getElementById('currency');
     const currencySymbols = document.querySelectorAll('#currency-symbol, #currency-symbol-prepayment, #currency-symbol-fees, #currency-symbol-taxes');
     
-    // Remove existing event listener to prevent duplicates
     currencySelect.removeEventListener('change', currencySelect.changeHandler);
 
-    // Add new event listener
     currencySelect.changeHandler = () => {
-        console.log(`Currency changed to ${currencySelect.value}`); // Debugging log
+        console.log(`Currency changed to ${currencySelect.value}`);
         const symbol = currencySelect.value === 'CAD' ? 'C$' : '$';
         currencySymbols.forEach(span => span.textContent = symbol);
         calculateEMI();
     };
     currencySelect.addEventListener('change', currencySelect.changeHandler);
 
-    // Set initial currency symbol
     const initialSymbol = currencySelect.value === 'CAD' ? 'C$' : '$';
     currencySymbols.forEach(span => span.textContent = initialSymbol);
 }
 
-// Initialize sliders and currency toggle on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeSliders();
     const downloadBtn = document.getElementById('download-pdf');
@@ -345,7 +340,6 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, prepay
     if (downloadBtn) downloadBtn.style.display = 'block';
 }
 
-// Function to download the amortization schedule as a PDF with additional details
 function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
@@ -393,5 +387,4 @@ function downloadPDF() {
     doc.save("amortization_schedule.pdf");
 }
 
-// Add event listener for the download button
 document.getElementById('download-pdf').addEventListener('click', downloadPDF);
