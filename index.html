@@ -84,43 +84,47 @@
                     <h1 class="text-primary">EMI Calculator for US & Canada</h1>
                     <p>Our <strong>free EMI calculator with amortization table</strong> helps you calculate monthly payments for loans in the US and Canada. Get a downloadable schedule, a visual graph, and a full breakdown of total EMI and interest perfect for planning your finances in seconds!</p>
                     <form id="emi-form">
-                        <!-- Select Market with 🌎 Emoji -->
-                        <label for="market"><span class="icon">🌎</span> Select Market:</label>
-                        <select id="market" name="market" title="Select the market for interest calculation.">
-                            <option value="US">United States</option>
-                            <option value="Canada">Canada</option>
+                        <!-- Select Market with 🌎 Emoji (Updated to Currency Toggle) -->
+                        <label for="currency"><span class="icon">🌎</span> Currency:</label>
+                        <select id="currency" name="currency" title="Select the currency for calculations.">
+                            <option value="CAD">CAD</option>
+                            <option value="USD">USD</option>
                         </select>
- 
+
                         <!-- Loan Type with 🏠 Emoji -->
                         <label for="loan-type"><span class="icon">🏠</span> Loan Type:</label>
                         <select id="loan-type" name="loan-type" title="Select the type of loan you want to calculate EMI for.">
+                            <option value="general">General</option>
                             <option value="home">Home Loan</option>
                             <option value="car">Car Loan</option>
-                            <option value="personal">Personal Loan</option>
                         </select>
 
-                        <!-- Loan Amount -->
-                        <label for="loan-amount"><span class="icon">💵</span> Loan Amount ($):</label>
+                        <!-- Loan Amount with Slider -->
+                        <label for="loan-amount"><span class="icon">💵</span> Loan Amount (<span id="currency-symbol">$</span>):</label>
                         <input type="number" id="loan-amount" name="loan-amount" required title="Enter the total loan amount.">
                         <input type="range" id="loan-amount-slider" min="1000" max="1000000" step="1000" value="10000" data-input="loan-amount" class="slider">
 
-                        <!-- Interest Rate -->
+                        <!-- Interest Rate with Slider -->
                         <label for="interest-rate"><span class="icon">📈</span> Annual Interest Rate (%):</label>
                         <input type="number" id="interest-rate" name="interest-rate" step="0.01" value="5" title="Enter the annual interest rate in percentage.">
                         <input type="range" id="interest-rate-slider" min="0.1" max="20" step="0.1" value="5" data-input="interest-rate" class="slider">
 
-                        <!-- Tenure -->
+                        <!-- Tenure with Slider -->
                         <label for="tenure"><span class="icon">📅</span> Loan Tenure (Years):</label>
                         <input type="number" id="tenure" name="tenure" required title="Enter the loan tenure in years.">
                         <input type="range" id="tenure-slider" min="1" max="30" step="1" value="5" data-input="tenure" class="slider">
 
-                        <!-- Extra Payment -->
-                        <label for="extra-payment"><span class="icon">➕</span> Extra Payment Amount ($):</label>
-                        <input type="number" id="extra-payment" name="extra-payment" value="0" title="Enter the extra payment amount.">
+                        <!-- Prepayment Amount -->
+                        <label for="prepayment"><span class="icon">➕</span> Prepayment Amount (<span id="currency-symbol-prepayment">$</span>):</label>
+                        <input type="number" id="prepayment" name="prepayment" value="0" title="Enter the extra monthly prepayment amount.">
 
-                        <!-- Extra Frequency -->
-                        <label for="extra-frequency"><span class="icon">➕</span> Extra Payment Every (Months):</label>
-                        <input type="number" id="extra-frequency" name="extra-frequency" value="0" title="Enter how often extra payments are made (in months).">
+                        <!-- Fees -->
+                        <label for="fees"><span class="icon">💰</span> Additional Fees (<span id="currency-symbol-fees">$</span>):</label>
+                        <input type="number" id="fees" name="fees" value="0" title="Enter any additional fees.">
+
+                        <!-- Taxes -->
+                        <label for="taxes"><span class="icon">🧾</span> Taxes (<span id="currency-symbol-taxes">$</span>):</label>
+                        <input type="number" id="taxes" name="taxes" value="0" title="Enter any applicable taxes.">
 
                         <button type="button" onclick="calculateAndScroll()" class="btn-primary"><span class="icon">📊</span> Calculate EMI</button>
                         <button type="reset" onclick="resetForm()" class="btn-secondary"><span class="icon">🔄</span> Reset</button>
@@ -149,13 +153,15 @@
         <!-- Card: Results -->
         <section class="card results">
             <h2 id="results-section" class="text-primary">Results</h2>
-            <p id="emi-result">
-                <span class="icon">💳</span> Your EMI is: <span id="emi-value"></span>
+            <div id="emi-result">
+                <p><span class="icon">💳</span> Your EMI is: <span id="emi-value"></span></p>
                 <div id="payment-summary">
                     <p><span class="icon">🎯</span> Total Interest Paid: <span id="total-interest"></span></p>
                     <p>Total Amount Paid: <span id="total-payment"></span></p>
+                    <p id="months-saved" style="display: none;">Months Saved: <span id="months-saved-value"></span></p>
+                    <p id="interest-saved" style="display: none;">Interest Saved: <span id="interest-saved-value"></span></p>
                 </div>
-            </p>
+            </div>
         </section>
 
         <!-- Card: Amortization Schedule -->

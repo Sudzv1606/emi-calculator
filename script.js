@@ -1,11 +1,11 @@
 // Function to calculate EMI and update the results
 function calculateEMI() {
+    console.log("calculateEMI triggered"); // Debugging log to confirm function is called
     // Reset previous results
     const emiResult = document.getElementById('emi-result');
     const table = document.getElementById('amortization-table');
     const chartCanvas = document.getElementById('balance-chart');
     const downloadBtn = document.getElementById('download-pdf');
-    emiResult.innerText = '';
     emiResult.classList.remove('show');
     table.style.display = 'none';
     table.classList.remove('show');
@@ -13,64 +13,128 @@ function calculateEMI() {
     if (downloadBtn) downloadBtn.style.display = 'none'; // Hide download button initially
 
     // Get input values
-    const market = document.getElementById('market').value;
+    const currency = document.getElementById('currency').value;
     const loanType = document.getElementById('loan-type').value;
-    const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-    const annualRate = parseFloat(document.getElementById('interest-rate').value); // Use the input value
+    let loanAmount = parseFloat(document.getElementById('loan-amount').value);
+    const annualRate = parseFloat(document.getElementById('interest-rate').value);
     const tenureYears = parseInt(document.getElementById('tenure').value);
-    const extraPayment = parseFloat(document.getElementById('extra-payment').value) || 0;
-    const extraFrequency = parseInt(document.getElementById('extra-frequency').value) || 0;
+    const prepayment = parseFloat(document.getElementById('prepayment').value) || 0;
+    const fees = parseFloat(document.getElementById('fees').value) || 0;
+    const taxes = parseFloat(document.getElementById('taxes').value) || 0;
+
+    // Adjust loan amount with fees and taxes
+    loanAmount += fees + taxes;
 
     // Check for invalid inputs
     if (isNaN(loanAmount) || isNaN(tenureYears) || loanAmount <= 0 || tenureYears <= 0) {
-        emiResult.innerText = "Please enter valid positive numbers for loan amount and tenure.";
+        emiResult.innerHTML = "<p>Please enter valid positive numbers for loan amount and tenure.</p>";
         emiResult.classList.add('show');
         return;
     }
     if (isNaN(annualRate) || annualRate <= 0) {
-        emiResult.innerText = "Please enter a valid positive interest rate.";
+        emiResult.innerHTML = "<p>Please enter a valid positive interest rate.</p>";
         emiResult.classList.add('show');
         return;
     }
-    if (extraPayment < 0 || extraFrequency < 0) {
-        emiResult.innerText = "Extra payment amount and frequency must be non-negative.";
+    if (prepayment < 0 || fees < 0 || taxes < 0) {
+        emiResult.innerHTML = "<p>Prepayment amount, fees, and taxes must be non-negative.</p>";
         emiResult.classList.add('show');
         return;
     }
 
-    const monthlyRate = annualRate / 100 / 12; // Convert annual rate to monthly rate
+    const monthlyRate = annualRate / 100 / 12; // Convert annual rate to monthly
     const tenureMonths = tenureYears * 12;
 
-    // EMI Formula
+    // EMI Formula (without prepayment)
     const numerator = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths);
     const denominator = Math.pow(1 + monthlyRate, tenureMonths) - 1;
-    const emi = numerator / denominator || 0; // Default to 0 if calculation fails
-    
-    // Display the result
-    emiResult.innerText = `Your EMI is: $${emi.toFixed(2)}`;
+    const baseEmi = numerator / denominator || 0;
+
+    // Calculate EMI with prepayment effect
+    const { emi, actualMonths, totalInterest, totalPayments } = calculateWithPrepayment(loanAmount, monthlyRate, tenureMonths, baseEmi, prepayment);
+
+    // Display the result with currency symbol
+    const currencySymbol = currency === 'CAD' ? 'C$' : '$';
+
+    // Ensure the DOM structure exists before updating
+    if (!document.getElementById('emi-value') || !document.getElementById('total-interest') || !document.getElementById('total-payment')) {
+        emiResult.innerHTML = `
+            <p><span class="icon">💳</span> Your EMI is: <span id="emi-value"></span></p>
+            <div id="payment-summary">
+                <p><span class="icon">🎯</span> Total Interest Paid: <span id="total-interest"></span></p>
+                <p>Total Amount Paid: <span id="total-payment"></span></p>
+                <p id="months-saved" style="display: none;">Months Saved: <span id="months-saved-value"></span></p>
+                <p id="interest-saved" style="display: none;">Interest Saved: <span id="interest-saved-value"></span></p>
+            </div>`;
+    }
+
+    // Update the individual span elements
+    document.getElementById('emi-value').textContent = `${currencySymbol}${emi.toFixed(2)}`;
+    document.getElementById('total-interest').textContent = `${currencySymbol}${totalInterest.toFixed(2)}`;
+    document.getElementById('total-payment').textContent = `${currencySymbol}${totalPayments.toFixed(2)}`;
+
+    // Update prepayment-related fields
+    const monthsSavedElement = document.getElementById('months-saved');
+    const interestSavedElement = document.getElementById('interest-saved');
+    const monthsSavedValue = document.getElementById('months-saved-value');
+    const interestSavedValue = document.getElementById('interest-saved-value');
+
+    if (prepayment > 0) {
+        monthsSavedElement.style.display = 'flex';
+        interestSavedElement.style.display = 'flex';
+        monthsSavedValue.textContent = (tenureMonths - actualMonths);
+        interestSavedValue.textContent = `${currencySymbol}${(baseEmi * tenureMonths - loanAmount - totalInterest).toFixed(2)}`;
+    } else {
+        monthsSavedElement.style.display = 'none';
+        interestSavedElement.style.display = 'none';
+    }
+
     emiResult.classList.add('show');
-    // Update the emi-value span for consistency (optional, since we're setting the whole text)
-    const emiValueSpan = document.getElementById('emi-value');
-    if (emiValueSpan) emiValueSpan.innerText = emi.toFixed(2);
-    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency, market, loanType, annualRate);
+
+    generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, prepayment, currency, loanType, annualRate);
+}
+
+// Helper function to calculate EMI with prepayment
+function calculateWithPrepayment(loanAmount, monthlyRate, tenureMonths, baseEmi, prepayment) {
+    let remainingBalance = loanAmount;
+    let totalInterest = 0;
+    let totalPayments = 0;
+    let months = 0;
+
+    while (remainingBalance > 0 && months < tenureMonths) {
+        months++;
+        const interest = remainingBalance * monthlyRate;
+        totalInterest += interest;
+        const payment = Math.min(baseEmi + prepayment, remainingBalance + interest);
+        const principal = payment - interest;
+        remainingBalance -= principal;
+        totalPayments += payment;
+        if (remainingBalance < 0) remainingBalance = 0;
+    }
+
+    return {
+        emi: baseEmi,
+        actualMonths: months,
+        totalInterest: totalInterest,
+        totalPayments: totalPayments
+    };
 }
 
 // Function to calculate EMI and scroll to results
 function calculateAndScroll() {
-    calculateEMI(); // Run the calculation
+    calculateEMI();
     const resultsSection = document.getElementById('results-section');
     if (resultsSection) {
-        resultsSection.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to Results
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
 // Function to reset the form, sliders, and results
 function resetForm() {
-    // Reset the form inputs to their initial values
+    console.log("resetForm triggered"); // Debugging log
     const form = document.getElementById('emi-form');
     form.reset();
 
-    // Reset sliders to their initial values
     const sliders = [
         { id: 'loan-amount-slider', inputId: 'loan-amount', defaultValue: 10000 },
         { id: 'interest-rate-slider', inputId: 'interest-rate', defaultValue: 5 },
@@ -84,139 +148,172 @@ function resetForm() {
         numberInput.value = slider.defaultValue;
     });
 
-    // Reset results, table, and chart
     const emiResult = document.getElementById('emi-result');
     const table = document.getElementById('amortization-table');
     const chartCanvas = document.getElementById('balance-chart');
     const downloadBtn = document.getElementById('download-pdf');
 
-    emiResult.innerText = '';
+    // Rebuild the #emi-result structure to ensure all elements are present
+    emiResult.innerHTML = `
+        <p><span class="icon">💳</span> Your EMI is: <span id="emi-value"></span></p>
+        <div id="payment-summary">
+            <p><span class="icon">🎯</span> Total Interest Paid: <span id="total-interest"></span></p>
+            <p>Total Amount Paid: <span id="total-payment"></span></p>
+            <p id="months-saved" style="display: none;">Months Saved: <span id="months-saved-value"></span></p>
+            <p id="interest-saved" style="display: none;">Interest Saved: <span id="interest-saved-value"></span></p>
+        </div>`;
+
     emiResult.classList.remove('show');
     table.style.display = 'none';
     table.classList.remove('show');
     chartCanvas.classList.remove('show');
     if (downloadBtn) downloadBtn.style.display = 'none';
 
-    // Clear totals
-    document.getElementById('total-payment').innerText = '';
-    document.getElementById('total-interest').innerText = '';
-
-    // Clear the chart
     if (window.myChart) {
         window.myChart.destroy();
         window.myChart = null;
     }
 
-    // Clear the amortization table
     const tableBody = document.querySelector('#amortization-table tbody');
     tableBody.innerHTML = '';
 
-    // Optionally, trigger calculateEMI() to show default results
-    // calculateEMI();
+    // Reinitialize sliders and ensure event listeners are reattached
+    initializeSliders();
+
+    // Manually trigger calculateEMI to handle default values after reset
+    setTimeout(() => {
+        calculateEMI();
+    }, 0); // Use setTimeout to ensure DOM updates are complete
 }
 
-// Function to initialize sliders and sync with number inputs
+// Function to initialize sliders and sync with number inputs, including currency toggle
 function initializeSliders() {
-    // Get all sliders
     const sliders = document.querySelectorAll('.slider');
-    
+    const inputs = document.querySelectorAll('#emi-form input[type="number"], #emi-form select');
+
+    // Handle sliders
     sliders.forEach(slider => {
-        // Get the corresponding number input using the data-input attribute
         const inputId = slider.getAttribute('data-input');
         const numberInput = document.getElementById(inputId);
-
-        // Set initial value of number input to match slider
         numberInput.value = slider.value;
 
-        // Sync slider to number input
-        slider.addEventListener('input', () => {
-            numberInput.value = slider.value;
-            calculateEMI(); // Trigger EMI calculation
-        });
+        // Remove existing event listeners to prevent duplicates
+        slider.removeEventListener('input', slider.inputHandler);
+        numberInput.removeEventListener('input', numberInput.inputHandler);
 
-        // Sync number input to slider
-        numberInput.addEventListener('input', () => {
+        // Add new event listeners with debugging logs
+        slider.inputHandler = () => {
+            console.log(`Slider ${inputId} changed to ${slider.value}`); // Debugging log
+            numberInput.value = slider.value;
+            calculateEMI();
+        };
+        numberInput.inputHandler = () => {
+            console.log(`Number input ${inputId} changed to ${numberInput.value}`); // Debugging log
             let value = parseFloat(numberInput.value);
-            // Ensure the value stays within slider bounds
             if (value < slider.min) value = slider.min;
             if (value > slider.max) value = slider.max;
-            if (isNaN(value)) value = slider.min; // Fallback if input is invalid
+            if (isNaN(value)) value = slider.min;
             slider.value = value;
-            calculateEMI(); // Trigger EMI calculation
-        });
+            calculateEMI();
+        };
+
+        slider.addEventListener('input', slider.inputHandler);
+        numberInput.addEventListener('input', numberInput.inputHandler);
     });
+
+    // Handle currency toggle and other inputs
+    inputs.forEach(input => {
+        // Remove existing event listeners to prevent duplicates
+        input.removeEventListener('change', input.changeHandler);
+        input.removeEventListener('input', input.inputHandler);
+
+        // Add event listeners for change and input events
+        input.changeHandler = () => {
+            console.log(`Input ${input.id} changed to ${input.value}`); // Debugging log
+            calculateEMI();
+        };
+        input.inputHandler = () => {
+            console.log(`Input ${input.id} input to ${input.value}`); // Debugging log
+            calculateEMI();
+        };
+
+        input.addEventListener('change', input.changeHandler);
+        input.addEventListener('input', input.inputHandler);
+    });
+
+    // Handle currency toggle specifically
+    const currencySelect = document.getElementById('currency');
+    const currencySymbols = document.querySelectorAll('#currency-symbol, #currency-symbol-prepayment, #currency-symbol-fees, #currency-symbol-taxes');
+    
+    // Remove existing event listener to prevent duplicates
+    currencySelect.removeEventListener('change', currencySelect.changeHandler);
+
+    // Add new event listener
+    currencySelect.changeHandler = () => {
+        console.log(`Currency changed to ${currencySelect.value}`); // Debugging log
+        const symbol = currencySelect.value === 'CAD' ? 'C$' : '$';
+        currencySymbols.forEach(span => span.textContent = symbol);
+        calculateEMI();
+    };
+    currencySelect.addEventListener('change', currencySelect.changeHandler);
+
+    // Set initial currency symbol
+    const initialSymbol = currencySelect.value === 'CAD' ? 'C$' : '$';
+    currencySymbols.forEach(span => span.textContent = initialSymbol);
 }
 
-// Add event listener to recalculate when selections change
-document.getElementById('emi-form').addEventListener('change', calculateEMI);
-
-// Initialize sliders on page load
+// Initialize sliders and currency toggle on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeSliders();
     const downloadBtn = document.getElementById('download-pdf');
-    if (downloadBtn) {
-        downloadBtn.style.display = 'none'; // Hide download button initially
-    }
+    if (downloadBtn) downloadBtn.style.display = 'none';
 });
 
-let chartInstance = null; // Store the chart instance globally
+let chartInstance = null;
 
-function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraPayment, extraFrequency, market, loanType, annualRate) {
+function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, prepayment, currency, loanType, annualRate) {
     let balance = loanAmount;
     const tableBody = document.querySelector('#amortization-table tbody');
     tableBody.innerHTML = '';
     const balances = [];
-    let totalInterest = 0; // Track total interest paid
+    let totalInterest = 0;
 
-    for (let i = 0; i < tenureMonths; i++) {
+    const currencySymbol = currency === 'CAD' ? 'C$' : '$';
+
+    for (let i = 0; balance > 0 && i < tenureMonths; i++) {
         const interest = balance * monthlyRate;
-        totalInterest += interest; // Accumulate monthly interest
-        let principal = emi - interest;
+        totalInterest += interest;
+        const payment = Math.min(emi + prepayment, balance + interest);
+        const principal = payment - interest;
         balance -= principal;
 
-        if (extraFrequency > 0 && (i + 1) % extraFrequency === 0) {
-            balance -= extraPayment;
-        }
-        if (balance < 0) balance = 0;
         balances.push(balance.toFixed(2));
 
         const row = document.createElement('tr');
         row.innerHTML = `
             <td data-label="Month">${i + 1}</td>
-            <td data-label="Payment">$${emi.toFixed(2)}</td>
-            <td data-label="Principal">$${principal.toFixed(2)}</td>
-            <td data-label="Interest">$${interest.toFixed(2)}</td>
-            <td data-label="Balance">$${balance.toFixed(2)}</td>
+            <td data-label="Payment">${currencySymbol}${payment.toFixed(2)}</td>
+            <td data-label="Principal">${currencySymbol}${principal.toFixed(2)}</td>
+            <td data-label="Interest">${currencySymbol}${interest.toFixed(2)}</td>
+            <td data-label="Balance">${currencySymbol}${balance.toFixed(2)}</td>
         `;
         tableBody.appendChild(row);
-
-        if (balance <= 0) break;
     }
 
     const table = document.getElementById('amortization-table');
     table.style.display = 'table';
     setTimeout(() => table.classList.add('show'), 10);
 
-    // Calculate total amount paid (EMI * number of payments, adjusted for early payoff)
-    const actualMonths = balances.length; // Number of payments, considering early payoff
-    const totalPayments = emi * actualMonths;
-
-    // Display totals
-    document.getElementById('total-payment').innerText = `$${totalPayments.toFixed(2)}`;
-    document.getElementById('total-interest').innerText = `$${totalInterest.toFixed(2)}`;
-
-    // Generate chart with high resolution
     const chartCanvas = document.getElementById('balance-chart');
-    const dpr = window.devicePixelRatio || 1; // Get device pixel ratio for high DPI screens
-    chartCanvas.width = 800 * dpr; // Increase pixel width for sharpness
-    chartCanvas.height = 400 * dpr; // Increase pixel height for sharpness
-    chartCanvas.style.width = '100%'; // CSS width
-    chartCanvas.style.height = '400px'; // CSS height
+    const dpr = window.devicePixelRatio || 1;
+    chartCanvas.width = 800 * dpr;
+    chartCanvas.height = 400 * dpr;
+    chartCanvas.style.width = '100%';
+    chartCanvas.style.height = '400px';
     const ctx = chartCanvas.getContext('2d');
-    ctx.scale(dpr, dpr); // Scale context for high DPI
-    if (window.myChart) window.myChart.destroy(); // Clear previous chart instance
-    console.log('Canvas Size - Width:', chartCanvas.width, 'Height:', chartCanvas.height, 'Style Width:', chartCanvas.style.width, 'Style Height:', chartCanvas.style.height, 'Display:', chartCanvas.style.display, 'Opacity:', chartCanvas.style.opacity);
-    console.log('Chart Data - Balances:', balances, 'Tenure Months:', tenureMonths);
+    ctx.scale(dpr, dpr);
+    if (window.myChart) window.myChart.destroy();
+
     window.myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -234,44 +331,18 @@ function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, extraP
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            aspectRatio: 2,
-            animation: {
-                duration: 1000,
-                loop: false
-            },
             scales: {
-                x: {
-                    title: { display: true, text: 'Month' },
-                    type: 'linear',
-                    position: 'bottom',
-                    max: tenureMonths,
-                    ticks: { stepSize: 1 }
-                },
-                y: {
-                    title: { display: true, text: 'Balance ($)' },
-                    beginAtZero: true,
-                    suggestedMax: loanAmount * 1.1
-                }
+                x: { title: { display: true, text: 'Month' }, type: 'linear', position: 'bottom', max: tenureMonths, ticks: { stepSize: 1 } },
+                y: { title: { display: true, text: `Balance (${currencySymbol})` }, beginAtZero: true, suggestedMax: loanAmount * 1.1 }
             },
-            plugins: {
-                legend: { display: true, position: 'top' },
-                tooltip: { enabled: true }
-            },
-            layout: {
-                padding: 20
-            }
+            plugins: { legend: { display: true, position: 'top' }, tooltip: { enabled: true } },
+            layout: { padding: 20 }
         }
     });
-    setTimeout(() => {
-        chartCanvas.classList.add('show');
-        console.log('Chart Visibility - Display:', chartCanvas.style.display, 'Opacity:', chartCanvas.style.opacity, 'Class:', chartCanvas.className);
-    }, 10); // Fade in chart and log visibility
+    setTimeout(() => chartCanvas.classList.add('show'), 10);
 
-    // Show the download button after the table is generated
     const downloadBtn = document.getElementById('download-pdf');
-    if (downloadBtn) {
-        downloadBtn.style.display = 'block'; // Show the button
-    }
+    if (downloadBtn) downloadBtn.style.display = 'block';
 }
 
 // Function to download the amortization schedule as a PDF with additional details
@@ -279,33 +350,29 @@ function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
-    // Add loan details at the top
+    const currency = document.getElementById('currency').value;
+    const currencySymbol = currency === 'CAD' ? 'C$' : '$';
+
     doc.text("Amortization Schedule", 10, 10);
     const loanDetails = [
-        `Country: ${document.getElementById('market').value === 'US' ? 'United States' : 'Canada'}`,
-        `Loan Type: ${document.getElementById('loan-type').value === 'home' ? 'Home Loan' : document.getElementById('loan-type').value === 'car' ? 'Car Loan' : 'Personal Loan'}`,
-        `Loan Amount: $${parseFloat(document.getElementById('loan-amount').value).toFixed(2)}`,
+        `Currency: ${currency}`,
+        `Loan Type: ${document.getElementById('loan-type').value === 'home' ? 'Home Loan' : document.getElementById('loan-type').value === 'car' ? 'Car Loan' : 'General'}`,
+        `Loan Amount: ${currencySymbol}${parseFloat(document.getElementById('loan-amount').value).toFixed(2)}`,
+        `Fees: ${currencySymbol}${parseFloat(document.getElementById('fees').value || 0).toFixed(2)}`,
+        `Taxes: ${currencySymbol}${parseFloat(document.getElementById('taxes').value || 0).toFixed(2)}`,
         `Interest Rate: ${document.getElementById('interest-rate').value}%`,
-        `EMI: $${parseFloat(document.getElementById('emi-result').textContent.replace('Your EMI is: $', '')).toFixed(2)}`,
-        `Total Amount Paid: $${document.getElementById('total-payment').textContent.replace('$', '')}`,
-        `Total Interest Paid: $${document.getElementById('total-interest').textContent.replace('$', '')}`
+        `EMI: ${currencySymbol}${parseFloat(document.getElementById('emi-value').textContent).toFixed(2)}`
     ];
     let startY = 20;
-    loanDetails.forEach((detail, index) => {
-        doc.text(detail, 10, startY + (index * 10));
-    });
-    startY += (loanDetails.length * 10) + 10; // Adjust starting Y for the table
+    loanDetails.forEach((detail, index) => doc.text(detail, 10, startY + (index * 10)));
+    startY += (loanDetails.length * 10) + 10;
 
-    // Extract amortization table data
     const table = document.getElementById('amortization-table');
     const rows = table.querySelectorAll('tr');
     const tableData = [];
-
-    // Add headers
     const headers = ['Month', 'Payment', 'Principal', 'Interest', 'Balance'];
     tableData.push(headers);
 
-    // Add data rows
     rows.forEach(row => {
         const cells = row.querySelectorAll('td');
         if (cells.length) {
@@ -315,19 +382,12 @@ function downloadPDF() {
         }
     });
 
-    // Generate table in PDF
     doc.autoTable({
         startY: startY,
-        head: [tableData[0]], // Headers
-        body: tableData.slice(1), // Data rows
+        head: [tableData[0]],
+        body: tableData.slice(1),
         styles: { fontSize: 10 },
-        columnStyles: {
-            0: { cellWidth: 20 }, // Month
-            1: { cellWidth: 40 }, // Payment
-            2: { cellWidth: 40 }, // Principal
-            3: { cellWidth: 40 }, // Interest
-            4: { cellWidth: 40 }  // Balance
-        }
+        columnStyles: { 0: { cellWidth: 20 }, 1: { cellWidth: 40 }, 2: { cellWidth: 40 }, 3: { cellWidth: 40 }, 4: { cellWidth: 40 } }
     });
 
     doc.save("amortization_schedule.pdf");

@@ -146,6 +146,14 @@ input[type="number"]:focus, select:focus {
   background: #003d30; /* Darker navy on hover */
 }
 
+/* Currency Symbol Styling */
+#currency-symbol, #currency-symbol-prepayment, #currency-symbol-fees, #currency-symbol-taxes {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-left: 4px;
+}
+
 /* Buttons */
 button {
   font-family: 'Inter', sans-serif; /* Sans-serif for buttons */
@@ -207,8 +215,11 @@ button:last-child:hover {
   font-size: 1.2rem;
   color: #004d40; /* Navy blue for emphasis */
   margin-top: 20px;
-  display: flex;
-  align-items: center; /* Center icon with text */
+}
+
+#emi-result p {
+  display: block; /* Ensure each p starts on a new line */
+  margin: 5px 0; /* Consistent spacing */
 }
 
 #emi-result .icon {
@@ -217,20 +228,25 @@ button:last-child:hover {
 
 #payment-summary {
   font-family: 'Merriweather', serif; /* Serif for summary text */
-  margin-top: 10px;
   font-size: 1.1rem;
   color: #2c3e50; /* Dark gray for summary text */
+  margin-top: 10px;
+  display: block; /* Use block to ensure vertical stacking */
 }
 
 #payment-summary p {
-  margin: 5px 0;
-  color: #2c3e50; /* Dark gray for consistency */
-  display: flex;
-  align-items: center; /* Center icon with text */
+  display: flex; /* Keep label and value inline within each p */
+  align-items: center; /* Vertically center */
+  margin: 5px 0; /* Consistent spacing */
+  width: 100%; /* Ensure each p takes full width */
 }
 
 #payment-summary p .icon {
   margin-right: 8px; /* Space between icon and text */
+}
+
+#payment-summary p span {
+  margin-left: 5px; /* Small space between label and value */
 }
 
 /* Tables */
@@ -433,6 +449,7 @@ footer .disclaimer {
   margin: 5px 20px 0; /* Small top margin, padding on sides for mobile */
   line-height: 1.4; /* Better readability */
 }
+
 /* Social Share Section in Footer */
 .social-share {
   margin-top: 15px;
@@ -470,6 +487,7 @@ footer .disclaimer {
       font-size: 1.3rem; /* Slightly smaller on mobile */
   }
 }
+
 /* Mini Quiz Card */
 .mini-quiz {
   padding: 20px;
