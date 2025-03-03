@@ -7,7 +7,6 @@
     <meta name="description" content="Calculate EMI for US & Canada loans with our free tool. Get amortization tables, graphs, and interest breakdowns!">
     <meta name="keywords" content="EMI calculator, loan calculator, financial tool, loan repayment, online calculator">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -15,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <!-- Schema Markup -->
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -58,7 +56,6 @@
           }
         }
     </script>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCZN9RQ3Y3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -69,7 +66,6 @@
 </head>
 <body>
     <div class="container mt-5">
-        <!-- Card: Introductory Section -->
         <section class="card intro-container">
             <div class="intro-content">
                 <img src="logo.png" alt="Loan EMI Calculator Logo" class="logo">
@@ -78,20 +74,17 @@
         </section>
 
         <div class="row">
-            <!-- Card: Calculator Form -->
             <div class="col-md-6">
                 <section class="card calculator-form">
                     <h1 class="text-primary">EMI Calculator for US & Canada</h1>
                     <p>Our <strong>free EMI calculator with amortization table</strong> helps you calculate monthly payments for loans in the US and Canada. Get a downloadable schedule, a visual graph, and a full breakdown of total EMI and interest perfect for planning your finances in seconds!</p>
                     <form id="emi-form">
-                        <!-- Select Market with 🌎 Emoji (Updated to Currency Toggle) -->
                         <label for="currency"><span class="icon">🌎</span> Currency:</label>
                         <select id="currency" name="currency" title="Select the currency for calculations.">
                             <option value="CAD">CAD</option>
                             <option value="USD">USD</option>
                         </select>
 
-                        <!-- Loan Type with 🏠 Emoji -->
                         <label for="loan-type"><span class="icon">🏠</span> Loan Type:</label>
                         <select id="loan-type" name="loan-type" title="Select the type of loan you want to calculate EMI for.">
                             <option value="general">General</option>
@@ -99,44 +92,38 @@
                             <option value="car">Car Loan</option>
                         </select>
 
-                        <!-- Loan Amount with Slider -->
                         <label for="loan-amount"><span class="icon">💵</span> Loan Amount (<span id="currency-symbol">$</span>):</label>
                         <input type="number" id="loan-amount" name="loan-amount" required title="Enter the total loan amount.">
                         <input type="range" id="loan-amount-slider" min="1000" max="1000000" step="1000" value="10000" data-input="loan-amount" class="slider">
 
-                        <!-- Interest Rate with Slider -->
                         <label for="interest-rate"><span class="icon">📈</span> Annual Interest Rate (%):</label>
                         <input type="number" id="interest-rate" name="interest-rate" step="0.01" value="5" title="Enter the annual interest rate in percentage.">
                         <input type="range" id="interest-rate-slider" min="0.1" max="20" step="0.1" value="5" data-input="interest-rate" class="slider">
 
-                        <!-- Tenure with Slider -->
                         <label for="tenure"><span class="icon">📅</span> Loan Tenure (Years):</label>
                         <input type="number" id="tenure" name="tenure" required title="Enter the loan tenure in years.">
                         <input type="range" id="tenure-slider" min="1" max="30" step="1" value="5" data-input="tenure" class="slider">
 
-                        <!-- Prepayment Amount -->
                         <label for="prepayment"><span class="icon">➕</span> Prepayment Amount (<span id="currency-symbol-prepayment">$</span>):</label>
                         <input type="number" id="prepayment" name="prepayment" value="0" title="Enter the extra monthly prepayment amount.">
 
-                        <!-- Fees -->
                         <label for="fees"><span class="icon">💰</span> Additional Fees (<span id="currency-symbol-fees">$</span>):</label>
                         <input type="number" id="fees" name="fees" value="0" title="Enter any additional fees.">
 
-                        <!-- Taxes -->
                         <label for="taxes"><span class="icon">🧾</span> Taxes (<span id="currency-symbol-taxes">$</span>):</label>
                         <input type="number" id="taxes" name="taxes" value="0" title="Enter any applicable taxes.">
 
                         <button type="button" onclick="calculateAndScroll()" class="btn-primary"><span class="icon">📊</span> Calculate EMI</button>
+                        <button type="button" onclick="toggleCompareMode()" class="btn-primary"><span class="icon">🔍</span> Compare Loans</button>
                         <button type="reset" onclick="resetForm()" class="btn-secondary"><span class="icon">🔄</span> Reset</button>
                     </form>
                 </section>
             </div>
 
-            <!-- Card: Informative Content -->
             <div class="col-md-6">
                 <section class="card informative-content">
                     <h2 class="text-primary">Why Use Our Loan EMI Calculator for US & Canada?</h2>
-                        <p>Designed for North American users, our <strong>loan EMI calculator with graph US</strong> and <strong>Canada EMI calculator with interest breakdown</strong> offers insights you won’t find elsewhere. See your loan visualized and download your schedule for free!</p>
+                    <p>Designed for North American users, our <strong>loan EMI calculator with graph US</strong> and <strong>Canada EMI calculator with interest breakdown</strong> offers insights you won’t find elsewhere. See your loan visualized and download your schedule for free!</p>
                     <h3 class="text-primary">Understanding Your Loan</h3>
                     <ul>
                         <li><strong>EMI (Equated Monthly Installment)</strong>: The fixed amount you pay each month to repay your loan.</li>
@@ -146,11 +133,29 @@
                     </ul>
                     <h3 class="text-primary">How to Use the Calculator</h3>
                     <p>For example, if you have a loan of $10,000 at an annual interest rate of 5% for 2 years, with an extra payment of $100 every 6 months, the calculator will show your EMI, a detailed amortization schedule, and a chart of your remaining balance over time.</p>
+                    <!-- Add the Borrowing Calculator Here -->
+                    <div class="borrowing-calculator" id="borrowing-calculator" style="display: block;">
+                        <h3 class="text-primary">How Much Can I Borrow?</h3>
+                        <div class="borrowing-inputs">
+                            <label for="monthly-income">Monthly Income (<span id="currency-symbol-monthly-income">$</span>):</label>
+                            <input type="number" id="monthly-income" value="5000" placeholder="Enter your monthly income">
+                            <label for="monthly-expenses">Monthly Expenses (<span id="currency-symbol-monthly-expenses">$</span>):</label>
+                            <input type="number" id="monthly-expenses" value="2000" placeholder="Enter your monthly expenses">
+                            <label for="borrowing-interest-rate">Interest Rate (%):</label>
+                            <input type="number" id="borrowing-interest-rate" step="0.01" value="5">
+                            <label for="borrowing-tenure">Tenure (Years):</label>
+                            <input type="number" id="borrowing-tenure" value="5">
+                        </div>
+                        <button type="button" onclick="calculateBorrowingCapacity()" class="btn-primary"><span class="icon">📊</span> Calculate</button>
+                        <div id="borrowing-result" style="display: none;">
+                            <p><span class="icon">💸</span> Maximum Loan Amount: <span id="max-loan-amount"></span></p>
+                            <p>Monthly EMI: <span id="borrowing-emi"></span></p>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
 
-        <!-- Card: Results -->
         <section class="card results">
             <h2 id="results-section" class="text-primary">Results</h2>
             <div id="emi-result">
@@ -164,7 +169,71 @@
             </div>
         </section>
 
-        <!-- Card: Amortization Schedule -->
+        <section class="card comparison-table" id="comparison-table" style="display: none;">
+            <h2 class="text-primary">Compare Loans</h2>
+            <div class="comparison-inputs">
+                <div class="scenario">
+                    <h3>Scenario 1</h3>
+                    <label for="scenario1-loan-amount">Loan Amount (<span id="currency-symbol-scenario1">$</span>):</label>
+                    <input type="number" id="scenario1-loan-amount" value="10000">
+                    <label for="scenario1-interest-rate">Interest Rate (%):</label>
+                    <input type="number" id="scenario1-interest-rate" step="0.01" value="5">
+                    <label for="scenario1-tenure">Tenure (Years):</label>
+                    <input type="number" id="scenario1-tenure" value="5">
+                    <label for="scenario1-prepayment">Prepayment (<span id="currency-symbol-scenario1-prepayment">$</span>):</label>
+                    <input type="number" id="scenario1-prepayment" value="0">
+                </div>
+                <div class="scenario">
+                    <h3>Scenario 2</h3>
+                    <label for="scenario2-loan-amount">Loan Amount (<span id="currency-symbol-scenario2">$</span>):</label>
+                    <input type="number" id="scenario2-loan-amount" value="15000">
+                    <label for="scenario2-interest-rate">Interest Rate (%):</label>
+                    <input type="number" id="scenario2-interest-rate" step="0.01" value="7">
+                    <label for="scenario2-tenure">Tenure (Years):</label>
+                    <input type="number" id="scenario2-tenure" value="3">
+                    <label for="scenario2-prepayment">Prepayment (<span id="currency-symbol-scenario2-prepayment">$</span>):</label>
+                    <input type="number" id="scenario2-prepayment" value="100">
+                </div>
+            </div>
+            <button type="button" onclick="compareScenarios()" class="btn-primary"><span class="icon">📊</span> Compare</button>
+            <table id="comparison-table-data" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Scenario 1</th>
+                        <th>Scenario 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EMI</td>
+                        <td id="scenario1-emi"></td>
+                        <td id="scenario2-emi"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Interest Paid</td>
+                        <td id="scenario1-total-interest"></td>
+                        <td id="scenario2-total-interest"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Amount Paid</td>
+                        <td id="scenario1-total-payment"></td>
+                        <td id="scenario2-total-payment"></td>
+                    </tr>
+                    <tr id="scenario1-months-saved-row" style="display: none;">
+                        <td>Months Saved</td>
+                        <td id="scenario1-months-saved"></td>
+                        <td id="scenario2-months-saved"></td>
+                    </tr>
+                    <tr id="scenario1-interest-saved-row" style="display: none;">
+                        <td>Interest Saved</td>
+                        <td id="scenario1-interest-saved"></td>
+                        <td id="scenario2-interest-saved"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
         <section class="card amortization-schedule">
             <h2 class="text-primary"><span class="icon">📊</span> Amortization Schedule</h2>
             <table id="amortization-table" style="display:none;">
@@ -182,13 +251,11 @@
             <button id="download-pdf" class="btn-primary"><span class="icon">📥</span> Download Amortization Schedule (PDF)</button>
         </section>
 
-        <!-- Card: Balance Chart -->
         <section class="card chart">
             <h2 class="text-primary">Loan Chart</h2>
             <canvas id="balance-chart" width="400" height="200"></canvas>
         </section>
 
-        <!-- Card: FAQs -->
         <section class="card faqs">
             <h3 class="text-primary">Frequently Asked Questions</h3>
             <details>
@@ -234,7 +301,6 @@
         </section>
     </div>
 
-    <!-- Updated Footer with Disclaimer -->
     <footer class="mt-5 text-center">
         <p>Explore more financial tips at our <a href="resource.html">Canada and US Loan Resource Page</a> | © 2025 EMI Calculator</p>
         <p class="disclaimer">Disclaimer: This calculator is for general informational purposes only and does not constitute financial advice. Results may vary based on individual circumstances, and we recommend consulting a financial advisor for personalized guidance.</p>

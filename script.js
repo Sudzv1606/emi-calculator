@@ -1,13 +1,31 @@
 const loanTypeInterestRates = {
-    general: 10,  // Personal loans typically have higher rates
-    home: 5,      // Home loans (mortgages) typically have lower rates
-    car: 7        // Car loans are often in between
+    general: 10,
+    home: 5,
+    car: 7
 };
 
-const exchangeRate = {
-    CADtoUSD: 0.74, // 1 CAD = 0.74 USD
-    USDtoCAD: 1 / 0.74 // 1 USD = 1.35 CAD
+let dynamicExchangeRate = {
+    CADtoUSD: 0.74,
+    USDtoCAD: 1 / 0.74
 };
+
+async function fetchExchangeRate() {
+    try {
+        const response = await fetch('https://v6.exchangerate-api.com/v6/YOUR_API_KEY/latest/CAD');
+        const data = await response.json();
+        if (data.result === 'success') {
+            dynamicExchangeRate.CADtoUSD = data.conversion_rates.USD;
+            dynamicExchangeRate.USDtoCAD = 1 / data.conversion_rates.USD;
+            console.log(`Updated exchange rate: 1 CAD = ${dynamicExchangeRate.CADtoUSD} USD`);
+        } else {
+            console.error('Failed to fetch exchange rate:', data);
+        }
+    } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        dynamicExchangeRate.CADtoUSD = 0.74;
+        dynamicExchangeRate.USDtoCAD = 1 / 0.74;
+    }
+}
 
 function calculateEMI() {
     console.log("calculateEMI triggered");
@@ -30,17 +48,15 @@ function calculateEMI() {
     let fees = parseFloat(document.getElementById('fees').value) || 0;
     let taxes = parseFloat(document.getElementById('taxes').value) || 0;
 
-    // Adjust interest rate based on loan type if the user hasn't provided a custom rate
     if (isNaN(annualRate) || annualRate <= 0) {
         annualRate = loanTypeInterestRates[loanType] || 5;
     }
 
-    // Convert all monetary values to the selected currency (base currency is CAD)
     if (currency === 'USD') {
-        loanAmount *= exchangeRate.CADtoUSD;
-        prepayment *= exchangeRate.CADtoUSD;
-        fees *= exchangeRate.CADtoUSD;
-        taxes *= exchangeRate.CADtoUSD;
+        loanAmount *= dynamicExchangeRate.CADtoUSD;
+        prepayment *= dynamicExchangeRate.CADtoUSD;
+        fees *= dynamicExchangeRate.CADtoUSD;
+        taxes *= dynamicExchangeRate.CADtoUSD;
     }
 
     loanAmount += fees + taxes;
@@ -140,6 +156,137 @@ function calculateAndScroll() {
     }
 }
 
+function toggleCompareMode() {
+    const comparisonTable = document.getElementById('comparison-table');
+    if (comparisonTable.style.display === 'none' || comparisonTable.style.display === '') {
+        comparisonTable.style.display = 'block';
+        const currency = document.getElementById('currency').value;
+        const symbol = currency === 'CAD' ? 'C$' : '$';
+        document.getElementById('currency-symbol-scenario1').textContent = symbol;
+        document.getElementById('currency-symbol-scenario1-prepayment').textContent = symbol;
+        document.getElementById('currency-symbol-scenario2').textContent = symbol;
+        document.getElementById('currency-symbol-scenario2-prepayment').textContent = symbol;
+    } else {
+        comparisonTable.style.display = 'none';
+    }
+}
+
+function compareScenarios() {
+    const currency = document.getElementById('currency').value;
+    const currencySymbol = currency === 'CAD' ? 'C$' : '$';
+
+    let loanAmount1 = parseFloat(document.getElementById('scenario1-loan-amount').value);
+    let annualRate1 = parseFloat(document.getElementById('scenario1-interest-rate').value);
+    const tenureYears1 = parseInt(document.getElementById('scenario1-tenure').value);
+    let prepayment1 = parseFloat(document.getElementById('scenario1-prepayment').value) || 0;
+
+    let loanAmount2 = parseFloat(document.getElementById('scenario2-loan-amount').value);
+    let annualRate2 = parseFloat(document.getElementById('scenario2-interest-rate').value);
+    const tenureYears2 = parseInt(document.getElementById('scenario2-tenure').value);
+    let prepayment2 = parseFloat(document.getElementById('scenario2-prepayment').value) || 0;
+
+    if (isNaN(annualRate1) || annualRate1 <= 0) {
+        annualRate1 = loanTypeInterestRates[document.getElementById('loan-type').value] || 5;
+    }
+    if (isNaN(annualRate2) || annualRate2 <= 0) {
+        annualRate2 = loanTypeInterestRates[document.getElementById('loan-type').value] || 5;
+    }
+
+    if (currency === 'USD') {
+        loanAmount1 *= dynamicExchangeRate.CADtoUSD;
+        prepayment1 *= dynamicExchangeRate.CADtoUSD;
+        loanAmount2 *= dynamicExchangeRate.CADtoUSD;
+        prepayment2 *= dynamicExchangeRate.CADtoUSD;
+    }
+
+    const monthlyRate1 = annualRate1 / 100 / 12;
+    const tenureMonths1 = tenureYears1 * 12;
+    const numerator1 = loanAmount1 * monthlyRate1 * Math.pow(1 + monthlyRate1, tenureMonths1);
+    const denominator1 = Math.pow(1 + monthlyRate1, tenureMonths1) - 1;
+    const baseEmi1 = numerator1 / denominator1 || 0;
+    const result1 = calculateWithPrepayment(loanAmount1, monthlyRate1, tenureMonths1, baseEmi1, prepayment1);
+
+    const monthlyRate2 = annualRate2 / 100 / 12;
+    const tenureMonths2 = tenureYears2 * 12;
+    const numerator2 = loanAmount2 * monthlyRate2 * Math.pow(1 + monthlyRate2, tenureMonths2);
+    const denominator2 = Math.pow(1 + monthlyRate2, tenureMonths2) - 1;
+    const baseEmi2 = numerator2 / denominator2 || 0;
+    const result2 = calculateWithPrepayment(loanAmount2, monthlyRate2, tenureMonths2, baseEmi2, prepayment2);
+
+    document.getElementById('scenario1-emi').textContent = `${currencySymbol}${result1.emi.toFixed(2)}`;
+    document.getElementById('scenario1-total-interest').textContent = `${currencySymbol}${result1.totalInterest.toFixed(2)}`;
+    document.getElementById('scenario1-total-payment').textContent = `${currencySymbol}${result1.totalPayments.toFixed(2)}`;
+    
+    document.getElementById('scenario2-emi').textContent = `${currencySymbol}${result2.emi.toFixed(2)}`;
+    document.getElementById('scenario2-total-interest').textContent = `${currencySymbol}${result2.totalPayments.toFixed(2)}`;
+    document.getElementById('scenario2-total-payment').textContent = `${currencySymbol}${result2.totalPayments.toFixed(2)}`;
+
+    const monthsSavedRow = document.getElementById('scenario1-months-saved-row');
+    const interestSavedRow = document.getElementById('scenario1-interest-saved-row');
+    if (prepayment1 > 0 || prepayment2 > 0) {
+        monthsSavedRow.style.display = 'table-row';
+        interestSavedRow.style.display = 'table-row';
+        document.getElementById('scenario1-months-saved').textContent = prepayment1 > 0 ? (tenureMonths1 - result1.actualMonths) : 'N/A';
+        document.getElementById('scenario1-interest-saved').textContent = prepayment1 > 0 ? `${currencySymbol}${(baseEmi1 * tenureMonths1 - loanAmount1 - result1.totalInterest).toFixed(2)}` : 'N/A';
+        document.getElementById('scenario2-months-saved').textContent = prepayment2 > 0 ? (tenureMonths2 - result2.actualMonths) : 'N/A';
+        document.getElementById('scenario2-interest-saved').textContent = prepayment2 > 0 ? `${currencySymbol}${(baseEmi2 * tenureMonths2 - loanAmount2 - result2.totalInterest).toFixed(2)}` : 'N/A';
+    } else {
+        monthsSavedRow.style.display = 'none';
+        interestSavedRow.style.display = 'none';
+    }
+
+    document.getElementById('comparison-table-data').style.display = 'table';
+}
+
+function calculateBorrowingCapacity() {
+    const monthlyIncome = parseFloat(document.getElementById('monthly-income').value);
+    const monthlyExpenses = parseFloat(document.getElementById('monthly-expenses').value);
+    const annualRate = parseFloat(document.getElementById('borrowing-interest-rate').value);
+    const tenureYears = parseInt(document.getElementById('borrowing-tenure').value);
+    const currency = document.getElementById('currency').value;
+    const currencySymbol = currency === 'CAD' ? 'C$' : '$';
+
+    if (isNaN(monthlyIncome) || monthlyIncome <= 0 || isNaN(monthlyExpenses) || monthlyExpenses < 0 || monthlyExpenses > monthlyIncome) {
+        document.getElementById('borrowing-result').innerHTML = "<p>Please enter valid monthly income and expenses.</p>";
+        document.getElementById('borrowing-result').style.display = 'block';
+        return;
+    }
+    if (isNaN(annualRate) || annualRate <= 0) {
+        document.getElementById('borrowing-result').innerHTML = "<p>Please enter a valid positive interest rate.</p>";
+        document.getElementById('borrowing-result').style.display = 'block';
+        return;
+    }
+    if (isNaN(tenureYears) || tenureYears <= 0) {
+        document.getElementById('borrowing-result').innerHTML = "<p>Please enter a valid tenure in years.</p>";
+        document.getElementById('borrowing-result').style.display = 'block';
+        return;
+    }
+
+    const dtiRatio = 0.36;
+    const monthlyPaymentCapacity = (monthlyIncome * dtiRatio) - monthlyExpenses;
+
+    if (monthlyPaymentCapacity <= 0) {
+        document.getElementById('borrowing-result').innerHTML = "<p>Your expenses exceed your debt payment capacity. Consider reducing expenses or increasing income.</p>";
+        document.getElementById('borrowing-result').style.display = 'block';
+        return;
+    }
+
+    const monthlyRate = annualRate / 100 / 12;
+    const tenureMonths = tenureYears * 12;
+    const maxLoanAmount = (monthlyPaymentCapacity * (Math.pow(1 + monthlyRate, tenureMonths) - 1)) / (monthlyRate * Math.pow(1 + monthlyRate, tenureMonths));
+
+    let displayLoanAmount = maxLoanAmount;
+    let displayEmi = monthlyPaymentCapacity;
+    if (currency === 'USD') {
+        displayLoanAmount *= dynamicExchangeRate.CADtoUSD;
+        displayEmi *= dynamicExchangeRate.CADtoUSD;
+    }
+
+    document.getElementById('max-loan-amount').textContent = `${currencySymbol}${displayLoanAmount.toFixed(2)}`;
+    document.getElementById('borrowing-emi').textContent = `${currencySymbol}${displayEmi.toFixed(2)}`;
+    document.getElementById('borrowing-result').style.display = 'block';
+}
+
 function resetForm() {
     console.log("resetForm triggered");
     const form = document.getElementById('emi-form');
@@ -162,6 +309,7 @@ function resetForm() {
     const table = document.getElementById('amortization-table');
     const chartCanvas = document.getElementById('balance-chart');
     const downloadBtn = document.getElementById('download-pdf');
+    const comparisonTable = document.getElementById('comparison-table');
 
     emiResult.innerHTML = `
         <p><span class="icon">💳</span> Your EMI is: <span id="emi-value"></span></p>
@@ -177,6 +325,16 @@ function resetForm() {
     table.classList.remove('show');
     chartCanvas.classList.remove('show');
     if (downloadBtn) downloadBtn.style.display = 'none';
+
+    comparisonTable.style.display = 'none';
+    document.getElementById('comparison-table-data').style.display = 'none';
+
+    // Reset the borrowing calculator inputs
+    document.getElementById('monthly-income').value = 5000;
+    document.getElementById('monthly-expenses').value = 2000;
+    document.getElementById('borrowing-interest-rate').value = 5;
+    document.getElementById('borrowing-tenure').value = 5;
+    document.getElementById('borrowing-result').style.display = 'none';
 
     if (window.myChart) {
         window.myChart.destroy();
@@ -195,7 +353,7 @@ function resetForm() {
 
 function initializeSliders() {
     const sliders = document.querySelectorAll('.slider');
-    const inputs = document.querySelectorAll('#emi-form input[type="number"], #emi-form select');
+    const inputs = document.querySelectorAll('#emi-form input[type="number"], #emi-form select, #borrowing-calculator input[type="number"]');
 
     sliders.forEach(slider => {
         const inputId = slider.getAttribute('data-input');
@@ -242,20 +400,25 @@ function initializeSliders() {
     });
 
     const currencySelect = document.getElementById('currency');
-    const currencySymbols = document.querySelectorAll('#currency-symbol, #currency-symbol-prepayment, #currency-symbol-fees, #currency-symbol-taxes');
+    const currencySymbols = document.querySelectorAll('#currency-symbol, #currency-symbol-prepayment, #currency-symbol-fees, #currency-symbol-taxes, #currency-symbol-scenario1, #currency-symbol-scenario1-prepayment, #currency-symbol-scenario2, #currency-symbol-scenario2-prepayment, #currency-symbol-monthly-income, #currency-symbol-monthly-expenses');
     
     currencySelect.removeEventListener('change', currencySelect.changeHandler);
 
-    currencySelect.changeHandler = () => {
+    currencySelect.changeHandler = async () => {
         console.log(`Currency changed to ${currencySelect.value}`);
         const symbol = currencySelect.value === 'CAD' ? 'C$' : '$';
         currencySymbols.forEach(span => span.textContent = symbol);
+        
+        await fetchExchangeRate();
+        
         calculateEMI();
     };
     currencySelect.addEventListener('change', currencySelect.changeHandler);
 
     const initialSymbol = currencySelect.value === 'CAD' ? 'C$' : '$';
     currencySymbols.forEach(span => span.textContent = initialSymbol);
+
+    fetchExchangeRate();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

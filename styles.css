@@ -602,3 +602,69 @@ footer .disclaimer {
       font-size: 0.9rem;
   }
 }
+/* Borrowing Calculator */
+.borrowing-calculator {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light gray background to distinguish it */
+  border-radius: 6px;
+}
+
+.borrowing-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.borrowing-inputs label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.borrowing-inputs input[type="number"] {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #004d40;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.borrowing-inputs input[type="number"]:focus {
+  border-color: #00bfa5;
+  box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25);
+  outline: none;
+}
+
+#borrowing-result {
+  margin-top: 20px;
+}
+
+#borrowing-result p {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+#borrowing-result .icon {
+  margin-right: 8px;
+}
+
+/* Responsive Design for Borrowing Calculator */
+@media (max-width: 576px) {
+  .borrowing-calculator {
+      padding: 15px;
+  }
+
+  .borrowing-inputs input[type="number"] {
+      padding: 8px;
+      font-size: 0.9rem;
+  }
+}
