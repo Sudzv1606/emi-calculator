@@ -80,7 +80,7 @@
                     <p>Our <strong>free EMI calculator with amortization table</strong> helps you calculate monthly payments for loans in the US and Canada. Get a downloadable schedule, a visual graph, and a full breakdown of total EMI and interest perfect for planning your finances in seconds!</p>
                     <form id="emi-form">
                         <label for="currency"><span class="icon">🌎</span> Currency:</label>
-                        <select id="currency" name="currency" title="Select the currency for calculations.">
+                        <select id="currency" name="currency" title="Select the currency for calculations." aria-label="Currency">
                             <option value="CAD">CAD</option>
                             <option value="USD">USD</option>
                         </select>
@@ -196,39 +196,39 @@
                 </div>
             </div>
             <button type="button" onclick="compareScenarios()" class="btn-primary"><span class="icon">📊</span> Compare</button>
-            <table id="comparison-table-data" style="display: none;">
+            <table id="comparison-table-data" class="compare-table" style="display: none;">
                 <thead>
                     <tr>
-                        <th>Metric</th>
-                        <th>Scenario 1</th>
-                        <th>Scenario 2</th>
+                        <th class="metric-header" scope="col">Metric</th>
+                        <th class="scenario-header" scope="col">Scenario 1</th>
+                        <th class="scenario-header" scope="col">Scenario 2</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>EMI</td>
-                        <td id="scenario1-emi"></td>
-                        <td id="scenario2-emi"></td>
+                    <tr class="metric-row">
+                        <td class="metric-label" scope="row">EMI</td>
+                        <td id="scenario1-emi" class="metric-value"></td>
+                        <td id="scenario2-emi" class="metric-value"></td>
                     </tr>
-                    <tr>
-                        <td>Total Interest Paid</td>
-                        <td id="scenario1-total-interest"></td>
-                        <td id="scenario2-total-interest"></td>
+                    <tr class="metric-row">
+                        <td class="metric-label" scope="row">Total Interest Paid</td>
+                        <td id="scenario1-total-interest" class="metric-value"></td>
+                        <td id="scenario2-total-interest" class="metric-value"></td>
                     </tr>
-                    <tr>
-                        <td>Total Amount Paid</td>
-                        <td id="scenario1-total-payment"></td>
-                        <td id="scenario2-total-payment"></td>
+                    <tr class="metric-row">
+                        <td class="metric-label" scope="row">Total Amount Paid</td>
+                        <td id="scenario1-total-payment" class="metric-value"></td>
+                        <td id="scenario2-total-payment" class="metric-value"></td>
                     </tr>
-                    <tr id="scenario1-months-saved-row" style="display: none;">
-                        <td>Months Saved</td>
-                        <td id="scenario1-months-saved"></td>
-                        <td id="scenario2-months-saved"></td>
+                    <tr id="scenario1-months-saved-row" class="metric-row" style="display: none;">
+                        <td class="metric-label" scope="row">Months Saved</td>
+                        <td id="scenario1-months-saved" class="metric-value"></td>
+                        <td id="scenario2-months-saved" class="metric-value"></td>
                     </tr>
-                    <tr id="scenario1-interest-saved-row" style="display: none;">
-                        <td>Interest Saved</td>
-                        <td id="scenario1-interest-saved"></td>
-                        <td id="scenario2-interest-saved"></td>
+                    <tr id="scenario1-interest-saved-row" class="metric-row" style="display: none;">
+                        <td class="metric-label" scope="row">Interest Saved</td>
+                        <td id="scenario1-interest-saved" class="metric-value"></td>
+                        <td id="scenario2-interest-saved" class="metric-value"></td>
                     </tr>
                 </tbody>
             </table>

@@ -213,13 +213,20 @@ function compareScenarios() {
     const baseEmi2 = numerator2 / denominator2 || 0;
     const result2 = calculateWithPrepayment(loanAmount2, monthlyRate2, tenureMonths2, baseEmi2, prepayment2);
 
+    // Update the comparison table with data-scenario attributes for responsiveness
     document.getElementById('scenario1-emi').textContent = `${currencySymbol}${result1.emi.toFixed(2)}`;
+    document.getElementById('scenario1-emi').setAttribute('data-scenario', 'Scenario 1');
     document.getElementById('scenario1-total-interest').textContent = `${currencySymbol}${result1.totalInterest.toFixed(2)}`;
+    document.getElementById('scenario1-total-interest').setAttribute('data-scenario', 'Scenario 1');
     document.getElementById('scenario1-total-payment').textContent = `${currencySymbol}${result1.totalPayments.toFixed(2)}`;
+    document.getElementById('scenario1-total-payment').setAttribute('data-scenario', 'Scenario 1');
     
     document.getElementById('scenario2-emi').textContent = `${currencySymbol}${result2.emi.toFixed(2)}`;
-    document.getElementById('scenario2-total-interest').textContent = `${currencySymbol}${result2.totalPayments.toFixed(2)}`;
+    document.getElementById('scenario2-emi').setAttribute('data-scenario', 'Scenario 2');
+    document.getElementById('scenario2-total-interest').textContent = `${currencySymbol}${result2.totalInterest.toFixed(2)}`; // Fixed bug
+    document.getElementById('scenario2-total-interest').setAttribute('data-scenario', 'Scenario 2');
     document.getElementById('scenario2-total-payment').textContent = `${currencySymbol}${result2.totalPayments.toFixed(2)}`;
+    document.getElementById('scenario2-total-payment').setAttribute('data-scenario', 'Scenario 2');
 
     const monthsSavedRow = document.getElementById('scenario1-months-saved-row');
     const interestSavedRow = document.getElementById('scenario1-interest-saved-row');
@@ -227,9 +234,13 @@ function compareScenarios() {
         monthsSavedRow.style.display = 'table-row';
         interestSavedRow.style.display = 'table-row';
         document.getElementById('scenario1-months-saved').textContent = prepayment1 > 0 ? (tenureMonths1 - result1.actualMonths) : 'N/A';
+        document.getElementById('scenario1-months-saved').setAttribute('data-scenario', 'Scenario 1');
         document.getElementById('scenario1-interest-saved').textContent = prepayment1 > 0 ? `${currencySymbol}${(baseEmi1 * tenureMonths1 - loanAmount1 - result1.totalInterest).toFixed(2)}` : 'N/A';
+        document.getElementById('scenario1-interest-saved').setAttribute('data-scenario', 'Scenario 1');
         document.getElementById('scenario2-months-saved').textContent = prepayment2 > 0 ? (tenureMonths2 - result2.actualMonths) : 'N/A';
+        document.getElementById('scenario2-months-saved').setAttribute('data-scenario', 'Scenario 2');
         document.getElementById('scenario2-interest-saved').textContent = prepayment2 > 0 ? `${currencySymbol}${(baseEmi2 * tenureMonths2 - loanAmount2 - result2.totalInterest).toFixed(2)}` : 'N/A';
+        document.getElementById('scenario2-interest-saved').setAttribute('data-scenario', 'Scenario 2');
     } else {
         monthsSavedRow.style.display = 'none';
         interestSavedRow.style.display = 'none';
