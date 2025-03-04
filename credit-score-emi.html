@@ -7,58 +7,157 @@
     <meta name="description" content="Understand how credit scores affect Equated Monthly Installments (EMI) for loans in the US and Canada, and optimize your rates with our EMI calculator.">
     <meta name="keywords" content="credit score EMI, loan repayment Canada, loan repayment US, EMI calculator, credit impact on loans">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <!-- Navigation items same as what-is-emi.html -->
+                </ul>
+                <!-- Search Bar -->
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('credit_score_emi_guide.webp'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Credit Score and EMI</h1>
+        <p class="lead mb-3">Published on February 28, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Loan Comparison & EMI Planning</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Credit Score and EMI</li>
+        </ol>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Credit Score and EMI</h1>
-        <p class="lead">Published on February 28, 2025</p>
-        <p>Credit scores significantly influence Equated Monthly Installments (EMI) for loans in the US and Canada, determining interest rates and loan terms. Higher scores lower rates, reducing EMIs for home loans in Toronto, auto loans in New York, or personal loans in Vancouver, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users assess these impacts.</p>
-        <p>In 2024, FICO reported US credit scores averaging 714 (range 300–850), per Experian, while Equifax Canada noted Canadian scores averaging 680 (range 300–900), per 2025 data. These scores, shaped by payment history and debt levels, affect EMI, benefiting borrowers in California, Alberta, and beyond, per Federal Reserve and Bank of Canada insights.</p>
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Table of Contents -->
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#how-it-works" class="text-decoration-none">How Credit Scores Affect EMI</a></li>
+                        <li><a href="#credit-impact" class="text-decoration-none">Credit Score Impact on EMI Over Time</a></li>
+                        <li><a href="#industry-data" class="text-decoration-none">Industry Data on Credit Scores</a></li>
+                        <li><a href="#benefits" class="text-decoration-none">Benefits of Improving Credit Scores</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Credit Scores Affect EMI</h2>
-        <p>Credit scores determine loan rates: higher scores (e.g., 750+ US, 800+ Canada) secure lower rates, reducing EMI. For a $300,000 US home loan over 30 years:</p>
-        <ul>
-            <li>Score 800 (6% rate): EMI ≈ $1,798.65; Total Interest ≈ $247,511.00</li>
-            <li>Score 650 (8% rate): EMI ≈ $2,201.29; Total Interest ≈ $392,464.40</li>
-        </ul>
-        <p>For a CAD 400,000 Canadian mortgage over 25 years:</p>
-        <ul>
-            <li>Score 800 (5% rate): EMI ≈ CAD 2,147.29; Total Interest ≈ CAD 244,187.00</li>
-            <li>Score 650 (7% rate): EMI ≈ CAD 2,747.50; Total Interest ≈ CAD 425,700.00</li>
-        </ul>
+                <!-- Introduction -->
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Credit scores significantly influence Equated Monthly Installments (EMI) for loans in the US and Canada, determining interest rates and loan terms. Higher scores lower rates, reducing EMIs for home loans in Toronto, auto loans in New York, or personal loans in Vancouver, and our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> helps users assess these impacts.</p>
+                        <p>In 2024, FICO reported US credit scores averaging 714 (range 300–850), per Experian, while Equifax Canada noted Canadian scores averaging 680 (range 300–900), per 2025 data. These scores, shaped by payment history and debt levels, affect EMI, benefiting borrowers in California, Alberta, and beyond, per Federal Reserve and Bank of Canada insights.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Credit Score Impact on EMI Over Time</h2>
-        <p>This chart shows how credit scores affect EMI and total interest for a $300,000 US home loan over 30 years, comparing scores of 800 and 650.</p>
-        <canvas id="creditScoreChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <!-- How Credit Scores Affect EMI -->
+                <section id="how-it-works" class="mb-5">
+                    <h2 class="text-primary mb-3">How Credit Scores Affect EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Credit scores determine loan rates: higher scores (e.g., 750+ US, 800+ Canada) secure lower rates, reducing EMI. For a $300,000 US home loan over 30 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Score 800 (6% rate): EMI ≈ $1,798.65; Total Interest ≈ $247,511.00</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Score 650 (8% rate): EMI ≈ $2,201.29; Total Interest ≈ $392,464.40</li>
+                        </ul>
+                        <p>For a CAD 400,000 Canadian mortgage over 25 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Score 800 (5% rate): EMI ≈ CAD 2,147.29; Total Interest ≈ CAD 244,187.00</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Score 650 (7% rate): EMI ≈ CAD 2,747.50; Total Interest ≈ CAD 425,700.00</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Credit Scores</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Type</th>
-                    <th>Credit Score Range</th>
-                    <th>Average Interest Rate (2025, %)</th>
-                    <th>Average EMI (Per $100,000)</th>
-                    <th>Interest Difference</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>Home Loan</td><td>800 vs. 650</td><td>6.0 vs. 8.0</td><td>$599.55 vs. $733.76</td><td>$144,953.40</td></tr>
-                <tr><td>Canada</td><td>Mortgage</td><td>800 vs. 650</td><td>5.0 vs. 7.0</td><td>CAD 778.16 vs. CAD 929.71</td><td>CAD 181,513.00</td></tr>
-                <tr><td>US</td><td>Auto Loan</td><td>800 vs. 650</td><td>6.0 vs. 8.0</td><td>$198.65 vs. $231.03</td><td>$1,941.60</td></tr>
-                <tr><td>Canada</td><td>Auto Loan</td><td>800 vs. 650</td><td>5.5 vs. 7.5</td><td>CAD 228.25 vs. CAD 258.88</td><td>CAD 1,505.28</td></tr>
-            </tbody>
-        </table>
-        <p>Data from FICO, Equifax, and 2025 reports highlight credit score impacts, per Federal Reserve and Bank of Canada insights.</p>
+                <!-- Credit Score Impact on EMI Over Time -->
+                <section id="credit-impact" class="mb-5">
+                    <h2 class="text-primary mb-3">Credit Score Impact on EMI Over Time</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>This chart shows how credit scores affect EMI and total interest for a $300,000 US home loan over 30 years, comparing scores of 800 and 650.</p>
+                        <div class="chart-container">
+                            <canvas id="creditScoreChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Improving Credit Scores</h2>
-        <p>Higher scores lower EMIs, save interest, and improve loan terms. A 2024 FICO study found US borrowers save 12% on interest, while a 2023 Equifax Canada report shows Canadian borrowers save 10%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking scores have minimal impact—however, a 150-point drop can add $144,953.40 in interest, per Bankrate’s 2025 analysis.</p>
+                <!-- Industry Data on Credit Scores -->
+                <section id="industry-data" class="mb-5">
+                    <h2 class="text-primary mb-3">Industry Data on Credit Scores</h2>
+                    <div class="card shadow-sm p-4">
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Loan Type</th>
+                                    <th>Credit Score Range</th>
+                                    <th>Average Interest Rate (2025, %)</th>
+                                    <th>Average EMI (Per $100,000)</th>
+                                    <th>Interest Difference</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>US</td><td>Home Loan</td><td>800 vs. 650</td><td>6.0 vs. 8.0</td><td>$599.55 vs. $733.76</td><td>$144,953.40</td></tr>
+                                <tr><td>Canada</td><td>Mortgage</td><td>800 vs. 650</td><td>5.0 vs. 7.0</td><td>CAD 778.16 vs. CAD 929.71</td><td>CAD 181,513.00</td></tr>
+                                <tr><td>US</td><td>Auto Loan</td><td>800 vs. 650</td><td>6.0 vs. 8.0</td><td>$198.65 vs. $231.03</td><td>$1,941.60</td></tr>
+                                <tr><td>Canada</td><td>Auto Loan</td><td>800 vs. 650</td><td>5.5 vs. 7.5</td><td>CAD 228.25 vs. CAD 258.88</td><td>CAD 1,505.28</td></tr>
+                            </tbody>
+                        </table>
+                        <p>Data from FICO, Equifax, and 2025 reports highlight credit score impacts, per Federal Reserve and Bank of Canada insights.</p>
+                    </div>
+                </section>
 
-        <p>Ready to see how your credit score affects your EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <!-- Benefits of Improving Credit Scores -->
+                <section id="benefits" class="mb-5">
+                    <h2 class="text-primary mb-3">Benefits of Improving Credit Scores</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Higher scores lower EMIs, save interest, and improve loan terms. A 2024 FICO study found US borrowers save 12% on interest, while a 2023 Equifax Canada report shows Canadian borrowers save 10%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking scores have minimal impact—however, a 150-point drop can add $144,953.40 in interest, per Bankrate’s 2025 analysis.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sticky CTA Sidebar -->
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -120,7 +219,6 @@
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>

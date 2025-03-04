@@ -7,52 +7,155 @@
     <meta name="description" content="Learn how refinancing loans can reduce Equated Monthly Installments (EMI) in the US and Canada, and optimize savings with our free EMI calculator.">
     <meta name="keywords" content="refinancing loans reduce EMI, loan repayment Canada, loan repayment US, EMI calculator, loan refinancing tips">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <!-- Navigation items same as what-is-emi.html -->
+                </ul>
+                <!-- Search Bar -->
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('refinancing_loans_guide.webp'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Refinancing Loans to Reduce EMI</h1>
+        <p class="lead mb-3">Published on February 28, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Loan Comparison & EMI Planning</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Refinancing Loans to Reduce EMI</li>
+        </ol>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Refinancing Loans to Reduce EMI</h1>
-        <p class="lead">Published on February 28, 2025</p>
-        <p>Refinancing loans can reduce Equated Monthly Installments (EMI) for borrowers in the US and Canada, lowering payments for home loans in Toronto, auto loans in New York, or personal loans in Vancouver by securing better rates or terms. This strategy, supported by our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a>, helps users optimize savings and manage debt effectively.</p>
-        <p>In 2024, the Federal Reserve reported $17 trillion in US consumer debt, with 15% of borrowers refinancing to reduce EMIs, per a 2025 Mortgage Bankers Association study. In Canada, the Bank of Canada’s 2024 data shows CAD 2.2 trillion in loans, with 12% of borrowers refinancing, per CMHC and FCAC reports, benefiting users in California, Alberta, and beyond.</p>
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Table of Contents -->
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#how-it-works" class="text-decoration-none">How Refinancing Reduces EMI</a></li>
+                        <li><a href="#refinancing-impact" class="text-decoration-none">Refinancing Impact Over Time</a></li>
+                        <li><a href="#industry-data" class="text-decoration-none">Industry Data on Refinancing</a></li>
+                        <li><a href="#benefits" class="text-decoration-none">Benefits of Refinancing</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Refinancing Reduces EMI</h2>
-        <p><strong>1. Lower Interest Rates</strong>: Refinancing to a 5% rate from 6% on a $300,000 US home loan over 30 years reduces EMI from $1,798.65 to $1,610.46, saving $188.19 monthly and $67,745.60 in interest, per Freddie Mac’s 2025 data.</p>
-        <p><strong>2. Extend Tenure</strong>: Extending a CAD 400,000 Canadian mortgage from 25 to 30 years at 5.5% lowers EMI from CAD 2,334.44 to CAD 2,027.59, saving CAD 306.85 monthly but adding CAD 56,667.20 in interest, per CMHC’s 2025 report.</p>
-        <p><strong>3. Consolidate Debt</strong>: Combining loans into one lower-rate EMI can reduce payments, as 10% of US borrowers did in 2024, per TransUnion.</p>
-        <p><strong>4. Remove Private Mortgage Insurance (PMI)</strong>: US borrowers with 20% equity can refinance to drop PMI, reducing EMI by $100–$200 monthly, per Bankrate’s 2025 analysis.</p>
+                <!-- Introduction -->
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Refinancing loans can reduce Equated Monthly Installments (EMI) for borrowers in the US and Canada, lowering payments for home loans in Toronto, auto loans in New York, or personal loans in Vancouver by securing better rates or terms. This strategy, supported by our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a>, helps users optimize savings and manage debt effectively.</p>
+                        <p>In 2024, the Federal Reserve reported $17 trillion in US consumer debt, with 15% of borrowers refinancing to reduce EMIs, per a 2025 Mortgage Bankers Association study. In Canada, the Bank of Canada’s 2024 data shows CAD 2.2 trillion in loans, with 12% of borrowers refinancing, per CMHC and FCAC reports, benefiting users in California, Alberta, and beyond.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Refinancing Impact Over Time</h2>
-        <p>This chart shows how refinancing a $300,000 US home loan from 6% to 5% over 30 years reduces EMI and total interest, comparing original and refinanced outcomes.</p>
-        <canvas id="refinanceChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <!-- How Refinancing Reduces EMI -->
+                <section id="how-it-works" class="mb-5">
+                    <h2 class="text-primary mb-3">How Refinancing Reduces EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <h3 class="h5 text-secondary">1. Lower Interest Rates</h3>
+                        <p>Refinancing to a 5% rate from 6% on a $300,000 US home loan over 30 years reduces EMI from $1,798.65 to $1,610.46, saving $188.19 monthly and $67,745.60 in interest, per Freddie Mac’s 2025 data.</p>
+                        <h3 class="h5 text-secondary">2. Extend Tenure</h3>
+                        <p>Extending a CAD 400,000 Canadian mortgage from 25 to 30 years at 5.5% lowers EMI from CAD 2,334.44 to CAD 2,027.59, saving CAD 306.85 monthly but adding CAD 56,667.20 in interest, per CMHC’s 2025 report.</p>
+                        <h3 class="h5 text-secondary">3. Consolidate Debt</h3>
+                        <p>Combining loans into one lower-rate EMI can reduce payments, as 10% of US borrowers did in 2024, per TransUnion.</p>
+                        <h3 class="h5 text-secondary">4. Remove Private Mortgage Insurance (PMI)</h3>
+                        <p>US borrowers with 20% equity can refinance to drop PMI, reducing EMI by $100–$200 monthly, per Bankrate’s 2025 analysis.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Refinancing</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Type</th>
-                    <th>Loan Amount (2025)</th>
-                    <th>Refinancing Strategy</th>
-                    <th>EMI Reduction</th>
-                    <th>Interest Impact</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>Rate Drop (6% to 5%)</td><td>$188.19</td><td>Saved $67,745.60</td></tr>
-                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>Tenure Extend (25 to 30 yrs)</td><td>CAD 306.85</td><td>Added CAD 56,667.20</td></tr>
-                <tr><td>US</td><td>Auto Loan</td><td>$30,000</td><td>Rate Drop (7% to 6%)</td><td>$30.12</td><td>Saved $1,200.00</td></tr>
-                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 35,000</td><td>Rate Drop (6.5% to 5.5%)</td><td>CAD 30.12</td><td>Saved CAD 1,506.36</td></tr>
-            </tbody>
-        </table>
-        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight refinancing benefits, per Federal Reserve and Bank of Canada insights.</p>
+                <!-- Refinancing Impact Over Time -->
+                <section id="refinancing-impact" class="mb-5">
+                    <h2 class="text-primary mb-3">Refinancing Impact Over Time</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>This chart shows how refinancing a $300,000 US home loan from 6% to 5% over 30 years reduces EMI and total interest, comparing original and refinanced outcomes.</p>
+                        <div class="chart-container">
+                            <canvas id="refinanceChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Refinancing</h2>
-        <p>Refinancing lowers EMIs, saves interest, and improves terms. A 2024 TransUnion study found US borrowers save 10–15% on interest, while a 2023 FCAC report shows Canadian borrowers save 12–18%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking refinancing always increases cost—however, timely rate drops save significantly, per Bankrate’s 2025 analysis.</p>
+                <!-- Industry Data on Refinancing -->
+                <section id="industry-data" class="mb-5">
+                    <h2 class="text-primary mb-3">Industry Data on Refinancing</h2>
+                    <div class="card shadow-sm p-4">
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Loan Type</th>
+                                    <th>Loan Amount (2025)</th>
+                                    <th>Refinancing Strategy</th>
+                                    <th>EMI Reduction</th>
+                                    <th>Interest Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>Rate Drop (6% to 5%)</td><td>$188.19</td><td>Saved $67,745.60</td></tr>
+                                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>Tenure Extend (25 to 30 yrs)</td><td>CAD 306.85</td><td>Added CAD 56,667.20</td></tr>
+                                <tr><td>US</td><td>Auto Loan</td><td>$30,000</td><td>Rate Drop (7% to 6%)</td><td>$30.12</td><td>Saved $1,200.00</td></tr>
+                                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 35,000</td><td>Rate Drop (6.5% to 5.5%)</td><td>CAD 30.12</td><td>Saved CAD 1,506.36</td></tr>
+                            </tbody>
+                        </table>
+                        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight refinancing benefits, per Federal Reserve and Bank of Canada insights.</p>
+                    </div>
+                </section>
 
-        <p>Ready to reduce your EMI through refinancing? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <!-- Benefits of Refinancing -->
+                <section id="benefits" class="mb-5">
+                    <h2 class="text-primary mb-3">Benefits of Refinancing</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Refinancing lowers EMIs, saves interest, and improves terms. A 2024 TransUnion study found US borrowers save 10–15% on interest, while a 2023 FCAC report shows Canadian borrowers save 12–18%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking refinancing always increases cost—however, timely rate drops save significantly, per Bankrate’s 2025 analysis.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sticky CTA Sidebar -->
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -114,7 +217,6 @@
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>

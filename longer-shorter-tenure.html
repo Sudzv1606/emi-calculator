@@ -7,58 +7,157 @@
     <meta name="description" content="Compare longer and shorter loan tenures in the US and Canada, their impact on EMI, and how to choose using our free EMI calculator.">
     <meta name="keywords" content="longer vs shorter loan tenure, loan repayment Canada, loan repayment US, EMI calculator, tenure comparison">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <!-- Navigation items same as what-is-emi.html -->
+                </ul>
+                <!-- Search Bar -->
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('longer_vs_shorter_tenure_guide.webp'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Longer vs. Shorter Loan Tenure</h1>
+        <p class="lead mb-3">Published on February 28, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Loan Comparison & EMI Planning</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Longer vs. Shorter Loan Tenure</li>
+        </ol>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Longer vs. Shorter Loan Tenure</h1>
-        <p class="lead">Published on February 28, 2025</p>
-        <p>Loan tenure—the duration over which a loan is repaid—impacts Equated Monthly Installments (EMI) for borrowers in the US and Canada, balancing affordability and total cost. Longer tenures lower EMI but increase interest, while shorter tenures raise EMI but reduce costs. This guide helps borrowers in Toronto, New York, Vancouver, or beyond decide, supported by our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a>.</p>
-        <p>In 2024, Freddie Mac reported US mortgage tenures averaging 30 years (fixed-rate) and 5 years for auto loans, while CMHC noted Canadian mortgages at 25 years and auto loans at 4–6 years, per 2025 data. These trends shape EMI, making tenure a critical factor for borrowers in California, Alberta, and beyond.</p>
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Table of Contents -->
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#how-it-works" class="text-decoration-none">How Tenure Affects EMI</a></li>
+                        <li><a href="#tenure-comparison" class="text-decoration-none">Tenure Comparison Over Time</a></li>
+                        <li><a href="#industry-data" class="text-decoration-none">Industry Data on Loan Tenures</a></li>
+                        <li><a href="#benefits" class="text-decoration-none">Benefits and Considerations</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Tenure Affects EMI</h2>
-        <p>The EMI formula—<strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>—shows longer tenures (n) reduce EMI but increase total interest. For a $300,000 US home loan at 6%:</p>
-        <ul>
-            <li>15 years: EMI ≈ $2,531.57; Total Interest ≈ $155,682.60; Total Paid ≈ $455,682.60</li>
-            <li>30 years: EMI ≈ $1,798.65; Total Interest ≈ $247,511.00; Total Paid ≈ $547,511.00</li>
-        </ul>
-        <p>For a CAD 400,000 Canadian mortgage at 5.5%:</p>
-        <ul>
-            <li>20 years: EMI ≈ CAD 2,531.57; Total Interest ≈ CAD 207,577.60; Total Paid ≈ CAD 607,577.60</li>
-            <li>25 years: EMI ≈ CAD 2,334.44; Total Interest ≈ CAD 300,332.00; Total Paid ≈ CAD 700,332.00</li>
-        </ul>
+                <!-- Introduction -->
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Loan tenure—the duration over which a loan is repaid—impacts Equated Monthly Installments (EMI) for borrowers in the US and Canada, balancing affordability and total cost. Longer tenures lower EMI but increase interest, while shorter tenures raise EMI but reduce costs. This guide helps borrowers in Toronto, New York, Vancouver, or beyond decide, supported by our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a>.</p>
+                        <p>In 2024, Freddie Mac reported US mortgage tenures averaging 30 years (fixed-rate) and 5 years for auto loans, while CMHC noted Canadian mortgages at 25 years and auto loans at 4–6 years, per 2025 data. These trends shape EMI, making tenure a critical factor for borrowers in California, Alberta, and beyond.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Tenure Comparison Over Time</h2>
-        <p>This chart compares EMI and total interest for a $300,000 US home loan at 6% over 15 vs. 30 years, highlighting the trade-off between monthly payments and total cost.</p>
-        <canvas id="tenureLoanChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <!-- How Tenure Affects EMI -->
+                <section id="how-it-works" class="mb-5">
+                    <h2 class="text-primary mb-3">How Tenure Affects EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The EMI formula—<strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>—shows longer tenures (n) reduce EMI but increase total interest. For a $300,000 US home loan at 6%:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> 15 years: EMI ≈ $2,531.57; Total Interest ≈ $155,682.60; Total Paid ≈ $455,682.60</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> 30 years: EMI ≈ $1,798.65; Total Interest ≈ $247,511.00; Total Paid ≈ $547,511.00</li>
+                        </ul>
+                        <p>For a CAD 400,000 Canadian mortgage at 5.5%:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> 20 years: EMI ≈ CAD 2,531.57; Total Interest ≈ CAD 207,577.60; Total Paid ≈ CAD 607,577.60</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> 25 years: EMI ≈ CAD 2,334.44; Total Interest ≈ CAD 300,332.00; Total Paid ≈ CAD 700,332.00</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Loan Tenures</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Type</th>
-                    <th>Typical Tenure (Years)</th>
-                    <th>Average Interest Rate (2025, %)</th>
-                    <th>Average EMI (Per $100,000)</th>
-                    <th>Total Interest Saved (Shorter vs. Longer)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>Home Loan</td><td>15 vs. 30</td><td>6.0</td><td>$843.86 vs. $599.55</td><td>$91,828.40</td></tr>
-                <tr><td>Canada</td><td>Mortgage</td><td>20 vs. 25</td><td>5.5</td><td>CAD 778.16 vs. CAD 588.61</td><td>CAD 92,754.40</td></tr>
-                <tr><td>US</td><td>Auto Loan</td><td>4 vs. 6</td><td>7.0</td><td>$620.77 vs. $476.07</td><td>$1,804.32</td></tr>
-                <tr><td>Canada</td><td>Auto Loan</td><td>4 vs. 5</td><td>6.5</td><td>CAD 684.74 vs. CAD 579.98</td><td>CAD 1,506.36</td></tr>
-            </tbody>
-        </table>
-        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight tenure impacts, per Federal Reserve and Bank of Canada insights.</p>
+                <!-- Tenure Comparison Over Time -->
+                <section id="tenure-comparison" class="mb-5">
+                    <h2 class="text-primary mb-3">Tenure Comparison Over Time</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>This chart compares EMI and total interest for a $300,000 US home loan at 6% over 15 vs. 30 years, highlighting the trade-off between monthly payments and total cost.</p>
+                        <div class="chart-container">
+                            <canvas id="tenureLoanChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits and Considerations</h2>
-        <p><strong>Longer Tenure Benefits</strong>: Lower EMI for affordability; ideal for cash flow in startups or first-time buyers. <strong>Shorter Tenure Benefits</strong>: Lower interest costs, saving $91,828.40 (US) or CAD 92,754.40 (Canada) in examples, per a 2024 TransUnion study. Risks include higher EMI strain; misconceptions include thinking longer tenures are always cheaper—however, they increase total cost, per Bankrate’s 2025 analysis.</p>
+                <!-- Industry Data on Loan Tenures -->
+                <section id="industry-data" class="mb-5">
+                    <h2 class="text-primary mb-3">Industry Data on Loan Tenures</h2>
+                    <div class="card shadow-sm p-4">
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Loan Type</th>
+                                    <th>Typical Tenure (Years)</th>
+                                    <th>Average Interest Rate (2025, %)</th>
+                                    <th>Average EMI (Per $100,000)</th>
+                                    <th>Total Interest Saved (Shorter vs. Longer)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>US</td><td>Home Loan</td><td>15 vs. 30</td><td>6.0</td><td>$843.86 vs. $599.55</td><td>$91,828.40</td></tr>
+                                <tr><td>Canada</td><td>Mortgage</td><td>20 vs. 25</td><td>5.5</td><td>CAD 778.16 vs. CAD 588.61</td><td>CAD 92,754.40</td></tr>
+                                <tr><td>US</td><td>Auto Loan</td><td>4 vs. 6</td><td>7.0</td><td>$620.77 vs. $476.07</td><td>$1,804.32</td></tr>
+                                <tr><td>Canada</td><td>Auto Loan</td><td>4 vs. 5</td><td>6.5</td><td>CAD 684.74 vs. CAD 579.98</td><td>CAD 1,506.36</td></tr>
+                            </tbody>
+                        </table>
+                        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight tenure impacts, per Federal Reserve and Bank of Canada insights.</p>
+                    </div>
+                </section>
 
-        <p>Ready to compare longer and shorter tenures for your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <!-- Benefits and Considerations -->
+                <section id="benefits" class="mb-5">
+                    <h2 class="text-primary mb-3">Benefits and Considerations</h2>
+                    <div class="card shadow-sm p-4">
+                        <p><strong>Longer Tenure Benefits</strong>: Lower EMI for affordability; ideal for cash flow in startups or first-time buyers. <strong>Shorter Tenure Benefits</strong>: Lower interest costs, saving $91,828.40 (US) or CAD 92,754.40 (Canada) in examples, per a 2024 TransUnion study. Risks include higher EMI strain; misconceptions include thinking longer tenures are always cheaper—however, they increase total cost, per Bankrate’s 2025 analysis.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sticky CTA Sidebar -->
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -76,52 +175,47 @@
             ctx.scale(dpr, dpr); // Scale context for high DPI
 
             new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['15 Years', '30 Years'],
-                    datasets: [{
-                        label: 'Monthly EMI ($)',
-                        data: [2531.57, 1798.65], // For $300,000 at 6% over 15 or 30 years
-                        borderColor: '#3498db',
-                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
-                        borderWidth: 2,
-                        fill: false
-                    }, {
-                        label: 'Total Interest ($)',
-                        data: [155682.60, 247511.00], // For $300,000 at 6% over 15 or 30 years
-                        borderColor: '#e74c3c',
-                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
-                            suggestedMax: 300000,
-                            ticks: { font: { size: 14 } }
-                        },
-                        x: {
-                            title: { display: true, text: 'Tenure', font: { size: 16 } },
-                            ticks: { font: { size: 14 } }
-                        }
-                    },
-                    plugins: {
-                        legend: { position: 'top', labels: { font: { size: 14 } } },
-                        tooltip: { 
-                            enabled: true,
-                            bodyFont: { size: 14 },
-                            titleFont: { size: 16 }
-                        }
-                    }
-                }
-            });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
-        });
-    </script>
-</body>
-</html>
+    type: 'bar',
+    data: {
+        labels: ['15 Years', '30 Years'],
+        datasets: [{
+            label: 'Monthly EMI ($)',
+            data: [2531.57, 1798.65], // For $300,000 at 6% over 15 or 30 years
+            borderColor: '#3498db',
+            backgroundColor: 'rgba(52, 152, 219, 0.5)',
+            borderWidth: 2,
+            fill: false
+        }, {
+            label: 'Total Interest ($)',
+            data: [155682.60, 247511.00], // For $300,000 at 6% over 15 or 30 years
+            borderColor: '#e74c3c',
+            backgroundColor: 'rgba(231, 76, 60, 0.5)',
+            borderWidth: 2,
+            fill: false
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                suggestedMax: 300000,
+                ticks: { font: { size: 14 } }
+            },
+            x: {
+                title: { display: true, text: 'Tenure', font: { size: 16 } },
+                ticks: { font: { size: 14 } }
+            }
+        }, // <-- Closing bracket added here
+        plugins: {
+            legend: { position: 'top', labels: { font: { size: 14 } } },
+            tooltip: { 
+                enabled: true,
+                bodyFont: { size: 14 },
+                titleFont: { size: 16 }
+            }
+        }
+    }
+});

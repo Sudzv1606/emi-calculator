@@ -7,59 +7,158 @@
     <meta name="description" content="Learn about Personal Loan EMIs in the US and Canada, how they work, typical rates, and how to calculate payments with our free EMI calculator.">
     <meta name="keywords" content="personal loan EMI, loan repayment Canada, loan repayment US, EMI calculator, unsecured loan EMI">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <!-- Navigation items same as what-is-emi.html -->
+                </ul>
+                <!-- Search Bar -->
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('personal_loan_emi_guide.webp'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Personal Loan EMI</h1>
+        <p class="lead mb-3">Published on February 28, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Types of Loans & EMI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Personal Loan EMI</li>
+        </ol>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Personal Loan EMI</h1>
-        <p class="lead">Published on February 28, 2025</p>
-        <p>Personal Loan Equated Monthly Installments (EMI) are fixed monthly payments used by borrowers in the US and Canada to repay unsecured loans, combining principal and interest over typically 2–7 years. These EMIs ensure predictable repayments for expenses in Toronto, New York, Vancouver, or beyond, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users calculate and manage these costs.</p>
-        <p>In 2024, the Federal Reserve reported $1.2 trillion in US personal debt, with 82% structured via EMI, per TransUnion’s 2025 data, averaging 3–5 years at 7–10% interest. In Canada, the Bank of Canada’s 2024 report shows CAD 100 billion in personal loans, with 79% using EMI, typically 3–7 years at 6–9%, per RBC and CMHC insights, benefiting borrowers in California, Ontario, and beyond.</p>
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Table of Contents -->
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#how-it-works" class="text-decoration-none">How Personal Loan EMI Works</a></li>
+                        <li><a href="#emi-over-time" class="text-decoration-none">Personal Loan EMI Over Time</a></li>
+                        <li><a href="#industry-data" class="text-decoration-none">Industry Data on Personal Loan EMIs</a></li>
+                        <li><a href="#benefits" class="text-decoration-none">Benefits of Personal Loan EMI</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Personal Loan EMI Works</h2>
-        <p>Personal loan EMIs are calculated using: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where P is the loan amount (e.g., $20,000), r is the monthly rate (e.g., 9% ÷ 12 = 0.0075), and n is months (e.g., 5 years = 60). For a $20,000 US personal loan at 9% over 5 years:</p>
-        <ul>
-            <li>EMI ≈ $415.07</li>
-            <li>Total Interest ≈ $4,904.20; Total Paid ≈ $24,904.20</li>
-        </ul>
-        <p>For a CAD 25,000 Canadian personal loan at 8% over 5 years:</p>
-        <ul>
-            <li>EMI ≈ CAD 507.23</li>
-            <li>Total Interest ≈ CAD 5,033.80; Total Paid ≈ CAD 30,033.80</li>
-        </ul>
-        <p>Payments begin immediately, with interest-heavy early EMIs shifting to principal over time.</p>
+                <!-- Introduction -->
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Personal Loan Equated Monthly Installments (EMI) are fixed monthly payments used by borrowers in the US and Canada to repay unsecured loans, combining principal and interest over typically 2–7 years. These EMIs ensure predictable repayments for expenses in Toronto, New York, Vancouver, or beyond, and our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> helps users calculate and manage these costs.</p>
+                        <p>In 2024, the Federal Reserve reported $1.2 trillion in US personal debt, with 82% structured via EMI, per TransUnion’s 2025 data, averaging 3–5 years at 7–10% interest. In Canada, the Bank of Canada’s 2024 report shows CAD 100 billion in personal loans, with 79% using EMI, typically 3–7 years at 6–9%, per RBC and CMHC insights, benefiting borrowers in California, Ontario, and beyond.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Personal Loan EMI Over Time</h2>
-        <p>This chart shows the principal and interest breakdown for a $20,000 US personal loan at 9% over 5 years, illustrating how EMI shifts over time.</p>
-        <canvas id="personalLoanEmiChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <!-- How Personal Loan EMI Works -->
+                <section id="how-it-works" class="mb-5">
+                    <h2 class="text-primary mb-3">How Personal Loan EMI Works</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Personal loan EMIs are calculated using: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where P is the loan amount (e.g., $20,000), r is the monthly rate (e.g., 9% ÷ 12 = 0.0075), and n is months (e.g., 5 years = 60). For a $20,000 US personal loan at 9% over 5 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> EMI ≈ $415.07</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Total Interest ≈ $4,904.20; Total Paid ≈ $24,904.20</li>
+                        </ul>
+                        <p>For a CAD 25,000 Canadian personal loan at 8% over 5 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> EMI ≈ CAD 507.23</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Total Interest ≈ CAD 5,033.80; Total Paid ≈ CAD 30,033.80</li>
+                        </ul>
+                        <p>Payments begin immediately, with interest-heavy early EMIs shifting to principal over time.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Personal Loan EMIs</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Amount (2025)</th>
-                    <th>Interest Rate (%)</th>
-                    <th>Tenure (Years)</th>
-                    <th>Monthly EMI</th>
-                    <th>Total Interest Paid</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>$20,000</td><td>9.0</td><td>5</td><td>$415.07</td><td>$4,904.20</td></tr>
-                <tr><td>Canada</td><td>CAD 25,000</td><td>8.0</td><td>5</td><td>CAD 507.23</td><td>CAD 5,033.80</td></tr>
-                <tr><td>US</td><td>$15,000</td><td>8.5</td><td>3</td><td>$481.25</td><td>$2,325.00</td></tr>
-                <tr><td>Canada</td><td>CAD 20,000</td><td>7.5</td><td>4</td><td>CAD 472.35</td><td>CAD 2,652.80</td></tr>
-            </tbody>
-        </table>
-        <p>Data from TransUnion, RBC, and 2025 reports highlight personal loan EMI trends, per Federal Reserve and Bank of Canada insights.</p>
+                <!-- Personal Loan EMI Over Time -->
+                <section id="emi-over-time" class="mb-5">
+                    <h2 class="text-primary mb-3">Personal Loan EMI Over Time</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>This chart shows the principal and interest breakdown for a $20,000 US personal loan at 9% over 5 years, illustrating how EMI shifts over time.</p>
+                        <div class="chart-container">
+                            <canvas id="personalLoanEmiChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Personal Loan EMI</h2>
-        <p>Personal loan EMIs offer predictability, helping borrowers manage expenses in Seattle, Quebec, or elsewhere. A 2024 TransUnion study found US borrowers save 12% on interest with EMI, while a 2023 RBC report shows Canadian borrowers save 10%, per optimized terms. Misconceptions include thinking EMIs are fixed—however, prepayments can reduce tenure and interest, per Bankrate’s 2025 analysis.</p>
+                <!-- Industry Data on Personal Loan EMIs -->
+                <section id="industry-data" class="mb-5">
+                    <h2 class="text-primary mb-3">Industry Data on Personal Loan EMIs</h2>
+                    <div class="card shadow-sm p-4">
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Loan Amount (2025)</th>
+                                    <th>Interest Rate (%)</th>
+                                    <th>Tenure (Years)</th>
+                                    <th>Monthly EMI</th>
+                                    <th>Total Interest Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>US</td><td>$20,000</td><td>9.0</td><td>5</td><td>$415.07</td><td>$4,904.20</td></tr>
+                                <tr><td>Canada</td><td>CAD 25,000</td><td>8.0</td><td>5</td><td>CAD 507.23</td><td>CAD 5,033.80</td></tr>
+                                <tr><td>US</td><td>$15,000</td><td>8.5</td><td>3</td><td>$481.25</td><td>$2,325.00</td></tr>
+                                <tr><td>Canada</td><td>CAD 20,000</td><td>7.5</td><td>4</td><td>CAD 472.35</td><td>CAD 2,652.80</td></tr>
+                            </tbody>
+                        </table>
+                        <p>Data from TransUnion, RBC, and 2025 reports highlight personal loan EMI trends, per Federal Reserve and Bank of Canada insights.</p>
+                    </div>
+                </section>
 
-        <p>Ready to calculate your personal loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your unsecured loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <!-- Benefits of Personal Loan EMI -->
+                <section id="benefits" class="mb-5">
+                    <h2 class="text-primary mb-3">Benefits of Personal Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Personal loan EMIs offer predictability, helping borrowers manage expenses in Seattle, Quebec, or elsewhere. A 2024 TransUnion study found US borrowers save 12% on interest with EMI, while a 2023 RBC report shows Canadian borrowers save 10%, per optimized terms. Misconceptions include thinking EMIs are fixed—however, prepayments can reduce tenure and interest, per Bankrate’s 2025 analysis.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sticky CTA Sidebar -->
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -131,7 +230,6 @@
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>
