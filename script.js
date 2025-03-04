@@ -9,6 +9,35 @@ let dynamicExchangeRate = {
     USDtoCAD: 1 / 0.74
 };
 
+// Define the list of blog posts for search and suggestions
+const blogPosts = [
+    { title: "What is EMI?", url: "what-is-emi.html" },
+    { title: "How Does EMI Work?", url: "how-emi-works.html" },
+    { title: "EMI vs. Simple Interest Loan", url: "emi-vs-simple-interest.html" },
+    { title: "Fixed vs. Reducing Balance EMI", url: "fixed-vs-reducing-emi.html" },
+    { title: "How Loan Amortization Works", url: "loan-amortization-emi.html" },
+    { title: "EMI Calculation Formula", url: "emi-calculation-formula.html" },
+    { title: "How Interest Rate Affects EMI", url: "interest-rate-emi-impact.html" },
+    { title: "Loan Tenure vs. EMI", url: "loan-tenure-emi.html" },
+    { title: "Principal, Interest & EMI", url: "principal-interest-emi.html" },
+    { title: "Extra Payments and EMI", url: "extra-payments-emi.html" },
+    { title: "Home Loan EMI", url: "home-loan-emi.html" },
+    { title: "Car Loan EMI", url: "car-loan-emi.html" },
+    { title: "Student Loan EMI", url: "student-loan-emi.html" },
+    { title: "Personal Loan EMI", url: "personal-loan-emi.html" },
+    { title: "Business Loan EMI", url: "business-loan-emi.html" },
+    { title: "Fixed-Rate vs. Variable-Rate Loans", url: "fixed-vs-variable-loans.html" },
+    { title: "Longer vs. Shorter Loan Tenure", url: "longer-shorter-tenure.html" },
+    { title: "How to Reduce Your EMI", url: "reduce-emi-tips.html" },
+    { title: "Credit Score and EMI", url: "credit-score-emi.html" },
+    { title: "Refinancing Loans to Reduce EMI", url: "refinancing-loans.html" },
+    { title: "EMI vs. Rent: Buy or Rent?", url: "emi-vs-rent.html" },
+    { title: "Managing Multiple EMIs", url: "manage-multiple-emis.html" },
+    { title: "Plan Your Budget Around EMI", url: "budget-emi-payments.html" },
+    { title: "Prepayment vs. Increasing EMI", url: "prepayment-vs-emi.html" },
+    { title: "Using an EMI Calculator for Planning", url: "use-emi-calculator.html" }
+];
+
 async function fetchExchangeRate() {
     try {
         const response = await fetch('https://v6.exchangerate-api.com/v6/YOUR_API_KEY/latest/CAD');
@@ -213,7 +242,6 @@ function compareScenarios() {
     const baseEmi2 = numerator2 / denominator2 || 0;
     const result2 = calculateWithPrepayment(loanAmount2, monthlyRate2, tenureMonths2, baseEmi2, prepayment2);
 
-    // Update the comparison table with data-scenario attributes for responsiveness
     document.getElementById('scenario1-emi').textContent = `${currencySymbol}${result1.emi.toFixed(2)}`;
     document.getElementById('scenario1-emi').setAttribute('data-scenario', 'Scenario 1');
     document.getElementById('scenario1-total-interest').textContent = `${currencySymbol}${result1.totalInterest.toFixed(2)}`;
@@ -223,7 +251,7 @@ function compareScenarios() {
     
     document.getElementById('scenario2-emi').textContent = `${currencySymbol}${result2.emi.toFixed(2)}`;
     document.getElementById('scenario2-emi').setAttribute('data-scenario', 'Scenario 2');
-    document.getElementById('scenario2-total-interest').textContent = `${currencySymbol}${result2.totalInterest.toFixed(2)}`; // Fixed bug
+    document.getElementById('scenario2-total-interest').textContent = `${currencySymbol}${result2.totalInterest.toFixed(2)}`;
     document.getElementById('scenario2-total-interest').setAttribute('data-scenario', 'Scenario 2');
     document.getElementById('scenario2-total-payment').textContent = `${currencySymbol}${result2.totalPayments.toFixed(2)}`;
     document.getElementById('scenario2-total-payment').setAttribute('data-scenario', 'Scenario 2');
@@ -363,12 +391,23 @@ function resetForm() {
 }
 
 function initializeSliders() {
+    // Check if the required elements exist before proceeding
+    const loanAmountInput = document.getElementById('loan-amount');
+    if (!loanAmountInput) {
+        console.log("Loan amount input not found, skipping slider initialization.");
+        return; // Exit if we're not on a page with the calculator
+    }
+
     const sliders = document.querySelectorAll('.slider');
     const inputs = document.querySelectorAll('#emi-form input[type="number"], #emi-form select, #borrowing-calculator input[type="number"]');
 
     sliders.forEach(slider => {
         const inputId = slider.getAttribute('data-input');
         const numberInput = document.getElementById(inputId);
+        if (!numberInput) {
+            console.log(`Number input ${inputId} not found, skipping this slider.`);
+            return;
+        }
         numberInput.value = slider.value;
 
         slider.removeEventListener('input', slider.inputHandler);
@@ -413,32 +452,26 @@ function initializeSliders() {
     const currencySelect = document.getElementById('currency');
     const currencySymbols = document.querySelectorAll('#currency-symbol, #currency-symbol-prepayment, #currency-symbol-fees, #currency-symbol-taxes, #currency-symbol-scenario1, #currency-symbol-scenario1-prepayment, #currency-symbol-scenario2, #currency-symbol-scenario2-prepayment, #currency-symbol-monthly-income, #currency-symbol-monthly-expenses');
     
-    currencySelect.removeEventListener('change', currencySelect.changeHandler);
+    if (currencySelect) {
+        currencySelect.removeEventListener('change', currencySelect.changeHandler);
 
-    currencySelect.changeHandler = async () => {
-        console.log(`Currency changed to ${currencySelect.value}`);
-        const symbol = currencySelect.value === 'CAD' ? 'C$' : '$';
-        currencySymbols.forEach(span => span.textContent = symbol);
-        
-        await fetchExchangeRate();
-        
-        calculateEMI();
-    };
-    currencySelect.addEventListener('change', currencySelect.changeHandler);
+        currencySelect.changeHandler = async () => {
+            console.log(`Currency changed to ${currencySelect.value}`);
+            const symbol = currencySelect.value === 'CAD' ? 'C$' : '$';
+            currencySymbols.forEach(span => span.textContent = symbol);
+            
+            await fetchExchangeRate();
+            
+            calculateEMI();
+        };
+        currencySelect.addEventListener('change', currencySelect.changeHandler);
 
-    const initialSymbol = currencySelect.value === 'CAD' ? 'C$' : '$';
-    currencySymbols.forEach(span => span.textContent = initialSymbol);
+        const initialSymbol = currencySelect.value === 'CAD' ? 'C$' : '$';
+        currencySymbols.forEach(span => span.textContent = initialSymbol);
 
-    fetchExchangeRate();
+        fetchExchangeRate();
+    }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    initializeSliders();
-    const downloadBtn = document.getElementById('download-pdf');
-    if (downloadBtn) downloadBtn.style.display = 'none';
-});
-
-let chartInstance = null;
 
 function generateAmortization(loanAmount, monthlyRate, tenureMonths, emi, prepayment, currency, loanType, annualRate) {
     let balance = loanAmount;
@@ -561,4 +594,94 @@ function downloadPDF() {
     doc.save("amortization_schedule.pdf");
 }
 
-document.getElementById('download-pdf').addEventListener('click', downloadPDF);
+// Search Functionality with Suggestions
+function initializeSearch() {
+    console.log("Initializing search functionality...");
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsContainer = document.getElementById('suggestionsContainer');
+
+    if (!searchForm || !searchInput || !suggestionsContainer) {
+        console.error("Search elements not found:", {
+            searchForm: !!searchForm,
+            searchInput: !!searchInput,
+            suggestionsContainer: !!suggestionsContainer
+        });
+        return;
+    }
+
+    console.log("Search elements found, setting up event listeners...");
+
+    // Handle form submission
+    searchForm.addEventListener('submit', (e) => {
+        console.log("Search form submitted");
+        e.preventDefault();
+        const query = searchInput.value.trim().toLowerCase();
+        if (query) {
+            const matchedPost = blogPosts.find(post => post.title.toLowerCase().includes(query));
+            if (matchedPost) {
+                console.log(`Redirecting to ${matchedPost.url}`);
+                window.location.href = matchedPost.url;
+            } else {
+                console.log("No matching blog post found for query:", query);
+                alert('No matching blog post found. Please try a different search term.');
+            }
+        }
+    });
+
+    // Handle input for suggestions
+    searchInput.addEventListener('input', () => {
+        console.log("Search input changed:", searchInput.value);
+        const query = searchInput.value.trim().toLowerCase();
+        suggestionsContainer.innerHTML = ''; // Clear previous suggestions
+
+        if (query) {
+            const matches = blogPosts.filter(post => post.title.toLowerCase().includes(query));
+            console.log("Suggestions found:", matches);
+            if (matches.length > 0) {
+                matches.forEach(post => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.classList.add('suggestion-item');
+                    suggestionItem.textContent = post.title;
+                    suggestionItem.addEventListener('click', () => {
+                        console.log(`Suggestion clicked, redirecting to ${post.url}`);
+                        window.location.href = post.url;
+                    });
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+                suggestionsContainer.style.display = 'block';
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        } else {
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!searchForm.contains(e.target)) {
+            console.log("Clicked outside, hiding suggestions");
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+
+    // Handle focus to show suggestions if there are any
+    searchInput.addEventListener('focus', () => {
+        console.log("Search input focused");
+        if (suggestionsContainer.innerHTML) {
+            suggestionsContainer.style.display = 'block';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded, initializing...");
+    initializeSliders();
+    initializeSearch();
+    const downloadBtn = document.getElementById('download-pdf');
+    if (downloadBtn) {
+        downloadBtn.style.display = 'none';
+        downloadBtn.addEventListener('click', downloadPDF);
+    }
+});

@@ -7,6 +7,7 @@
     <meta name="description" content="Explore expert guides and tips on loan EMI calculations for Canada and the US. Learn about home, car, and personal loans, and use our free EMI calculator for accurate results.">
     <meta name="keywords" content="Canada and US loan EMI calculator, EMI calculator for US loans, loan calculator for Canadian loans, loan repayment tool for Canada and US, home loan EMI, car loan EMI, personal loan EMI">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCZN9RQ3Y3"></script>
@@ -20,19 +21,19 @@
 <body>
     <div class="container-fluid p-0">
         <!-- Navigation Menu -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand text-primary fw-bold" href="#">EMI Resources</a>
+                <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 General EMI Concepts
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="generalEmiNav">
+                            <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
                                 <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
                                 <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
                                 <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
@@ -44,7 +45,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 EMI Calculation & Factors
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="emiCalculationNav">
+                            <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
                                 <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
                                 <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
                                 <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
@@ -56,7 +57,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Types of Loans & EMI
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="loanTypesEmiNav">
+                            <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
                                 <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
                                 <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
                                 <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
@@ -68,7 +69,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Loan Comparison & EMI Planning
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="loanComparisonNav">
+                            <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
                                 <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
                                 <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
                                 <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
@@ -80,7 +81,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Budgeting & Financial Planning with EMI
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="budgetingEmiNav">
+                            <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
                                 <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
                                 <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
                                 <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
@@ -89,6 +90,14 @@
                             </ul>
                         </li>
                     </ul>
+                    <!-- Modern Search Bar -->
+                    <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                        <div class="input-group">
+                            <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                            <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                        </div>
+                        <div class="suggestions-container" id="suggestionsContainer"></div>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -130,11 +139,29 @@
                 <!-- Right Column: Sidebar with CTAs and Quick Links -->
                 <div class="col-md-4">
                     <div class="sidebar card p-4 shadow-sm rounded bg-white h-100">
-                        <h3 class="text-primary mb-3">Quick Links</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#introduction" class="text-decoration-none text-dark">Introduction to Loans</a></li>
-                            <li><a href="#pillar-pages" class="text-decoration-none text-dark">Loan Guides</a></li>
-                            <li><a href="#faqs" class="text-decoration-none text-dark">FAQs</a></li>
+                        <h3 class="text-primary mb-3">Most Popular</h3>
+                        <ul class="list-unstyled popular-posts">
+                            <li class="mb-3">
+                                <a href="what-is-emi.html" class="text-decoration-none">
+                                    <i class="fas fa-star text-warning me-2"></i>
+                                    <span class="popular-title">What is EMI?</span>
+                                    <p class="small text-muted mb-0">Understand the basics of Equated Monthly Installments.</p>
+                                </a>
+                            </li>
+                            <li class="mb-3">
+                                <a href="home-loan-emi.html" class="text-decoration-none">
+                                    <i class="fas fa-star text-warning me-2"></i>
+                                    <span class="popular-title">Home Loan EMI</span>
+                                    <p class="small text-muted mb-0">Everything you need to know about home loan EMIs.</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="reduce-emi-tips.html" class="text-decoration-none">
+                                    <i class="fas fa-star text-warning me-2"></i>
+                                    <span class="popular-title">Reduce Your EMI</span>
+                                    <p class="small text-muted mb-0">Proven strategies to lower your loan EMI.</p>
+                                </a>
+                            </li>
                         </ul>
 
                         <h3 class="text-primary mt-4 mb-3">Get Started Now</h3>
