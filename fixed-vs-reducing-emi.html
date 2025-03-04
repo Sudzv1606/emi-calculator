@@ -3,96 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed vs. Floating Rate EMI | Loan EMI Calculator</title>
-    <meta name="description" content="Understand the differences between Fixed and Floating Rate EMIs for loans in the US and Canada, and how they impact your payments and financial planning.">
-    <meta name="keywords" content="fixed rate EMI, floating rate EMI, loan repayment Canada, loan repayment US, EMI calculator, interest rates explained">
+    <title>Fixed vs. Reducing Balance EMI | Loan EMI Calculator</title>
+    <meta name="description" content="Explore the differences between fixed and reducing balance EMI methods for loans in Canada and the US, and how they affect your repayment strategy.">
+    <meta name="keywords" content="fixed vs reducing EMI, loan repayment Canada, loan repayment US, EMI calculator, financial planning">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            General EMI Concepts
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
+                            <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
+                            <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
+                            <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
+                            <li><a class="dropdown-item" href="fixed-vs-reducing-emi.html">Fixed vs. Reducing Balance EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-amortization-emi.html">How Loan Amortization Works</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EMI Calculation & Factors
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
+                            <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
+                            <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
+                            <li><a class="dropdown-item" href="principal-interest-emi.html">Principal, Interest & EMI</a></li>
+                            <li><a class="dropdown-item" href="extra-payments-emi.html">Extra Payments and EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Types of Loans & EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
+                            <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="personal-loan-emi.html">Personal Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="business-loan-emi.html">Business Loan EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Loan Comparison & EMI Planning
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
+                            <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
+                            <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
+                            <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
+                            <li><a class="dropdown-item" href="credit-score-emi.html">Credit Score and EMI</a></li>
+                            <li><a class="dropdown-item" href="refinancing-loans.html">Refinancing Loans to Reduce EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Budgeting & Financial Planning with EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
+                            <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
+                            <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
+                            <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
+                            <li><a class="dropdown-item" href="prepayment-vs-emi.html">Prepayment vs. Increasing EMI</a></li>
+                            <li><a class="dropdown-item" href="use-emi-calculator.html">Using an EMI Calculator for Planning</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('https://source.unsplash.com/1600x600/?finance,loan,interest'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Fixed vs. Reducing Balance EMI</h1>
+        <p class="lead mb-3">Published on February 26, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">General EMI Concepts</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Fixed vs. Reducing Balance EMI</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Fixed vs. Floating Rate EMI</h1>
-        <p class="lead">Published on February 26, 2025</p>
-        <p>For borrowers in the US and Canada, the choice between a fixed-rate and floating-rate Equated Monthly Installment (EMI) significantly impacts loan repayment stability, costs, and budgeting. A fixed-rate EMI locks in an interest rate for the entire loan term, ensuring consistent payments, while a floating-rate EMI adjusts based on market conditions, potentially increasing or decreasing payments. This guide explores these options, their implications for home loans in Toronto, auto loans in New York, and more, using our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> for precise planning.</p>
-        <p>The distinction between fixed and floating rates has evolved with North American lending practices. In the US, fixed-rate mortgages have dominated since the 1930s, driven by FHA programs, with 90% of new mortgages fixed-rate as of 2024, per Freddie Mac. In Canada, the CMHC (Canada Mortgage and Housing Corporation) reports that 85% of new mortgages in 2025 are fixed-rate, averaging 5.7%, while floating rates, tied to the Canadian Prime Rate, account for 15%. This article helps borrowers in Vancouver, California, or beyond navigate this critical decision.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#fixed-emi" class="text-decoration-none">What is Fixed EMI?</a></li>
+                        <li><a href="#reducing-emi" class="text-decoration-none">What is Reducing Balance EMI?</a></li>
+                        <li><a href="#comparison" class="text-decoration-none">Comparing Fixed and Reducing Balance EMI</a></li>
+                        <li><a href="#visualization" class="text-decoration-none">Interest Payment Visualization</a></li>
+                        <li><a href="#example-scenarios" class="text-decoration-none">Example Scenarios</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Fixed and Floating Rate EMIs Work</h2>
-        <p><strong>Fixed Rate EMI</strong>: The interest rate remains constant throughout the loan term, ensuring your EMI stays predictable. This suits borrowers seeking stability, especially in rising rate environments. For example, a $200,000 US home loan at a fixed 6.5% over 30 years yields an EMI of approximately $1,264.14, as calculated with the formula:</p>
-        <pre>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</pre>
-        <p>Where P = $200,000, r = 0.065 ÷ 12 ≈ 0.005417, and n = 360 months. Total interest paid is approximately $155,093.04, and total repayment is $355,093.04.</p>
-        <p><strong>Floating Rate EMI</strong>: The rate adjusts periodically based on benchmarks like the US Federal Funds Rate or Canadian Prime Rate, potentially altering your EMI or tenure. A $200,000 US loan starting at 6.5%, rising to 7.5% after 5 years, might see EMI increase to $1,398.43, adding $18,339.76 in interest, totaling $373,432.80 paid.</p>
-        <p>In Canada, a CAD 250,000 mortgage at a fixed 5.7% over 25 years has an EMI of CAD 1,548.57, with total interest of CAD 114,571.00. A floating rate starting at 5.7%, rising to 6.7% after 5 years, could increase EMI to CAD 1,720.45, adding CAD 11,564.00 in interest, totaling CAD 376,135.00.</p>
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">When borrowing money in Canada or the US, the method used to calculate your Equated Monthly Installment (EMI) can significantly affect your repayment strategy. Fixed EMI and reducing balance EMI are two common approaches, each with distinct impacts on interest paid and payment structure.</p>
+                        <p>This guide explores the differences between fixed and reducing balance EMI methods, helping borrowers in Toronto, Vancouver, New York, and beyond choose the best repayment strategy. Use our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> to test these methods for your loans.</p>
+                    </div>
+                </section>
 
-        <!-- Table: EMI Examples for Fixed vs. Floating Rates -->
-        <h2 class="mt-4 text-primary">EMI Examples for Fixed vs. Floating Rates in Canada and US</h2>
-        <p>Here’s a comparison of fixed and floating rate EMIs for typical loan scenarios in Canada and the US, based on 2025 rates from Freddie Mac, CMHC, and industry reports:</p>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Country</th>
-                    <th>Loan Type</th>
-                    <th>Loan Amount ($)</th>
-                    <th>Rate Type</th>
-                    <th>Interest Rate (%)</th>
-                    <th>Tenure (Years)</th>
-                    <th>Monthly EMI ($)</th>
-                    <th>Total Interest Paid ($)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>US</td>
-                    <td>Home Loan</td>
-                    <td>200,000</td>
-                    <td>Fixed</td>
-                    <td>6.5</td>
-                    <td>30</td>
-                    <td>1,264.14</td>
-                    <td>155,093.04</td>
-                </tr>
-                <tr>
-                    <td>US</td>
-                    <td>Home Loan</td>
-                    <td>200,000</td>
-                    <td>Floating (6.5% to 7.5%)</td>
-                    <td>7.5 (after 5 years)</td>
-                    <td>30</td>
-                    <td>1,398.43</td>
-                    <td>173,432.80</td>
-                </tr>
-                <tr>
-                    <td>Canada</td>
-                    <td>Mortgage</td>
-                    <td>250,000</td>
-                    <td>Fixed</td>
-                    <td>5.7</td>
-                    <td>25</td>
-                    <td>1,548.57</td>
-                    <td>114,571.00</td>
-                </tr>
-                <tr>
-                    <td>Canada</td>
-                    <td>Mortgage</td>
-                    <td>250,000</td>
-                    <td>Floating (5.7% to 6.7%)</td>
-                    <td>6.7 (after 5 years)</td>
-                    <td>25</td>
-                    <td>1,720.45</td>
-                    <td>126,135.00</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>These figures highlight the cost difference: fixed rates offer predictability, while floating rates risk higher costs if rates rise, per 2024 data from the National Association of Realtors and CMHC.</p>
+                <section id="fixed-emi" class="mb-5">
+                    <h2 class="text-primary mb-3">What is Fixed EMI?</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>In a fixed EMI loan, the interest is calculated on the initial principal amount throughout the loan term, similar to a simple interest loan. The total interest is determined at the start using the formula: <strong>Interest = P × R × T</strong>, where:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>P</strong> is the principal loan amount.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>R</strong> is the annual interest rate (as a decimal).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>T</strong> is the time in years.</li>
+                        </ul>
+                        <p>The total repayment (principal + interest) is then divided into equal monthly payments, ensuring consistency but often resulting in higher interest costs since the interest doesn’t decrease as the principal is repaid.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits and Risks of Fixed vs. Floating Rates</h2>
-        <p><strong>Fixed Rate Benefits</strong>: Predictable payments shield borrowers from rate hikes, ideal for long-term planning in volatile markets, like California or Ontario. A 2024 US Mortgage Bankers Association study found fixed-rate borrowers saved an average of $15,000 over 30 years versus floating-rate borrowers in rising rates.</p>
-        <p><strong>Floating Rate Benefits</strong>: Potential savings if rates fall, as seen in Canada’s 2008–2010 recession, where floating-rate borrowers saved 12% on interest, per FCAC data. However, risks include higher costs if rates rise, as 20% of Canadian borrowers faced in 2022–2023, per Bank of Canada reports.</p>
-        <p>Common misconceptions include assuming fixed rates are always costlier—however, they protect against market volatility, while floating rates suit risk-takers betting on rate drops, like in Seattle or Quebec.</p>
+                <section id="reducing-emi" class="mb-5">
+                    <h2 class="text-primary mb-3">What is Reducing Balance EMI?</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>In a reducing balance EMI loan, interest is calculated on the outstanding principal each month, using the formula: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>P</strong> is the principal loan amount.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>r</strong> is the monthly interest rate (annual rate ÷ 12 ÷ 100).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>n</strong> is the number of monthly payments.</li>
+                        </ul>
+                        <p>Each EMI payment reduces the outstanding principal, lowering the interest charged in subsequent months, which typically reduces the total interest paid over the loan term compared to a fixed EMI.</p>
+                    </div>
+                </section>
 
-        <p>Ready to evaluate fixed vs. floating rates for your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios and find the best plan for your needs in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <section id="comparison" class="mb-5">
+                    <h2 class="text-primary mb-3">Comparing Fixed and Reducing Balance EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here’s how fixed and reducing balance EMI methods differ for borrowers in Canada and the US:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Calculation</strong>: Fixed EMI calculates interest on the initial principal throughout the term; reducing balance EMI calculates interest on the remaining principal each month.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Total Interest Paid</strong>: Fixed EMI often leads to higher total interest; reducing balance EMI typically results in lower interest since the principal decreases monthly.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Payment Predictability</strong>: Both methods offer fixed monthly payments, but fixed EMI may feel less cost-effective over time.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Early Repayment Benefits</strong>: Reducing balance EMI benefits more from early repayments, as interest is recalculated on the lower principal; fixed EMI offers less savings since interest is predetermined.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="visualization" class="mb-5">
+                    <h2 class="text-primary mb-3">Interest Payment Visualization</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The chart below compares the interest paid over time for a $20,000 loan at 5% annual interest over 3 years (36 months) using fixed and reducing balance EMI methods.</p>
+                        <div class="chart-container">
+                            <canvas id="interestChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="example-scenarios" class="mb-5">
+                    <h2 class="text-primary mb-3">Example Scenarios</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here’s a comparison of fixed and reducing balance EMI for a $20,000 loan at 5% annual interest over 3 years in Canada and the US:</p>
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>EMI Type</th>
+                                    <th>Loan Amount</th>
+                                    <th>Interest Rate</th>
+                                    <th>Tenure (Years)</th>
+                                    <th>Monthly EMI</th>
+                                    <th>Total Interest Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Canada</td>
+                                    <td>Fixed EMI</td>
+                                    <td>CAD 20,000</td>
+                                    <td>5%</td>
+                                    <td>3</td>
+                                    <td>CAD 638.89</td>
+                                    <td>CAD 1,500.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Canada</td>
+                                    <td>Reducing Balance EMI</td>
+                                    <td>CAD 20,000</td>
+                                    <td>5%</td>
+                                    <td>3</td>
+                                    <td>CAD 599.42</td>
+                                    <td>CAD 1,579.12</td>
+                                </tr>
+                                <tr>
+                                    <td>US</td>
+                                    <td>Fixed EMI</td>
+                                    <td>$20,000</td>
+                                    <td>5%</td>
+                                    <td>3</td>
+                                    <td>$638.89</td>
+                                    <td>$1,500.00</td>
+                                </tr>
+                                <tr>
+                                    <td>US</td>
+                                    <td>Reducing Balance EMI</td>
+                                    <td>$20,000</td>
+                                    <td>5%</td>
+                                    <td>3</td>
+                                    <td>$599.42</td>
+                                    <td>$1,579.12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>These examples illustrate that reducing balance EMI often results in lower total interest, making it a cost-effective choice for many borrowers in Canada and the US.</p>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card shadow-sm p-4">
+                        <p>Ready to explore EMI options for your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.toc a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const canvas = document.getElementById('interestChart');
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetWidth * 0.5;
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 36 }, (_, i) => `Month ${i + 1}`),
+                    datasets: [
+                        {
+                            label: 'Fixed EMI Interest',
+                            data: Array.from({ length: 36 }, (_, i) => 41.67),
+                            borderColor: '#3498db',
+                            backgroundColor: '#3498db',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        },
+                        {
+                            label: 'Reducing Balance EMI Interest',
+                            data: Array.from({ length: 36 }, (_, i) => {
+                                const remainingPrincipal = 20000 - (i * 555.75);
+                                return remainingPrincipal > 0 ? (remainingPrincipal * 0.004167).toFixed(2) : 0;
+                            }),
+                            borderColor: '#e74c3c',
+                            backgroundColor: '#e74c3c',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Monthly Interest ($)', font: { size: 16 } },
+                            suggestedMax: 100,
+                            ticks: { font: { size: 14 } }
+                        },
+                        x: {
+                            title: { display: true, text: 'Month', font: { size: 16 } },
+                            ticks: { stepSize: 6, font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: {
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

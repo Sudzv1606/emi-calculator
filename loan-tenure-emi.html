@@ -4,95 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Tenure vs. EMI | Loan EMI Calculator</title>
-    <meta name="description" content="Explore how loan tenure affects Equated Monthly Installments (EMI) for loans in the US and Canada, and optimize your repayment plan with our EMI calculator.">
-    <meta name="keywords" content="loan tenure vs EMI, loan repayment Canada, loan repayment US, EMI calculator, tenure impact">
+    <meta name="description" content="Explore how loan tenure affects your EMI payments for loans in Canada and the US, balancing monthly affordability with total interest paid.">
+    <meta name="keywords" content="loan tenure vs EMI, loan repayment Canada, loan repayment US, EMI calculator, financial planning">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            General EMI Concepts
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
+                            <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
+                            <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
+                            <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
+                            <li><a class="dropdown-item" href="fixed-vs-reducing-emi.html">Fixed vs. Reducing Balance EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-amortization-emi.html">How Loan Amortization Works</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EMI Calculation & Factors
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
+                            <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
+                            <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
+                            <li><a class="dropdown-item" href="principal-interest-emi.html">Principal, Interest & EMI</a></li>
+                            <li><a class="dropdown-item" href="extra-payments-emi.html">Extra Payments and EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Types of Loans & EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
+                            <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="personal-loan-emi.html">Personal Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="business-loan-emi.html">Business Loan EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Loan Comparison & EMI Planning
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
+                            <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
+                            <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
+                            <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
+                            <li><a class="dropdown-item" href="credit-score-emi.html">Credit Score and EMI</a></li>
+                            <li><a class="dropdown-item" href="refinancing-loans.html">Refinancing Loans to Reduce EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Budgeting & Financial Planning with EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
+                            <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
+                            <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
+                            <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
+                            <li><a class="dropdown-item" href="prepayment-vs-emi.html">Prepayment vs. Increasing EMI</a></li>
+                            <li><a class="dropdown-item" href="use-emi-calculator.html">Using an EMI Calculator for Planning</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('https://source.unsplash.com/1600x600/?finance,loan,tenure'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Loan Tenure vs. EMI</h1>
+        <p class="lead mb-3">Published on February 26, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">EMI Calculation & Factors</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Loan Tenure vs. EMI</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Loan Tenure vs. EMI</h1>
-        <p class="lead">Published on February 27, 2025</p>
-        <p>Loan tenure—the duration over which a loan is repaid—directly impacts Equated Monthly Installments (EMI) for borrowers in the US and Canada. Longer tenures reduce EMI but increase total interest, while shorter tenures raise EMI but lower total costs. This balance is critical for home loans in Toronto, auto loans in New York, or personal loans in Vancouver, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users optimize these choices.</p>
-        <p>In 2024, the Federal Reserve reported US loan tenures averaging 30 years for mortgages and 5 years for auto loans, while the Bank of Canada noted Canadian mortgages at 25 years and auto loans at 4–6 years, per CMHC and industry data. These trends shape EMI, making tenure understanding vital for borrowers in California, Alberta, and beyond.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#tenure-impact" class="text-decoration-none">How Loan Tenure Impacts EMI</a></li>
+                        <li><a href="#visualization" class="text-decoration-none">EMI Variation with Loan Tenure</a></li>
+                        <li><a href="#example-scenarios" class="text-decoration-none">Example Scenarios</a></li>
+                        <li><a href="#choosing-tenure" class="text-decoration-none">Choosing the Right Tenure</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Loan Tenure Affects EMI</h2>
-        <p>The EMI formula—<strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>—shows that as tenure (n) increases, EMI decreases, but total interest rises. For a $300,000 US home loan at 6%:</p>
-        <ul>
-            <li>15 years: EMI ≈ $2,531.57; Total Interest ≈ $155,682.60; Total Paid ≈ $455,682.60</li>
-            <li>30 years: EMI ≈ $1,798.65; Total Interest ≈ $247,511.00; Total Paid ≈ $547,511.00</li>
-        </ul>
-        <p>For a CAD 400,000 Canadian mortgage at 5.5%:</p>
-        <ul>
-            <li>20 years: EMI ≈ CAD 2,531.57; Total Interest ≈ CAD 207,577.60; Total Paid ≈ CAD 607,577.60</li>
-            <li>25 years: EMI ≈ CAD 2,334.44; Total Interest ≈ CAD 300,332.00; Total Paid ≈ CAD 700,332.00</li>
-        </ul>
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Loan tenure, or the duration over which you repay a loan, significantly affects your Equated Monthly Installment (EMI) and the total interest paid. Choosing the right tenure involves balancing monthly affordability with the overall cost of the loan.</p>
+                        <p>This guide explores how loan tenure impacts EMI payments for loans in Canada and the US, helping borrowers in Toronto, Vancouver, New York, and beyond make informed decisions. Use our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> to test different tenures for your loans.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Tenure Impact Over Time</h2>
-        <p>This chart shows how EMI and total interest vary for a $300,000 US home loan at 6% over different tenures, highlighting the trade-off between monthly payments and total cost.</p>
-        <canvas id="tenureChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <section id="tenure-impact" class="mb-5">
+                    <h2 class="text-primary mb-3">How Loan Tenure Impacts EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The EMI formula, <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, shows that tenure (<strong>n</strong>) inversely affects the EMI:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Longer Tenure</strong>: Increases the number of payments (n), reducing the EMI but increasing the total interest paid due to the longer duration of interest accrual.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Shorter Tenure</strong>: Decreases the number of payments, increasing the EMI but reducing the total interest paid since the loan is repaid faster.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Accumulation</strong>: Longer tenures lead to more interest accumulation, as the principal is reduced more slowly over time.</li>
+                        </ul>
+                        <p>Choosing the right tenure depends on your financial goals, income stability, and ability to manage higher monthly payments.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Loan Tenures</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Type</th>
-                    <th>Typical Tenure (Years)</th>
-                    <th>Average Interest Rate (2025, %)</th>
-                    <th>Average EMI (Per $100,000)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>Home Loan</td><td>30</td><td>6.0</td><td>$599.55</td></tr>
-                <tr><td>Canada</td><td>Mortgage</td><td>25</td><td>5.5</td><td>CAD 778.16</td></tr>
-                <tr><td>US</td><td>Auto Loan</td><td>5</td><td>7.0</td><td>$198.65</td></tr>
-                <tr><td>Canada</td><td>Auto Loan</td><td>4</td><td>6.5</td><td>CAD 228.25</td></tr>
-            </tbody>
-        </table>
-        <p>Data from Freddie Mac, CMHC, and 2025 reports show tenure’s role in EMI, per Federal Reserve and Bank of Canada insights.</p>
+                <section id="visualization" class="mb-5">
+                    <h2 class="text-primary mb-3">EMI Variation with Loan Tenure</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The chart below shows how the EMI for a $20,000 loan at 5% annual interest varies with tenures ranging from 1 to 5 years.</p>
+                        <div class="chart-container">
+                            <canvas id="emiTenureChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Optimizing Tenure</h2>
-        <p>Choosing the right tenure balances affordability and cost. A 2024 TransUnion study found US borrowers save 15% on interest with shorter tenures, while a 2023 FCAC report shows Canadian borrowers save 12%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include assuming longer tenures are always cheaper—however, they increase total interest by thousands, per Bankrate’s 2025 analysis.</p>
+                <section id="example-scenarios" class="mb-5">
+                    <h2 class="text-primary mb-3">Example Scenarios</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here’s how different tenures affect the EMI and total interest for a $20,000 loan at 5% annual interest in Canada and the US:</p>
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Loan Amount</th>
+                                    <th>Interest Rate</th>
+                                    <th>Tenure (Years)</th>
+                                    <th>Monthly EMI</th>
+                                    <th>Total Interest Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Canada</td>
+                                    <td>CAD 20,000</td>
+                                    <td>5%</td>
+                                    <td>1</td>
+                                    <td>CAD 1,708.73</td>
+                                    <td>CAD 504.76</td>
+                                </tr>
+                                <tr>
+                                    <td>Canada</td>
+                                    <td>CAD 20,000</td>
+                                    <td>5%</td>
+                                    <td>3</td>
+                                    <td>CAD 599.42</td>
+                                    <td>CAD 1,579.12</td>
+                                </tr>
+                                <tr>
+                                    <td>US</td>
+                                    <td>$20,000</td>
+                                    <td>5%</td>
+                                    <td>3</td>
+                                    <td>$599.42</td>
+                                    <td>$1,579.12</td>
+                                </tr>
+                                <tr>
+                                    <td>US</td>
+                                    <td>$20,000</td>
+                                    <td>5%</td>
+                                    <td>5</td>
+                                    <td>$377.42</td>
+                                    <td>$2,645.20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>These examples highlight the trade-off: a longer tenure lowers the EMI but increases total interest, while a shorter tenure saves on interest but requires higher monthly payments.</p>
+                    </div>
+                </section>
 
-        <p>Ready to find the ideal loan tenure for your EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <section id="choosing-tenure" class="mb-5">
+                    <h2 class="text-primary mb-3">Choosing the Right Tenure</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Consider these factors when selecting your loan tenure:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Income Stability</strong>: Opt for a longer tenure if your income varies, ensuring affordable EMIs.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Financial Goals</strong>: Choose a shorter tenure to save on interest if you can handle higher EMIs, freeing up funds for other goals sooner.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Rate Trends</strong>: If rates are low, a longer tenure might be more manageable; if rates rise, a shorter tenure can minimize interest costs.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Loan Type</strong>: Home loans often have longer tenures (e.g., 25–30 years), while personal loans may have shorter tenures (1–5 years).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card shadow-sm p-4">
+                        <p>Ready to find the perfect tenure for your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('tenureChart');
-            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
-            const baseWidth = 1200; // Increased base width for higher resolution
-            const baseHeight = 600; // Increased base height for higher resolution
-            canvas.width = baseWidth * dpr; // High-resolution pixel width
-            canvas.height = baseHeight * dpr; // High-resolution pixel height
-            canvas.style.width = '100%'; // CSS width for responsiveness
-            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            document.querySelectorAll('.toc a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const canvas = document.getElementById('emiTenureChart');
             const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr); // Scale context for high DPI
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetWidth * 0.5;
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
 
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['15 Years', '30 Years'],
-                    datasets: [{
-                        label: 'Monthly EMI ($)',
-                        data: [2531.57, 1798.65], // For $300,000 at 6% over 15 or 30 years
-                        borderColor: '#3498db',
-                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
-                        borderWidth: 2,
-                        fill: false
-                    }, {
-                        label: 'Total Interest ($)',
-                        data: [155682.60, 247511.00], // For $300,000 at 6% over 15 or 30 years
-                        borderColor: '#e74c3c',
-                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
+                    labels: ['1 Year', '2 Years', '3 Years', '4 Years', '5 Years'],
+                    datasets: [
+                        {
+                            label: 'Monthly EMI ($)',
+                            data: [1708.73, 870.85, 599.42, 463.71, 377.42],
+                            backgroundColor: '#004d40',
+                            borderColor: '#003d30',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Total Interest Paid ($)',
+                            data: [504.76, 1049.40, 1579.12, 2115.36, 2645.20],
+                            backgroundColor: '#00bfa5',
+                            borderColor: '#009688',
+                            borderWidth: 2
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
@@ -101,17 +290,17 @@
                         y: {
                             beginAtZero: true,
                             title: { display: true, text: 'Amount ($)', font: { size: 16 } },
-                            suggestedMax: 300000,
+                            suggestedMax: 2000,
                             ticks: { font: { size: 14 } }
                         },
                         x: {
-                            title: { display: true, text: 'Tenure', font: { size: 16 } },
+                            title: { display: true, text: 'Loan Tenure', font: { size: 16 } },
                             ticks: { font: { size: 14 } }
                         }
                     },
                     plugins: {
                         legend: { position: 'top', labels: { font: { size: 14 } } },
-                        tooltip: { 
+                        tooltip: {
                             enabled: true,
                             bodyFont: { size: 14 },
                             titleFont: { size: 16 }
@@ -119,7 +308,6 @@
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>

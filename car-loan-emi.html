@@ -3,108 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Loan EMI | Loan EMI Calculator</title>
-    <meta name="description" content="Learn about Car Loan EMIs in the US and Canada, how they work, typical rates, and how to calculate payments with our free EMI calculator.">
-    <meta name="keywords" content="car loan EMI, loan repayment Canada, loan repayment US, EMI calculator, auto loan EMI">
+    <title>Car Loan EMI: A Comprehensive Guide | Loan EMI Calculator</title>
+    <meta name="description" content="Understand car loan EMIs for Canada and US borrowers, including calculation methods, factors to consider, and strategies to minimize payments.">
+    <meta name="keywords" content="car loan EMI, auto loan Canada, auto loan US, EMI calculator, financial planning">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            General EMI Concepts
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
+                            <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
+                            <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
+                            <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
+                            <li><a class="dropdown-item" href="fixed-vs-reducing-emi.html">Fixed vs. Reducing Balance EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-amortization-emi.html">How Loan Amortization Works</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EMI Calculation & Factors
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
+                            <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
+                            <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
+                            <li><a class="dropdown-item" href="principal-interest-emi.html">Principal, Interest & EMI</a></li>
+                            <li><a class="dropdown-item" href="extra-payments-emi.html">Extra Payments and EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Types of Loans & EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
+                            <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="personal-loan-emi.html">Personal Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="business-loan-emi.html">Business Loan EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Loan Comparison & EMI Planning
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
+                            <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
+                            <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
+                            <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
+                            <li><a class="dropdown-item" href="credit-score-emi.html">Credit Score and EMI</a></li>
+                            <li><a class="dropdown-item" href="refinancing-loans.html">Refinancing Loans to Reduce EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Budgeting & Financial Planning with EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
+                            <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
+                            <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
+                            <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
+                            <li><a class="dropdown-item" href="prepayment-vs-emi.html">Prepayment vs. Increasing EMI</a></li>
+                            <li><a class="dropdown-item" href="use-emi-calculator.html">Using an EMI Calculator for Planning</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('https://source.unsplash.com/1600x600/?car,vehicle,loan'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Car Loan EMI: A Comprehensive Guide</h1>
+        <p class="lead mb-3">Published on February 26, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Types of Loans & EMI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Car Loan EMI</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Car Loan EMI</h1>
-        <p class="lead">Published on February 28, 2025</p>
-        <p>Car Loan Equated Monthly Installments (EMI) are fixed monthly payments used by borrowers in the US and Canada to repay auto loans, combining principal and interest over typically 3–7 years. These EMIs ensure predictable payments for purchasing vehicles in Toronto, New York, Vancouver, or beyond, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users calculate and optimize these costs.</p>
-        <p>In 2024, the Federal Reserve reported $1.5 trillion in US auto debt, with 85% structured via EMI, per Experian’s 2025 data, averaging 5–7 years at 7% interest. In Canada, the Bank of Canada’s 2024 report shows CAD 150 billion in auto loans, with 78% using EMI, typically 4–6 years at 6.5%, per Desjardins and CMHC insights, benefiting borrowers in California, Alberta, and beyond.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#car-loan-emi" class="text-decoration-none">What is Car Loan EMI?</a></li>
+                        <li><a href="#calculation" class="text-decoration-none">How to Calculate Car Loan EMI</a></li>
+                        <li><a href="#factors" class="text-decoration-none">Factors Affecting Car Loan EMI</a></li>
+                        <li><a href="#visualization" class="text-decoration-none">Car Loan EMI Breakdown</a></li>
+                        <li><a href="#minimizing-payments" class="text-decoration-none">Strategies to Minimize Car Loan EMI</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Car Loan EMI Works</h2>
-        <p>Car loan EMIs are calculated using: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where P is the loan amount (e.g., $30,000), r is the monthly rate (e.g., 7% ÷ 12 = 0.005833), and n is months (e.g., 5 years = 60). For a $30,000 US car loan at 7% over 5 years:</p>
-        <ul>
-            <li>EMI ≈ $595.94</li>
-            <li>Total Interest ≈ $5,756.40; Total Paid ≈ $35,756.40</li>
-        </ul>
-        <p>For a CAD 35,000 Canadian car loan at 6.5% over 4 years:</p>
-        <ul>
-            <li>EMI ≈ CAD 684.74</li>
-            <li>Total Interest ≈ CAD 3,377.24; Total Paid ≈ CAD 38,377.24</li>
-        </ul>
-        <p>Early payments are interest-heavy, but principal grows over time, ensuring the loan is repaid by the end.</p>
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Car loan EMIs are a convenient way to finance your vehicle purchase in Canada and the US, allowing you to spread the cost over monthly payments. Understanding how they work can help you manage your auto loan effectively.</p>
+                        <p>This comprehensive guide covers car loan EMIs, including calculation methods, factors to consider, and strategies to minimize payments for borrowers in Toronto, Vancouver, New York, and beyond. Use our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> to plan your car loan repayments.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Car Loan EMI Over Time</h2>
-        <p>This chart shows the principal and interest breakdown for a $30,000 US car loan at 7% over 5 years, illustrating how EMI shifts over time.</p>
-        <canvas id="carLoanEmiChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <section id="car-loan-emi" class="mb-5">
+                    <h2 class="text-primary mb-3">What is Car Loan EMI?</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>A car loan EMI (Equated Monthly Installment) is a fixed monthly payment you make to repay your auto loan, consisting of principal and interest. It’s calculated using the formula: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>P</strong> is the principal loan amount (e.g., $30,000).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>r</strong> is the monthly interest rate (annual rate ÷ 12 ÷ 100).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>n</strong> is the number of monthly payments (tenure in years × 12).</li>
+                        </ul>
+                        <p>Car loans typically have shorter tenures (3–7 years) compared to home loans, making EMIs manageable for vehicle financing.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Car Loan EMIs</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Amount (2025)</th>
-                    <th>Interest Rate (%)</th>
-                    <th>Tenure (Years)</th>
-                    <th>Monthly EMI</th>
-                    <th>Total Interest Paid</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>$30,000</td><td>7.0</td><td>5</td><td>$595.94</td><td>$5,756.40</td></tr>
-                <tr><td>Canada</td><td>CAD 35,000</td><td>6.5</td><td>4</td><td>CAD 684.74</td><td>CAD 3,377.24</td></tr>
-                <tr><td>US</td><td>$25,000</td><td>6.5</td><td>4</td><td>$488.26</td><td>$3,715.52</td></tr>
-                <tr><td>Canada</td><td>CAD 30,000</td><td>6.0</td><td>5</td><td>CAD 579.98</td><td>CAD 2,798.80</td></tr>
-            </tbody>
-        </table>
-        <p>Data from Experian, Desjardins, and 2025 reports highlight car loan EMI trends, per Federal Reserve and Bank of Canada insights.</p>
+                <section id="calculation" class="mb-5">
+                    <h2 class="text-primary mb-3">How to Calculate Car Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Let’s calculate the EMI for a $30,000 car loan at 6% annual interest over 5 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Principal (P)</strong>: $30,000</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Annual Interest Rate</strong>: 6% (so monthly rate <strong>r</strong> = 6 ÷ 12 ÷ 100 = 0.005)</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Tenure (n)</strong>: 5 years = 60 months</li>
+                        </ul>
+                        <p>Plugging these into the formula: <strong>EMI = 30,000 × 0.005 × (1 + 0.005)^60 / [(1 + 0.005)^60 - 1]</strong> results in an EMI of approximately <span class="highlight">$579.98</span>. The total repayment over 5 years would be $34,798.80, with $4,798.80 in interest.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Car Loan EMI</h2>
-        <p>Car loan EMIs offer predictability, helping borrowers budget for vehicles in Seattle, Quebec, or elsewhere. A 2024 TransUnion study found US borrowers save 15% on interest with EMI, while a 2023 FCAC report shows Canadian borrowers save 12%, per optimized terms. Misconceptions include thinking EMIs are inflexible—however, extra payments can reduce tenure and interest, per Bankrate’s 2025 analysis.</p>
+                <section id="factors" class="mb-5">
+                    <h2 class="text-primary mb-3">Factors Affecting Car Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Several factors influence your car loan EMI:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Loan Amount</strong>: Higher amounts increase the EMI, as you’re borrowing more.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Rate</strong>: Higher rates increase the EMI, as more interest accrues monthly.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Loan Tenure</strong>: Longer tenures lower the EMI but increase total interest; shorter tenures raise the EMI but save on interest.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Down Payment</strong>: A larger down payment reduces the loan amount, lowering the EMI.</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <p>Ready to calculate your car loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your auto loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <section id="visualization" class="mb-5">
+                    <h2 class="text-primary mb-3">Car Loan EMI Breakdown</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The chart below shows the breakdown of a $30,000 car loan at 6% annual interest over 5 years, illustrating how the EMI ($579.98) splits between principal and interest over time.</p>
+                        <div class="chart-container">
+                            <canvas id="carLoanChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="minimizing-payments" class="mb-5">
+                    <h2 class="text-primary mb-3">Strategies to Minimize Car Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here are strategies to reduce your car loan EMI:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Increase Down Payment</strong>: A larger down payment reduces the loan amount, lowering your EMI.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Negotiate Interest Rates</strong>: Shop around for the best rates, as even a 1% reduction can save hundreds.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Extend Loan Tenure</strong>: Choose a longer tenure to reduce the EMI, but be mindful of higher total interest.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Make Extra Payments</strong>: Pay extra when possible to reduce the principal, potentially lowering the EMI or shortening the term.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card shadow-sm p-4">
+                        <p>Ready to calculate your car loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">free EMI calculator</a> to test scenarios for your auto loan in Canada or the US.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('carLoanEmiChart');
-            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
-            const baseWidth = 1200; // Increased base width for higher resolution
-            const baseHeight = 600; // Increased base height for higher resolution
-            canvas.width = baseWidth * dpr; // High-resolution pixel width
-            canvas.height = baseHeight * dpr; // High-resolution pixel height
-            canvas.style.width = '100%'; // CSS width for responsiveness
-            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            document.querySelectorAll('.toc a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const canvas = document.getElementById('carLoanChart');
             const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr); // Scale context for high DPI
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetWidth * 0.5;
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
 
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: Array.from({ length: 60 }, (_, i) => `Month ${i + 1}`), // 5 years (60 months)
-                    datasets: [{
-                        label: 'Principal',
-                        data: Array.from({ length: 60 }, (_, i) => {
-                            const principal = 30000 * (1 - Math.pow(1 - 0.005833, i + 1)) / (1 - Math.pow(1 - 0.005833, 60)); // Simplified calculation
-                            return principal.toFixed(2);
-                        }),
-                        borderColor: '#3498db',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 3, // Increased for sharper lines
-                        pointRadius: 0, // Remove points to avoid pixelation
-                        pointBorderWidth: 0
-                    }, {
-                        label: 'Interest',
-                        data: Array.from({ length: 60 }, (_, i) => {
-                            const interest = 30000 * 0.005833 * Math.pow(1 - 0.005833, i) / (1 - Math.pow(1 - 0.005833, 60)); // Simplified calculation
-                            return interest.toFixed(2);
-                        }),
-                        borderColor: '#e74c3c',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 3, // Increased for sharper lines
-                        pointRadius: 0, // Remove points to avoid pixelation
-                        pointBorderWidth: 0
-                    }]
+                    labels: Array.from({ length: 60 }, (_, i) => `Month ${i + 1}`),
+                    datasets: [
+                        {
+                            label: 'Interest',
+                            data: Array.from({ length: 60 }, (_, i) => {
+                                const remainingPrincipal = 30000 - (i * 429.98);
+                                return remainingPrincipal > 0 ? (remainingPrincipal * 0.005).toFixed(2) : 0;
+                            }),
+                            borderColor: '#e74c3c',
+                            backgroundColor: '#e74c3c',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        },
+                        {
+                            label: 'Principal',
+                            data: Array.from({ length: 60 }, (_, i) => {
+                                const remainingPrincipal = 30000 - (i * 429.98);
+                                const interest = remainingPrincipal > 0 ? (remainingPrincipal * 0.005) : 0;
+                                return (579.98 - interest).toFixed(2);
+                            }),
+                            borderColor: '#3498db',
+                            backgroundColor: '#3498db',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
@@ -113,17 +278,17 @@
                         y: {
                             beginAtZero: true,
                             title: { display: true, text: 'Amount ($)', font: { size: 16 } },
-                            suggestedMax: 700,
+                            suggestedMax: 600,
                             ticks: { font: { size: 14 } }
                         },
                         x: {
                             title: { display: true, text: 'Month', font: { size: 16 } },
-                            ticks: { stepSize: 6, font: { size: 14 } }
+                            ticks: { stepSize: 12, font: { size: 14 } }
                         }
                     },
                     plugins: {
                         legend: { position: 'top', labels: { font: { size: 14 } } },
-                        tooltip: { 
+                        tooltip: {
                             enabled: true,
                             bodyFont: { size: 14 },
                             titleFont: { size: 16 }
@@ -131,7 +296,6 @@
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>

@@ -3,139 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Loan EMI: Everything You Need to Know</title>
-    <meta name="description" content="Discover everything about home loan EMIs in Canada and the US, including calculations, factors, regulations, benefits, and tips for managing your mortgage repayments.">
-    <meta name="keywords" content="home loan EMI, Canada home loan EMI, US home loan EMI, loan repayment, EMI calculator, mortgage EMI">
+    <title>Home Loan EMI: Everything You Need to Know | Loan EMI Calculator</title>
+    <meta name="description" content="Learn all about home loan EMIs in Canada and the US, including how to calculate them, factors affecting payments, and tips for managing your mortgage.">
+    <meta name="keywords" content="home loan EMI, mortgage Canada, mortgage US, EMI calculator, financial planning">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            General EMI Concepts
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
+                            <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
+                            <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
+                            <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
+                            <li><a class="dropdown-item" href="fixed-vs-reducing-emi.html">Fixed vs. Reducing Balance EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-amortization-emi.html">How Loan Amortization Works</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EMI Calculation & Factors
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
+                            <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
+                            <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
+                            <li><a class="dropdown-item" href="principal-interest-emi.html">Principal, Interest & EMI</a></li>
+                            <li><a class="dropdown-item" href="extra-payments-emi.html">Extra Payments and EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Types of Loans & EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
+                            <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="personal-loan-emi.html">Personal Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="business-loan-emi.html">Business Loan EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Loan Comparison & EMI Planning
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
+                            <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
+                            <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
+                            <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
+                            <li><a class="dropdown-item" href="credit-score-emi.html">Credit Score and EMI</a></li>
+                            <li><a class="dropdown-item" href="refinancing-loans.html">Refinancing Loans to Reduce EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Budgeting & Financial Planning with EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
+                            <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
+                            <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
+                            <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
+                            <li><a class="dropdown-item" href="prepayment-vs-emi.html">Prepayment vs. Increasing EMI</a></li>
+                            <li><a class="dropdown-item" href="use-emi-calculator.html">Using an EMI Calculator for Planning</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('https://source.unsplash.com/1600x600/?home,house,mortgage'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Home Loan EMI: Everything You Need to Know</h1>
+        <p class="lead mb-3">Published on February 26, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Types of Loans & EMI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Home Loan EMI</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Home Loan EMI: Everything You Need to Know</h1>
-        <p class="lead">Published on February 26, 2025</p>
-        <p>Home loans are a cornerstone of wealth-building in Canada and the US, but understanding your Equated Monthly Installment (EMI) is essential for managing this significant financial commitment. This comprehensive guide explores how home loan EMIs work, the factors influencing them, regulatory differences between Canada and the US, and practical tips for first-time buyers in Toronto, Vancouver, New York, or Los Angeles.</p>
-        <p>Your home loan EMI combines principal and interest, calculated using the formula <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>. In Canada, the Canada Mortgage and Housing Corporation (CMHC) regulates mortgages, often limiting terms to 25–30 years with fixed or variable rates. In the US, the Federal Housing Administration (FHA) offers 15–30 year terms, with fixed rates being common, impacting EMI significantly.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#home-loan-emi" class="text-decoration-none">What is Home Loan EMI?</a></li>
+                        <li><a href="#calculation" class="text-decoration-none">How to Calculate Home Loan EMI</a></li>
+                        <li><a href="#factors" class="text-decoration-none">Factors Affecting Home Loan EMI</a></li>
+                        <li><a href="#visualization" class="text-decoration-none">Home Loan EMI Breakdown</a></li>
+                        <li><a href="#management-tips" class="text-decoration-none">Tips for Managing Your Home Loan EMI</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">Factors Affecting Home Loan EMI</h2>
-        <p>Several elements influence your home loan EMI, including loan amount, interest rate, and tenure. For instance, a higher loan amount or interest rate increases your EMI, while a longer tenure reduces it. In Canada, stress tests require borrowers to qualify at a higher rate, affecting affordability. In the US, credit scores and down payments play a larger role in determining rates and EMIs.</p>
-        <p>Additional factors include property taxes, insurance (e.g., mortgage insurance in Canada, PMI in the US), and prepayment penalties, which vary by province or state, adding complexity to your repayment plan.</p>
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Home loan EMIs are a critical part of managing a mortgage in Canada and the US, allowing you to repay your loan through fixed monthly payments. Understanding how they work can help you plan your finances and manage your mortgage effectively.</p>
+                        <p>This guide covers everything you need to know about home loan EMIs, from calculation to management, for first-time homebuyers and seasoned investors in Toronto, Vancouver, New York, and beyond. Use our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> to plan your home loan repayments.</p>
+                    </div>
+                </section>
 
-        <!-- Chart: Home Loan EMI Trends Over Tenure and Interest Rates -->
-        <h2 class="mt-4 text-primary">How Loan Tenure and Interest Rates Affect Home Loan EMI</h2>
-        <p>This chart compares how a $300,000 home loan’s EMI changes with different tenures (15, 20, 30 years) and interest rates (3.0%–5.0%) in Canada and the US.</p>
-        <canvas id="homeLoanEmiChart" class="img-fluid rounded mb-4" style="max-width: 100%; height: auto;"></canvas>
+                <section id="home-loan-emi" class="mb-5">
+                    <h2 class="text-primary mb-3">What is Home Loan EMI?</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>A home loan EMI (Equated Monthly Installment) is a fixed monthly payment you make to repay your mortgage, consisting of both principal and interest. It’s calculated using the formula: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>P</strong> is the principal loan amount (e.g., $300,000).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>r</strong> is the monthly interest rate (annual rate ÷ 12 ÷ 100).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>n</strong> is the number of monthly payments (tenure in years × 12).</li>
+                        </ul>
+                        <p>Home loans often have longer tenures (15–30 years), making EMIs a practical way to manage large loan amounts over time.</p>
+                    </div>
+                </section>
 
-        <!-- Table: Home Loan EMI Comparison in Canada and US -->
-        <h2 class="mt-4 text-primary">Detailed Home Loan EMI Comparison</h2>
-        <p>Here’s an extensive comparison of home loan EMIs based on loan amount, interest rate, and tenure in Canada and the US, using data from financial reports (e.g., Bank of Canada, Federal Reserve):</p>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Country</th>
-                    <th>Loan Type</th>
-                    <th>Loan Amount ($)</th>
-                    <th>Interest Rate (%)</th>
-                    <th>Tenure (Years)</th>
-                    <th>Monthly EMI ($)</th>
-                    <th>Total Interest Paid ($)</th>
-                    <th>Additional Costs (e.g., Insurance)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Canada</td>
-                    <td>Home Loan</td>
-                    <td>250,000</td>
-                    <td>3.0</td>
-                    <td>25</td>
-                    <td>1,186.50</td>
-                    <td>101,950.00</td>
-                    <td>CMHC Insurance (~$7,500)</td>
-                </tr>
-                <tr>
-                    <td>US</td>
-                    <td>Home Loan</td>
-                    <td>300,000</td>
-                    <td>4.0</td>
-                    <td>30</td>
-                    <td>1,432.25</td>
-                    <td>215,610.00</td>
-                    <td>PMI (~$1,500/year for 5 years)</td>
-                </tr>
-                <tr>
-                    <td>Canada</td>
-                    <td>Home Loan</td>
-                    <td>200,000</td>
-                    <td>2.5</td>
-                    <td>15</td>
-                    <td>1,317.89</td>
-                    <td>37,220.20</td>
-                    <td>CMHC Insurance (~$6,000)</td>
-                </tr>
-                <tr>
-                    <td>US</td>
-                    <td>Home Loan</td>
-                    <td>150,000</td>
-                    <td>3.5</td>
-                    <td>15</td>
-                    <td>1,074.65</td>
-                    <td>43,437.00</td>
-                    <td>No PMI (20% down payment)</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>These figures are based on 2023 averages from financial institutions; actual costs vary by lender, location, and down payment in Canada and the US.</p>
+                <section id="calculation" class="mb-5">
+                    <h2 class="text-primary mb-3">How to Calculate Home Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Let’s calculate the EMI for a $300,000 home loan at 4% annual interest over 20 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Principal (P)</strong>: $300,000</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Annual Interest Rate</strong>: 4% (so monthly rate <strong>r</strong> = 4 ÷ 12 ÷ 100 = 0.003333)</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Tenure (n)</strong>: 20 years = 240 months</li>
+                        </ul>
+                        <p>Plugging these into the formula: <strong>EMI = 300,000 × 0.003333 × (1 + 0.003333)^240 / [(1 + 0.003333)^240 - 1]</strong> results in an EMI of approximately <span class="highlight">$1,817.94</span>. The total repayment over 20 years would be $436,305.60, with $136,305.60 in interest.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Managing Your Home Loan EMI</h2>
-        <p>Effectively managing your home loan EMI offers numerous benefits, including predictable budgeting, potential interest savings, and wealth-building opportunities. In Canada, locking in a fixed rate can protect against rate hikes, while in the US, refinancing during low-rate periods can reduce EMIs. Our <a href="https://sudzv1606.github.io/emi-calculator/"> EMI calculator</a> helps you explore these options, offering real-time insights for Toronto, Calgary, or US cities like San Francisco.</p>
-        <p>Historically, home loans in North America evolved from post-WWII housing programs, with EMIs becoming standard in the 1970s. Today, Canadian borrowers face stricter regulations (e.g., stress tests), while US borrowers benefit from FHA-backed loans, both influencing EMI calculations significantly.</p>
+                <section id="factors" class="mb-5">
+                    <h2 class="text-primary mb-3">Factors Affecting Home Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Several factors influence your home loan EMI:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Loan Amount</strong>: Higher principal amounts increase the EMI, as more money is borrowed.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Rate</strong>: Higher rates increase the EMI, as more interest accrues each month.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Loan Tenure</strong>: Longer tenures reduce the EMI but increase total interest; shorter tenures raise the EMI but save on interest.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Fixed vs. Variable Rates</strong>: Fixed rates keep EMIs constant; variable rates can change with market conditions, affecting your EMI.</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Challenges and Tips for Home Loan EMIs</h2>
-        <p>Challenges include rising interest rates, unexpected costs (e.g., property taxes), and regulatory changes in Canada and the US. Tips include making bi-weekly payments to reduce interest, avoiding variable rates in volatile markets, and using our <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> to simulate scenarios. For example, a Toronto homeowner could save $5,000 in interest by paying bi-weekly on a $250,000 mortgage at 3.0% over 25 years.</p>
+                <section id="visualization" class="mb-5">
+                    <h2 class="text-primary mb-3">Home Loan EMI Breakdown</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The chart below shows the breakdown of a $300,000 home loan at 4% annual interest over 20 years, illustrating how the EMI ($1,817.94) splits between principal and interest over time.</p>
+                        <div class="chart-container">
+                            <canvas id="homeLoanChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <p>Ready to manage your home loan EMI effectively? Visit our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to customize your repayment plan for Canadian or US home loans and achieve your homeownership goals.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your Home Loan EMI</a>
+                <section id="management-tips" class="mb-5">
+                    <h2 class="text-primary mb-3">Tips for Managing Your Home Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here are tips to manage your home loan EMI effectively:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Budget Wisely</strong>: Ensure your EMI is within 30–40% of your monthly income to maintain financial stability.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Make Extra Payments</strong>: Pay extra when possible to reduce the principal, lowering interest and potentially shortening the loan term.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Refinance if Beneficial</strong>: Refinance your loan if interest rates drop, reducing your EMI or loan term.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Choose the Right Tenure</strong>: Balance affordability with total interest by selecting an appropriate loan tenure.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card shadow-sm p-4">
+                        <p>Ready to calculate your home loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">free EMI calculator</a> to test scenarios for your mortgage in Canada or the US.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('homeLoanEmiChart');
-            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
-            canvas.width = 800 * dpr; // High-resolution width
-            canvas.height = 400 * dpr; // High-resolution height
-            canvas.style.width = '100%'; // CSS width for responsiveness
-            canvas.style.height = '400px'; // CSS height for consistency
+            document.querySelectorAll('.toc a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const canvas = document.getElementById('homeLoanChart');
             const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr); // Scale context for high DPI
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetWidth * 0.5;
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
 
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['15 Years', '20 Years', '30 Years'],
-                    datasets: [{
-                        label: '3.0% Interest Rate',
-                        data: [2023.45, 1650.78, 1262.00], // Sample EMIs for $300,000
-                        borderColor: '#3498db',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 2 // Thicker line for clarity
-                    }, {
-                        label: '4.0% Interest Rate',
-                        data: [2213.90, 1813.45, 1432.25], // Sample EMIs for $300,000
-                        borderColor: '#e74c3c',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 2
-                    }, {
-                        label: '5.0% Interest Rate',
-                        data: [2410.20, 1985.67, 1601.34], // Sample EMIs for $300,000
-                        borderColor: '#2ecc71',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 2
-                    }]
+                    labels: Array.from({ length: 240 }, (_, i) => `Month ${i + 1}`),
+                    datasets: [
+                        {
+                            label: 'Interest',
+                            data: Array.from({ length: 240 }, (_, i) => {
+                                const remainingPrincipal = 300000 - (i * 817.94);
+                                return remainingPrincipal > 0 ? (remainingPrincipal * 0.003333).toFixed(2) : 0;
+                            }),
+                            borderColor: '#e74c3c',
+                            backgroundColor: '#e74c3c',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        },
+                        {
+                            label: 'Principal',
+                            data: Array.from({ length: 240 }, (_, i) => {
+                                const remainingPrincipal = 300000 - (i * 817.94);
+                                const interest = remainingPrincipal > 0 ? (remainingPrincipal * 0.003333) : 0;
+                                return (1817.94 - interest).toFixed(2);
+                            }),
+                            borderColor: '#3498db',
+                            backgroundColor: '#3498db',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
@@ -143,20 +277,25 @@
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: { display: true, text: 'Monthly EMI ($)' },
-                            suggestedMax: 2500
+                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
+                            suggestedMax: 2000,
+                            ticks: { font: { size: 14 } }
                         },
                         x: {
-                            title: { display: true, text: 'Loan Tenure' }
+                            title: { display: true, text: 'Month', font: { size: 16 } },
+                            ticks: { stepSize: 24, font: { size: 14 } }
                         }
                     },
                     plugins: {
-                        legend: { position: 'top' },
-                        tooltip: { enabled: true }
+                        legend: { position: 'top', labels: { font: { size: 14 } } },
+                        tooltip: {
+                            enabled: true,
+                            bodyFont: { size: 14 },
+                            titleFont: { size: 16 }
+                        }
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>

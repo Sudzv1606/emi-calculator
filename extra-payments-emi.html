@@ -4,122 +4,311 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extra Payments and EMI | Loan EMI Calculator</title>
-    <meta name="description" content="Learn how extra payments affect Equated Monthly Installments (EMI) and loan repayment for loans in the US and Canada, and optimize savings with our EMI calculator.">
-    <meta name="keywords" content="extra payments EMI, loan repayment Canada, loan repayment US, EMI calculator, prepayment benefits">
+    <meta name="description" content="Discover how making extra payments can reduce your EMI or shorten your loan term for loans in Canada and the US, with practical examples.">
+    <meta name="keywords" content="extra payments EMI, loan repayment Canada, loan repayment US, EMI calculator, financial planning">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            General EMI Concepts
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
+                            <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
+                            <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
+                            <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
+                            <li><a class="dropdown-item" href="fixed-vs-reducing-emi.html">Fixed vs. Reducing Balance EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-amortization-emi.html">How Loan Amortization Works</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EMI Calculation & Factors
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
+                            <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
+                            <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
+                            <li><a class="dropdown-item" href="principal-interest-emi.html">Principal, Interest & EMI</a></li>
+                            <li><a class="dropdown-item" href="extra-payments-emi.html">Extra Payments and EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Types of Loans & EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
+                            <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="personal-loan-emi.html">Personal Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="business-loan-emi.html">Business Loan EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Loan Comparison & EMI Planning
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
+                            <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
+                            <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
+                            <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
+                            <li><a class="dropdown-item" href="credit-score-emi.html">Credit Score and EMI</a></li>
+                            <li><a class="dropdown-item" href="refinancing-loans.html">Refinancing Loans to Reduce EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Budgeting & Financial Planning with EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
+                            <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
+                            <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
+                            <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
+                            <li><a class="dropdown-item" href="prepayment-vs-emi.html">Prepayment vs. Increasing EMI</a></li>
+                            <li><a class="dropdown-item" href="use-emi-calculator.html">Using an EMI Calculator for Planning</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('https://source.unsplash.com/1600x600/?finance,loan,payment'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Extra Payments and EMI</h1>
+        <p class="lead mb-3">Published on February 26, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">EMI Calculation & Factors</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Extra Payments and EMI</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Extra Payments and EMI</h1>
-        <p class="lead">Published on February 27, 2025</p>
-        <p>Extra payments on Equated Monthly Installments (EMI) loans can significantly reduce loan tenure, interest costs, and overall debt for borrowers in the US and Canada. By adding funds beyond the standard EMI, borrowers can lower the outstanding principal faster, impacting home loans in Toronto, auto loans in New York, or personal loans in Vancouver. Our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users model these savings effectively.</p>
-        <p>In 2024, the Federal Reserve reported $17 trillion in US consumer debt, with 68% of borrowers making extra payments to save interest, per a 2025 Mortgage Bankers Association study. In Canada, the Bank of Canada’s 2024 data shows CAD 2.2 trillion in loans, with 72% of borrowers using prepayments, per CMHC and FCAC reports, benefiting users in California, Alberta, and beyond.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#extra-payments-impact" class="text-decoration-none">How Extra Payments Affect EMI</a></li>
+                        <li><a href="#visualization" class="text-decoration-none">Loan Balance with Extra Payments</a></li>
+                        <li><a href="#example-scenarios" class="text-decoration-none">Example Scenarios</a></li>
+                        <li><a href="#strategies" class="text-decoration-none">Strategies for Making Extra Payments</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Extra Payments Affect EMI</h2>
-        <p>Extra payments reduce the principal, lowering future interest and potentially shortening the loan term. For a $300,000 US home loan at 6% over 30 years (EMI ≈ $1,798.65), adding $500 monthly:</p>
-        <ul>
-            <li>New EMI ≈ $2,298.65; Tenure reduces to 22 years; Total Interest ≈ $179,765.60; Total Saved ≈ $67,745.40</li>
-        </ul>
-        <p>For a CAD 400,000 Canadian mortgage at 5.5% over 25 years (EMI ≈ CAD 2,334.44), adding CAD 600 monthly:</p>
-        <ul>
-            <li>New EMI ≈ CAD 2,934.44; Tenure reduces to 18 years; Total Interest ≈ CAD 207,577.60; Total Saved ≈ CAD 92,754.40</li>
-        </ul>
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Making extra payments on your loan in Canada or the US can significantly reduce your Equated Monthly Installment (EMI) or shorten your loan term, saving you money on interest and helping you become debt-free faster.</p>
+                        <p>This guide explores how extra payments impact your EMI and loan term, with practical examples for borrowers in Toronto, Vancouver, New York, and beyond. Use our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> to see the effects of extra payments on your loan.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Extra Payment Impact Over Time</h2>
-        <p>This chart shows how extra payments reduce tenure and interest for a $300,000 US home loan at 6% over 30 years, comparing standard EMI to an extra $500 monthly payment.</p>
-        <canvas id="extraPaymentsChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <section id="extra-payments-impact" class="mb-5">
+                    <h2 class="text-primary mb-3">How Extra Payments Affect EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Extra payments can be applied in two ways, depending on your lender’s policy:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Reduce EMI</strong>: Extra payments reduce the outstanding principal, lowering the interest charged each month, which can reduce your EMI while keeping the loan term the same.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Shorten Loan Term</strong>: Extra payments reduce the principal faster, allowing you to pay off the loan sooner while keeping the EMI the same, saving on total interest.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Savings</strong>: By reducing the principal, extra payments decrease the total interest paid over the loan term, as interest is calculated on the remaining balance.</li>
+                        </ul>
+                        <p>Lenders in Canada and the US may have prepayment penalties or restrictions, so check your loan agreement before making extra payments.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Extra Payments</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Type</th>
-                    <th>Average Loan Amount (2025)</th>
-                    <th>Extra Payment (Monthly)</th>
-                    <th>Average Interest Saved</th>
-                    <th>Tenure Reduction (Years)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>Home Loan</td><td>$300,000</td><td>$500</td><td>$67,745.40</td><td>8</td></tr>
-                <tr><td>Canada</td><td>Mortgage</td><td>CAD 400,000</td><td>CAD 600</td><td>CAD 92,754.40</td><td>7</td></tr>
-                <tr><td>US</td><td>Auto Loan</td><td>$30,000</td><td>$100</td><td>$1,200.00</td><td>0.5</td></tr>
-                <tr><td>Canada</td><td>Auto Loan</td><td>CAD 35,000</td><td>CAD 150</td><td>CAD 1,506.36</td><td>0.5</td></tr>
-            </tbody>
-        </table>
-        <p>Data from Freddie Mac, CMHC, and 2025 reports highlight prepayment benefits, per Federal Reserve and Bank of Canada insights.</p>
+                <section id="visualization" class="mb-5">
+                    <h2 class="text-primary mb-3">Loan Balance with Extra Payments</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The chart below compares the loan balance over time for a $20,000 loan at 5% annual interest over 3 years, with and without an extra payment of $500 every 6 months.</p>
+                        <div class="chart-container">
+                            <canvas id="extraPaymentChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Extra Payments</h2>
-        <p>Extra payments save interest, shorten tenures, and reduce debt faster. A 2024 TransUnion study found US borrowers save 10–15% on interest, while a 2023 FCAC report shows Canadian borrowers save 12–18%, benefiting users in Seattle, Quebec, and beyond. Misconceptions include thinking extra payments increase EMI—however, they’re optional and reduce total cost, per Bankrate’s 2025 analysis.</p>
-
-        <p>Ready to save on your loan with extra payments? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('extraPaymentsChart');
-            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
-            const baseWidth = 1200; // Increased base width for higher resolution
-            const baseHeight = 600; // Increased base height for higher resolution
-            canvas.width = baseWidth * dpr; // High-resolution pixel width
-            canvas.height = baseHeight * dpr; // High-resolution pixel height
-            canvas.style.width = '100%'; // CSS width for responsiveness
-            canvas.style.height = 'auto'; // Allow height to scale proportionally
-            const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr); // Scale context for high DPI
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Standard EMI', 'Extra $500/Month'],
-                    datasets: [{
-                        label: 'Monthly Payment ($)',
-                        data: [1798.65, 2298.65], // For $300,000 at 6% over 30 years
-                        borderColor: '#3498db',
-                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
-                        borderWidth: 2,
-                        fill: false
-                    }, {
-                        label: 'Total Interest ($)',
-                        data: [247511.00, 179765.60], // Reduced interest with extra payment
-                        borderColor: '#e74c3c',
-                        backgroundColor: 'rgba(231, 76, 60, 0.5)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Amount ($)', font: { size: 16 } },
-                            suggestedMax: 300000,
-                            ticks: { font: { size: 14 } }
-                        },
-                        x: {
-                            title: { display: true, text: 'Payment Type', font: { size: 16 } },
-                            ticks: { font: { size: 14 } }
-                        }
+                <section id="example-scenarios" class="mb-5">
+                    <h2 class="text-primary mb-3">Example Scenarios</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here’s how extra payments affect a $20,000 loan at 5% annual interest over 3 years in Canada and the US (original EMI: $599.42):</p>
+                        <table class="table table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Scenario</th>
+                                    <th>Extra Payment</th>
+                                    <th>New EMI</th>
+                                    <th>New Tenure (Months)</th
+                                        <th>Total Interest Saved</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>No Extra Payments</td>
+                                        <td>$0</td>
+                                        <td>$599.42</td>
+                                        <td>36</td>
+                                        <td>$0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Extra $500 Every 6 Months (Reduce EMI)</td>
+                                        <td>$500</td>
+                                        <td>$584.15</td>
+                                        <td>36</td>
+                                        <td>$550.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Extra $500 Every 6 Months (Shorten Term)</td>
+                                        <td>$500</td>
+                                        <td>$599.42</td>
+                                        <td>32</td>
+                                        <td>$915.44</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>These examples show that extra payments can either lower your EMI or shorten your loan term, saving significant interest in both scenarios.</p>
+                        </div>
+                    </section>
+    
+                    <section id="strategies" class="mb-5">
+                        <h2 class="text-primary mb-3">Strategies for Making Extra Payments</h2>
+                        <div class="card shadow-sm p-4">
+                            <p>Here are strategies to effectively use extra payments:</p>
+                            <ul class="custom-list">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Regular Small Payments</strong>: Make small extra payments monthly or quarterly to steadily reduce the principal.</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Lump Sum Payments</strong>: Use bonuses, tax refunds, or other windfalls to make larger extra payments, maximizing interest savings.</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Check Prepayment Policies</strong>: Ensure your lender allows extra payments without penalties, which is common in Canada and the US.</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Focus on High-Interest Loans</strong>: Prioritize extra payments on loans with higher interest rates to maximize savings.</li>
+                            </ul>
+                        </div>
+                    </section>
+    
+                    <section class="mb-5">
+                        <div class="card shadow-sm p-4">
+                            <p>Ready to see how extra payments can benefit your loan? Use our <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">free EMI calculator</a> to test scenarios for your loan in Canada or the US.</p>
+                            <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                        </div>
+                    </section>
+                </div>
+    
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="sticky-cta card p-4 shadow-sm text-center">
+                        <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                        <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <footer class="mt-5 text-center py-3 bg-dark text-white">
+            <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+            <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+        </footer>
+    
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.toc a').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+    
+                const canvas = document.getElementById('extraPaymentChart');
+                const ctx = canvas.getContext('2d');
+                canvas.width = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetWidth * 0.5;
+                canvas.style.width = '100%';
+                canvas.style.height = 'auto';
+    
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({ length: 36 }, (_, i) => `Month ${i + 1}`),
+                        datasets: [
+                            {
+                                label: 'Without Extra Payments',
+                                data: Array.from({ length: 36 }, (_, i) => 20000 - (i * 516.09)),
+                                borderColor: '#3498db',
+                                backgroundColor: '#3498db',
+                                fill: false,
+                                tension: 0.1,
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                pointBorderWidth: 0
+                            },
+                            {
+                                label: 'With Extra $500 Every 6 Months',
+                                data: Array.from({ length: 36 }, (_, i) => {
+                                    let balance = 20000 - (i * 516.09);
+                                    if ((i + 1) % 6 === 0 && i > 0) balance -= 500;
+                                    return balance > 0 ? balance : 0;
+                                }),
+                                borderColor: '#e74c3c',
+                                backgroundColor: '#e74c3c',
+                                fill: false,
+                                tension: 0.1,
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                pointBorderWidth: 0
+                            }
+                        ]
                     },
-                    plugins: {
-                        legend: { position: 'top', labels: { font: { size: 14 } } },
-                        tooltip: { 
-                            enabled: true,
-                            bodyFont: { size: 14 },
-                            titleFont: { size: 16 }
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Loan Balance ($)', font: { size: 16 } },
+                                suggestedMax: 20000,
+                                ticks: { font: { size: 14 } }
+                            },
+                            x: {
+                                title: { display: true, text: 'Month', font: { size: 16 } },
+                                ticks: { stepSize: 6, font: { size: 14 } }
+                            }
+                        },
+                        plugins: {
+                            legend: { position: 'top', labels: { font: { size: 14 } } },
+                            tooltip: {
+                                enabled: true,
+                                bodyFont: { size: 14 },
+                                titleFont: { size: 16 }
+                            }
                         }
                     }
-                }
+                });
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
-        });
-    </script>
-</body>
-</html>
+        </script>
+    </body>
+    </html>

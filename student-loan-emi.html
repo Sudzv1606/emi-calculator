@@ -3,108 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Loan EMI | Loan EMI Calculator</title>
-    <meta name="description" content="Learn about Student Loan EMIs in the US and Canada, how they work, typical rates, and how to calculate payments with our free EMI calculator.">
-    <meta name="keywords" content="student loan EMI, loan repayment Canada, loan repayment US, EMI calculator, education loan EMI">
+    <title>Student Loan EMI: Repayment Guide | Loan EMI Calculator</title>
+    <meta name="description" content="Explore how EMIs work for student loans in Canada and the US, with tips on managing repayments and understanding loan terms.">
+    <meta name="keywords" content="student loan EMI, education loan Canada, education loan US, EMI calculator, financial planning">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fw-bold" href="https://loanchartcalc.com">EMI Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="generalEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            General EMI Concepts
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="generalEmiNav">
+                            <li><a class="dropdown-item" href="what-is-emi.html">What is EMI?</a></li>
+                            <li><a class="dropdown-item" href="how-emi-works.html">How Does EMI Work?</a></li>
+                            <li><a class="dropdown-item" href="emi-vs-simple-interest.html">EMI vs. Simple Interest Loan</a></li>
+                            <li><a class="dropdown-item" href="fixed-vs-reducing-emi.html">Fixed vs. Reducing Balance EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-amortization-emi.html">How Loan Amortization Works</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="emiCalculationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EMI Calculation & Factors
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="emiCalculationNav">
+                            <li><a class="dropdown-item" href="emi-calculation-formula.html">EMI Calculation Formula</a></li>
+                            <li><a class="dropdown-item" href="interest-rate-emi-impact.html">How Interest Rate Affects EMI</a></li>
+                            <li><a class="dropdown-item" href="loan-tenure-emi.html">Loan Tenure vs. EMI</a></li>
+                            <li><a class="dropdown-item" href="principal-interest-emi.html">Principal, Interest & EMI</a></li>
+                            <li><a class="dropdown-item" href="extra-payments-emi.html">Extra Payments and EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanTypesEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Types of Loans & EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanTypesEmiNav">
+                            <li><a class="dropdown-item" href="home-loan-emi.html">Home Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="car-loan-emi.html">Car Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="student-loan-emi.html">Student Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="personal-loan-emi.html">Personal Loan EMI</a></li>
+                            <li><a class="dropdown-item" href="business-loan-emi.html">Business Loan EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loanComparisonNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Loan Comparison & EMI Planning
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="loanComparisonNav">
+                            <li><a class="dropdown-item" href="fixed-vs-variable-loans.html">Fixed-Rate vs. Variable-Rate Loans</a></li>
+                            <li><a class="dropdown-item" href="longer-shorter-tenure.html">Longer vs. Shorter Loan Tenure</a></li>
+                            <li><a class="dropdown-item" href="reduce-emi-tips.html">How to Reduce Your EMI</a></li>
+                            <li><a class="dropdown-item" href="credit-score-emi.html">Credit Score and EMI</a></li>
+                            <li><a class="dropdown-item" href="refinancing-loans.html">Refinancing Loans to Reduce EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="budgetingEmiNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Budgeting & Financial Planning with EMI
+                        </a>
+                        <ul class="dropdown-menu modern-dropdown" aria-labelledby="budgetingEmiNav">
+                            <li><a class="dropdown-item" href="emi-vs-rent.html">EMI vs. Rent: Buy or Rent?</a></li>
+                            <li><a class="dropdown-item" href="manage-multiple-emis.html">Managing Multiple EMIs</a></li>
+                            <li><a class="dropdown-item" href="budget-emi-payments.html">Plan Your Budget Around EMI</a></li>
+                            <li><a class="dropdown-item" href="prepayment-vs-emi.html">Prepayment vs. Increasing EMI</a></li>
+                            <li><a class="dropdown-item" href="use-emi-calculator.html">Using an EMI Calculator for Planning</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex modern-search-bar ms-auto position-relative" id="searchForm">
+                    <div class="input-group">
+                        <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+                        <input class="form-control search-input" type="search" placeholder="Search EMI Guides..." aria-label="Search" id="searchInput">
+                    </div>
+                    <div class="suggestions-container" id="suggestionsContainer"></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero text-white text-center py-5" style="background: linear-gradient(to bottom, rgba(52, 62, 80, 0.8), rgba(52, 62, 80, 0.8)), url('https://source.unsplash.com/1600x600/?student,education,loan'); background-size: cover; background-position: center;">
+        <h1 class="display-4 fw-bold">Student Loan EMI: Repayment Guide</h1>
+        <p class="lead mb-3">Published on February 26, 2025</p>
+        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary btn-lg">Try Our Free EMI Calculator</a>
+    </header>
+
+    <nav aria-label="breadcrumb" class="container mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://loanchartcalc.com">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Types of Loans & EMI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Student Loan EMI</li>
+        </ol>
+    </nav>
+
     <div class="container mt-5">
-        <h1 class="text-primary mb-4">Student Loan EMI</h1>
-        <p class="lead">Published on February 28, 2025</p>
-        <p>Student Loan Equated Monthly Installments (EMI) are fixed monthly payments used by borrowers in the US and Canada to repay education loans, combining principal and interest over typically 5–20 years. These EMIs ensure predictable repayments for funding studies in Toronto, New York, Vancouver, or beyond, and our free <a href="https://sudzv1606.github.io/emi-calculator/">EMI calculator</a> helps users calculate and manage these costs.</p>
-        <p>In 2024, the Federal Reserve reported $1.7 trillion in US student debt, with 80% structured via EMI, per the Department of Education’s 2025 data, averaging 10 years at 5–7% interest. In Canada, the Bank of Canada’s 2024 report shows CAD 20 billion in student loans, with 75% using EMI, typically 10–15 years at 4.5–6%, per the Canada Student Loans Program (CSLP) and CMHC insights, benefiting borrowers in California, Ontario, and beyond.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm p-4 mb-5">
+                    <h2 class="h4 text-primary mb-3">Table of Contents</h2>
+                    <ul class="list-unstyled toc">
+                        <li><a href="#introduction" class="text-decoration-none">Introduction</a></li>
+                        <li><a href="#student-loan-emi" class="text-decoration-none">What is Student Loan EMI?</a></li>
+                        <li><a href="#calculation" class="text-decoration-none">How to Calculate Student Loan EMI</a></li>
+                        <li><a href="#loan-terms" class="text-decoration-none">Understanding Student Loan Terms</a></li>
+                        <li><a href="#visualization" class="text-decoration-none">Student Loan EMI Breakdown</a></li>
+                        <li><a href="#management-tips" class="text-decoration-none">Tips for Managing Student Loan EMI</a></li>
+                    </ul>
+                </div>
 
-        <h2 class="mt-4 text-primary">How Student Loan EMI Works</h2>
-        <p>Student loan EMIs are calculated using: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where P is the loan amount (e.g., $50,000), r is the monthly rate (e.g., 6% ÷ 12 = 0.005), and n is months (e.g., 10 years = 120). For a $50,000 US student loan at 6% over 10 years:</p>
-        <ul>
-            <li>EMI ≈ $555.10</li>
-            <li>Total Interest ≈ $16,612.00; Total Paid ≈ $66,612.00</li>
-        </ul>
-        <p>For a CAD 60,000 Canadian student loan at 5% over 10 years:</p>
-        <ul>
-            <li>EMI ≈ CAD 636.08</li>
-            <li>Total Interest ≈ CAD 23,129.60; Total Paid ≈ CAD 83,129.60</li>
-        </ul>
-        <p>Payments start after a grace period (e.g., 6 months post-graduation), with interest-heavy early EMIs shifting to principal over time.</p>
+                <section id="introduction" class="mb-5">
+                    <h2 class="text-primary mb-3">Introduction</h2>
+                    <div class="card shadow-sm p-4">
+                        <p class="lead">Student loan EMIs allow students in Canada and the US to repay their education loans through manageable monthly payments after completing their studies. Understanding how they work is crucial for effective financial planning.</p>
+                        <p>This repayment guide explores student loan EMIs, including calculation, terms, and management tips for students in Toronto, Vancouver, New York, and beyond. Use our free <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">EMI calculator</a> to plan your student loan repayments.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Student Loan EMI Over Time</h2>
-        <p>This chart shows the principal and interest breakdown for a $50,000 US student loan at 6% over 10 years, illustrating how EMI shifts over time.</p>
-        <canvas id="studentLoanEmiChart" class="rounded mb-4" style="width: 100%; max-width: 100%; height: auto;"></canvas>
+                <section id="student-loan-emi" class="mb-5">
+                    <h2 class="text-primary mb-3">What is Student Loan EMI?</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>A student loan EMI (Equated Monthly Installment) is a fixed monthly payment you make to repay your education loan, consisting of principal and interest. It’s calculated using the formula: <strong>EMI = P × r × (1 + r)^n / [(1 + r)^n - 1]</strong>, where:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>P</strong> is the principal loan amount (e.g., $50,000).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>r</strong> is the monthly interest rate (annual rate ÷ 12 ÷ 100).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>n</strong> is the number of monthly payments (tenure in years × 12).</li>
+                        </ul>
+                        <p>Student loans often have longer repayment periods (10–20 years) and may include grace periods after graduation before repayments begin.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Industry Data on Student Loan EMIs</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>Region</th>
-                    <th>Loan Amount (2025)</th>
-                    <th>Interest Rate (%)</th>
-                    <th>Tenure (Years)</th>
-                    <th>Monthly EMI</th>
-                    <th>Total Interest Paid</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>US</td><td>$50,000</td><td>6.0</td><td>10</td><td>$555.10</td><td>$16,612.00</td></tr>
-                <tr><td>Canada</td><td>CAD 60,000</td><td>5.0</td><td>10</td><td>CAD 636.08</td><td>CAD 23,129.60</td></tr>
-                <tr><td>US</td><td>$40,000</td><td>5.5</td><td>15</td><td>$327.47</td><td>$18,944.60</td></tr>
-                <tr><td>Canada</td><td>CAD 50,000</td><td>4.5</td><td>15</td><td>CAD 382.77</td><td>CAD 18,898.60</td></tr>
-            </tbody>
-        </table>
-        <p>Data from the US Department of Education, CSLP, and 2025 reports highlight student loan EMI trends, per Federal Reserve and Bank of Canada insights.</p>
+                <section id="calculation" class="mb-5">
+                    <h2 class="text-primary mb-3">How to Calculate Student Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Let’s calculate the EMI for a $50,000 student loan at 5% annual interest over 10 years:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Principal (P)</strong>: $50,000</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Annual Interest Rate</strong>: 5% (so monthly rate <strong>r</strong> = 5 ÷ 12 ÷ 100 = 0.004167)</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Tenure (n)</strong>: 10 years = 120 months</li>
+                        </ul>
+                        <p>Plugging these into the formula: <strong>EMI = 50,000 × 0.004167 × (1 + 0.004167)^120 / [(1 + 0.004167)^120 - 1]</strong> results in an EMI of approximately <span class="highlight">$530.33</span>. The total repayment over 10 years would be $63,639.60, with $13,639.60 in interest.</p>
+                    </div>
+                </section>
 
-        <h2 class="mt-4 text-primary">Benefits of Student Loan EMI</h2>
-        <p>Student loan EMIs offer predictability, helping graduates manage debt post-education in Seattle, Quebec, or elsewhere. A 2024 TransUnion study found US borrowers save 10% on interest with EMI, while a 2023 CSLP report shows Canadian borrowers save 12%, per optimized terms. Misconceptions include thinking EMIs are rigid—however, income-driven plans or prepayments can adjust payments, per Bankrate’s 2025 analysis.</p>
+                <section id="loan-terms" class="mb-5">
+                    <h2 class="text-primary mb-3">Understanding Student Loan Terms</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Student loan terms in Canada and the US vary, affecting your EMI:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Grace Period</strong>: Many loans offer a 6-month grace period after graduation before repayments start, common in both Canada (e.g., Canada Student Loans) and the US (e.g., Federal Direct Loans).</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Repayment Period</strong>: Typically 10–20 years, depending on the loan amount and repayment plan.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Interest Rates</strong>: Fixed (e.g., 5% for federal loans) or variable (e.g., tied to market rates), impacting EMI stability.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Income-Driven Plans</strong>: In the US, plans like Income-Based Repayment adjust EMIs based on income, which may not follow the standard EMI formula.</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <p>Ready to calculate your student loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/">free EMI calculator</a> to test scenarios for your education loan in Canada or the US.</p>
-        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                <section id="visualization" class="mb-5">
+                    <h2 class="text-primary mb-3">Student Loan EMI Breakdown</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>The chart below shows the breakdown of a $50,000 student loan at 5% annual interest over 10 years, illustrating how the EMI ($530.33) splits between principal and interest over time.</p>
+                        <div class="chart-container">
+                            <canvas id="studentLoanChart" class="rounded mb-4"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="management-tips" class="mb-5">
+                    <h2 class="text-primary mb-3">Tips for Managing Student Loan EMI</h2>
+                    <div class="card shadow-sm p-4">
+                        <p>Here are tips to manage your student loan EMI effectively:</p>
+                        <ul class="custom-list">
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Start Early</strong>: Begin payments during the grace period if possible to reduce interest accrual.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Explore Repayment Plans</strong>: In the US, consider income-driven plans; in Canada, look into the Repayment Assistance Plan (RAP) to adjust payments.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Make Extra Payments</strong>: Pay extra when possible to reduce the principal, lowering future interest and potentially shortening the term.</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Budget Wisely</strong>: Keep your EMI within 10–15% of your monthly income to maintain financial stability post-graduation.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card shadow-sm p-4">
+                        <p>Ready to calculate your student loan EMI? Use our <a href="https://sudzv1606.github.io/emi-calculator/" class="text-primary">free EMI calculator</a> to test scenarios for your education loan in Canada or the US.</p>
+                        <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary mt-3">Calculate Your EMI Now</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="sticky-cta card p-4 shadow-sm text-center">
+                    <h3 class="text-primary mb-3">Calculate Your EMI Today</h3>
+                    <p class="text-muted">Optimize your loan repayments with our free EMI calculator for Canada and US loans.</p>
+                    <a href="https://sudzv1606.github.io/emi-calculator/" class="btn btn-primary w-100">Try It Now</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer class="mt-5 text-center py-3 bg-dark text-white">
+        <p>© 2025 EMI Calculator | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">Back to Tool</a></p>
+        <p><a href="https://loanchartcalc.com" class="text-white text-decoration-none">Home</a> | <a href="#faqs" class="text-white text-decoration-none">FAQs</a> | <a href="https://sudzv1606.github.io/emi-calculator/" class="text-white text-decoration-none">EMI Calculator</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('studentLoanEmiChart');
-            const dpr = window.devicePixelRatio || 1; // Get device pixel ratio
-            const baseWidth = 1200; // Increased base width for higher resolution
-            const baseHeight = 600; // Increased base height for higher resolution
-            canvas.width = baseWidth * dpr; // High-resolution pixel width
-            canvas.height = baseHeight * dpr; // High-resolution pixel height
-            canvas.style.width = '100%'; // CSS width for responsiveness
-            canvas.style.height = 'auto'; // Allow height to scale proportionally
+            document.querySelectorAll('.toc a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const canvas = document.getElementById('studentLoanChart');
             const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr); // Scale context for high DPI
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetWidth * 0.5;
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
 
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: Array.from({ length: 120 }, (_, i) => `Month ${i + 1}`), // 10 years (120 months)
-                    datasets: [{
-                        label: 'Principal',
-                        data: Array.from({ length: 120 }, (_, i) => {
-                            const principal = 50000 * (1 - Math.pow(1 - 0.005, i + 1)) / (1 - Math.pow(1 - 0.005, 120)); // Simplified calculation
-                            return principal.toFixed(2);
-                        }),
-                        borderColor: '#3498db',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 3, // Increased for sharper lines
-                        pointRadius: 0, // Remove points to avoid pixelation
-                        pointBorderWidth: 0
-                    }, {
-                        label: 'Interest',
-                        data: Array.from({ length: 120 }, (_, i) => {
-                            const interest = 50000 * 0.005 * Math.pow(1 - 0.005, i) / (1 - Math.pow(1 - 0.005, 120)); // Simplified calculation
-                            return interest.toFixed(2);
-                        }),
-                        borderColor: '#e74c3c',
-                        fill: false,
-                        tension: 0.1,
-                        borderWidth: 3, // Increased for sharper lines
-                        pointRadius: 0, // Remove points to avoid pixelation
-                        pointBorderWidth: 0
-                    }]
+                    labels: Array.from({ length: 120 }, (_, i) => `Month ${i + 1}`),
+                    datasets: [
+                        {
+                            label: 'Interest',
+                            data: Array.from({ length: 120 }, (_, i) => {
+                                const remainingPrincipal = 50000 - (i * 322.33);
+                                return remainingPrincipal > 0 ? (remainingPrincipal * 0.004167).toFixed(2) : 0;
+                            }),
+                            borderColor: '#e74c3c',
+                            backgroundColor: '#e74c3c',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        },
+                        {
+                            label: 'Principal',
+                            data: Array.from({ length: 120 }, (_, i) => {
+                                const remainingPrincipal = 50000 - (i * 322.33);
+                                const interest = remainingPrincipal > 0 ? (remainingPrincipal * 0.004167) : 0;
+                                return (530.33 - interest).toFixed(2);
+                            }),
+                            borderColor: '#3498db',
+                            backgroundColor: '#3498db',
+                            fill: false,
+                            tension: 0.1,
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            pointBorderWidth: 0
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
@@ -118,12 +283,12 @@
                         },
                         x: {
                             title: { display: true, text: 'Month', font: { size: 16 } },
-                            ticks: { stepSize: 12, font: { size: 14 } }
+                            ticks: { stepSize: 24, font: { size: 14 } }
                         }
                     },
                     plugins: {
                         legend: { position: 'top', labels: { font: { size: 14 } } },
-                        tooltip: { 
+                        tooltip: {
                             enabled: true,
                             bodyFont: { size: 14 },
                             titleFont: { size: 16 }
@@ -131,7 +296,6 @@
                     }
                 }
             });
-            console.log('Canvas Size - Width:', canvas.width, 'Height:', canvas.height, 'Style Width:', canvas.style.width, 'Style Height:', canvas.style.height);
         });
     </script>
 </body>
