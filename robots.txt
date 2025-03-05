@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /sitemap.xml
 Disallow: /non-existent-folder/
+Disallow: /styles.css
+Disallow: /script.js
