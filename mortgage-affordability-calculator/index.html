@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Affordability Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Mortgage Affordability Calculator</h1>
+    <p>Enter your financial details to estimate how much you can borrow for a mortgage.</p>
+    <form id="calculator-form">
+      <label for="income">ANNUAL INCOME ($)</label>
+      <input type="number" id="income" required>
+      <label for="debt">MONTHLY DEBT PAYMENTS ($)</label>
+      <input type="number" id="debt" required>
+      <label for="down-payment">DOWN PAYMENT ($)</label>
+      <input type="number" id="down-payment" required>
+      <label for="interest-rate">INTEREST RATE (%)</label>
+      <input type="number" id="interest-rate" step="0.1" required>
+      <label for="loan-term">LOAN TERM (years)</label>
+      <select id="loan-term">
+        <option value="15">15 years</option>
+        <option value="20">20 years</option>
+        <option value="30" selected>30 years</option>
+      </select>
+      <button type="submit">CALCULATE</button>
+    </form>
+    <div id="results"></div>
+    <p class="disclaimer">*This is an estimate. Consult a financial advisor for precise calculations.</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
