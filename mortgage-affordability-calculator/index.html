@@ -5,30 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mortgage Affordability Calculator</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Optional: Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <div class="card">
-    <h1>Mortgage Affordability Calculator</h1>
-    <p>Enter your financial details to estimate how much you can borrow for a mortgage.</p>
-    <form id="calculator-form">
-      <label for="income">ANNUAL INCOME ($)</label>
-      <input type="number" id="income" required>
-      <label for="debt">MONTHLY DEBT PAYMENTS ($)</label>
-      <input type="number" id="debt" required>
-      <label for="down-payment">DOWN PAYMENT ($)</label>
-      <input type="number" id="down-payment" required>
-      <label for="interest-rate">INTEREST RATE (%)</label>
-      <input type="number" id="interest-rate" step="0.1" required>
-      <label for="loan-term">LOAN TERM (years)</label>
-      <select id="loan-term">
-        <option value="15">15 years</option>
-        <option value="20">20 years</option>
-        <option value="30" selected>30 years</option>
-      </select>
-      <button type="submit">CALCULATE</button>
-    </form>
-    <div id="results"></div>
-    <p class="disclaimer">*This is an estimate. Consult a financial advisor for precise calculations.</p>
+  <div class="container">
+    <div class="card">
+      <h1><i class="fas fa-home icon"></i> Mortgage Affordability Calculator</h1>
+      <p>Estimate how much you can borrow for your dream home based on your financial details.</p>
+      <form id="calculator-form">
+        <label for="income"><i class="fas fa-money-bill-alt icon"></i> Annual Income (C$):</label>
+        <input type="number" id="income" min="0" step="1000" required>
+
+        <label for="debt"><i class="fas fa-credit-card icon"></i> Monthly Debt Payments (C$):</label>
+        <input type="number" id="debt" min="0" step="100" required>
+
+        <label for="down-payment"><i class="fas fa-piggy-bank icon"></i> Down Payment (C$):</label>
+        <input type="number" id="down-payment" min="0" step="1000" required>
+
+        <label for="interest-rate"><i class="fas fa-percentage icon"></i> Interest Rate (%):</label>
+        <input type="number" id="interest-rate" min="0" step="0.1" required>
+
+        <label for="loan-term"><i class="fas fa-clock icon"></i> Loan Term (Years):</label>
+        <select id="loan-term">
+          <option value="15">15 Years</option>
+          <option value="20">20 Years</option>
+          <option value="30" selected>30 Years</option>
+        </select>
+
+        <div class="button-group">
+          <button type="submit" class="calculate-btn"><i class="fas fa-calculator icon"></i> Calculate</button>
+          <button type="reset" class="reset-btn"><i class="fas fa-sync-alt icon"></i> Reset</button>
+        </div>
+      </form>
+      <div id="results" class="results-hidden"></div>
+      <p class="disclaimer">*This is an estimate. Consult a financial advisor for precise calculations.</p>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
