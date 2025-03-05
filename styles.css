@@ -1847,3 +1847,53 @@ section .highlight {
       height: 300px !important;
   }
 }
+/* Container for centering the button */
+.new-tool-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for the new tool button */
+.new-tool-button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem; /* Larger font size */
+  padding: 15px 30px; /* Increased padding for a bigger button */
+  background-color: #004d40; /* Dark green to match your site */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+/* Glow effect with pulsating animation */
+.new-tool-button {
+  box-shadow: 0 0 10px rgba(0, 77, 64, 0.5); /* Initial glow (dark green shade) */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Pulsating glow effect */
+}
+
+/* Hover effect */
+.new-tool-button:hover {
+  background-color: #003d30; /* Darker green on hover */
+  box-shadow: 0 0 15px rgba(0, 77, 64, 0.7); /* Stronger glow on hover */
+}
+
+/* Glow animation keyframes */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(0, 77, 64, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0, 77, 64, 0.8);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .new-tool-button {
+    font-size: 1rem; /* Slightly smaller font on mobile */
+    padding: 12px 24px; /* Slightly smaller padding on mobile */
+  }
+}
