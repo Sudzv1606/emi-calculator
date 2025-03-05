@@ -148,24 +148,10 @@
                     </ul>
                     <h3 class="text-primary">How to Use the Calculator</h3>
                     <p>For example, if you have a loan of $10,000 at an annual interest rate of 5% for 2 years, with an extra payment of $100 every 6 months, the calculator will show your EMI, a detailed amortization schedule, and a chart of your remaining balance over time.</p>
-                    <!-- Add the Borrowing Calculator Here -->
-                    <div class="borrowing-calculator" id="borrowing-calculator" style="display: block;">
-                        <h3 class="text-primary">How Much Can I Borrow?</h3>
-                        <div class="borrowing-inputs">
-                            <label for="monthly-income">Monthly Income (<span id="currency-symbol-monthly-income">$</span>):</label>
-                            <input type="number" id="monthly-income" value="5000" placeholder="Enter your monthly income">
-                            <label for="monthly-expenses">Monthly Expenses (<span id="currency-symbol-monthly-expenses">$</span>):</label>
-                            <input type="number" id="monthly-expenses" value="2000" placeholder="Enter your monthly expenses">
-                            <label for="borrowing-interest-rate">Interest Rate (%):</label>
-                            <input type="number" id="borrowing-interest-rate" step="0.01" value="5">
-                            <label for="borrowing-tenure">Tenure (Years):</label>
-                            <input type="number" id="borrowing-tenure" value="5">
-                        </div>
-                        <button type="button" onclick="calculateBorrowingCapacity()" class="btn-primary"><span class="icon">📊</span> Calculate</button>
-                        <div id="borrowing-result" style="display: none;">
-                            <p><span class="icon">💸</span> Maximum Loan Amount: <span id="max-loan-amount"></span></p>
-                            <p>Monthly EMI: <span id="borrowing-emi"></span></p>
-                        </div>
+                    <div class="new-tool-container">
+                        <a href="https://loanchartcalc.com/mortgage-affordability-calculator/index.html">
+                          <button class="new-tool-button">Try Our Mortgage Affordability Calculator</button>
+                        </a>
                     </div>
                 </section>
             </div>
