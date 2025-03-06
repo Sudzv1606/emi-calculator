@@ -1,123 +1,123 @@
 /* Ensure the body and container match your site's layout */
 body {
-  font-family: 'Merriweather', serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  color: #2c3e50;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* Card styles (already in your CSS, included for reference) */
-.card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-/* Enhance the heading with a subtle underline effect */
-h1 {
-  font-family: 'Inter', sans-serif;
-  color: #004d40;
-  font-weight: 700;
-  font-size: 1.8rem;
-  position: relative;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-h1::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background-color: #00bfa5; /* Mint green underline */
-}
-
-/* Style the form labels with icons */
-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: #2c3e50;
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-}
-
-/* Add hover effect to inputs */
-input[type="number"], select {
-  font-family: 'Inter', sans-serif;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #004d40;
-  border-radius: 6px;
-  font-size: 1rem;
-  background-color: #ffffff;
-  margin-bottom: 5px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-input[type="number"]:hover, select:hover {
-  transform: scale(1.02); /* Slight scale-up on hover */
-}
-
-input[type="number"]:focus, select:focus {
-  border-color: #00bfa5;
-  box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25);
-  outline: none;
-}
-
-/* Style the button group */
-.button-group {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.calculate-btn, .reset-btn {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1; /* Buttons take equal space */
-}
-
-.calculate-btn {
-  background-color: #004d40; /* Navy blue */
-  color: #ffffff;
-}
-
-.calculate-btn:hover {
-  background-color: #003d30;
-  transform: translateY(-2px); /* Slight lift on hover */
-}
-
-.reset-btn {
-  background-color: #00bfa5; /* Mint green */
-  color: #ffffff;
-}
-
-.reset-btn:hover {
-  background-color: #009688;
-  transform: translateY(-2px);
-}
-
+    font-family: 'Merriweather', serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    color: #2c3e50;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Card styles (already in your CSS, included for reference) */
+  .card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  /* Enhance the heading with a subtle underline effect */
+  h1 {
+    font-family: 'Inter', sans-serif;
+    color: #004d40;
+    font-weight: 700;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #00bfa5; /* Mint green underline */
+  }
+  
+  /* Style the form labels with icons */
+  label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add hover effect to inputs */
+  input[type="number"], select {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #004d40;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  input[type="number"]:hover, select:hover {
+    transform: scale(1.02); /* Slight scale-up on hover */
+  }
+  
+  input[type="number"]:focus, select:focus {
+    border-color: #00bfa5;
+    box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25);
+    outline: none;
+  }
+  
+  /* Style the button group */
+  .button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .calculate-btn, .reset-btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* Buttons take equal space */
+  }
+  
+  .calculate-btn {
+    background-color: #004d40; /* Navy blue */
+    color: #ffffff;
+  }
+  
+  .calculate-btn:hover {
+    background-color: #003d30;
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  .reset-btn {
+    background-color: #00bfa5; /* Mint green */
+    color: #ffffff;
+  }
+  
+  .reset-btn:hover {
+    background-color: #009688;
+    transform: translateY(-2px);
+  }
+  
 /* Results section with fade-in animation */
 #results {
   margin-top: 20px;
@@ -126,52 +126,126 @@ input[type="number"]:focus, select:focus {
   border-radius: 6px;
   opacity: 0;
   transition: opacity 0.5s ease-in;
+  visibility: hidden; /* Initially hidden */
 }
 
 #results.show {
   opacity: 1;
+  visibility: visible; /* Make visible after transition */
+}
+  
+  #results p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #004d40;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  #results p i {
+    margin-right: 8px;
+    color: #00bfa5; /* Mint green for icons in results */
+  }
+  
+  /* Disclaimer */
+  .disclaimer {
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .card {
+      padding: 15px;
+    }
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+    
+    .button-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .calculate-btn, .reset-btn {
+      width: 100%;
+    }
+  }
+  /* Tooltip for DTI ratio */
+label[for="dti-ratio"] {
+  position: relative;
 }
 
-#results p {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #004d40;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
+label[for="dti-ratio"]::after {
+  content: "\f05a"; /* Font Awesome info icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: 5px;
+  color: #00bfa5; /* Mint green */
+  cursor: help;
 }
 
-#results p i {
-  margin-right: 8px;
-  color: #00bfa5; /* Mint green for icons in results */
-}
-
-/* Disclaimer */
-.disclaimer {
-  font-family: 'Merriweather', serif;
+label[for="dti-ratio"]:hover::before {
+  content: "The percentage of your monthly income that can go toward debt payments (typically 28-43%).";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #004d40; /* Navy blue */
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
   font-size: 0.85rem;
-  color: #2c3e50;
-  margin-top: 15px;
-  text-align: center;
+  z-index: 10;
+  width: 200px;
 }
 
-/* Responsive adjustments */
+/* Ensure new inputs have the same hover and focus effects */
+input[type="number"]#dti-ratio,
+input[type="number"]#property-taxes,
+input[type="number"]#insurance {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="number"]#dti-ratio:hover,
+input[type="number"]#property-taxes:hover,
+input[type="number"]#insurance:hover {
+  transform: scale(1.02);
+}
+
+input[type="number"]#dti-ratio:focus,
+input[type="number"]#property-taxes:focus,
+input[type="number"]#insurance:focus {
+  border-color: #00bfa5;
+  box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25);
+  outline: none;
+}
+/* Ensure the chart canvas is hidden until the parent is visible */
+.chart-canvas {
+  margin-top: 20px;
+  max-height: 300px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Initially hidden */
+  height: 300px; /* Fallback height */
+}
+
+#results.show .chart-canvas {
+  display: block; /* Show the canvas when #results is visible */
+}
+
+/* Responsive adjustments for the chart */
 @media (max-width: 576px) {
-  .card {
-    padding: 15px;
-  }
-  
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  .button-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .calculate-btn, .reset-btn {
-    width: 100%;
+  .chart-canvas {
+    max-height: 250px;
+    height: 250px; /* Fallback height for mobile */
   }
 }
